@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+				http://www.springframework.org/schema/security 
+                http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<http pattern="/lib/**" security="none" />
+	<http pattern="/js/**" security="none" />
+	<http pattern="/css/**" security="none" />
+	<http pattern="/img/**" security="none" />
+	<http pattern="/font/**" security="none" />
+	<http pattern="/favicon.ico" security="none" />
+	
+	<http entry-point-ref="authenticationProcessingFilterEntryPoint" use-expressions="true">
+	
+		<remember-me />
+		<access-denied-handler ref="accessDeniedHandler" />
+	
+		<form-login authentication-success-handler-ref="authenticationSuccessHandler" authentication-failure-handler-ref="authenticationFailureHandler" login-page="/login" />
+		<logout invalidate-session="true" success-handler-ref="logoutSuccessHandler" logout-url="/j_spring_security_logout" />
+		
+		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="securityFilter" />
+		
+	</http>
+	
+	<!-- 未登录的切入点 -->
+	<beans:bean id="authenticationProcessingFilterEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<beans:property name="loginFormUrl" value="/login" />
+	</beans:bean>
+    
+    <beans:bean id="accessDeniedHandler" class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+    	<beans:property name="errorPage" value="/page403" />
+    </beans:bean>
+    
+    <beans:bean id="authenticationSuccessHandler" class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+	</beans:bean>
+    
+	<beans:bean id="authenticationFailureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">    
+        <beans:property name="defaultFailureUrl" value="/login?login_error=1" />
+    </beans:bean>
+    
+ 	<beans:bean id="logoutSuccessHandler" class="org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler">
+ 	    <beans:property name="defaultTargetUrl" value="/index" />
+    </beans:bean>
+    
+	<!-- 访问控制验证器Authority -->
+	<beans:bean id="securityFilter" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+		<!-- 用户拥有的权限 -->
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+		<!-- 用户是否拥有所请求资源的权限 -->
+		<beans:property name="accessDecisionManager" ref="accessDecisionManager" />
+		<!-- 资源与权限对应关系 -->
+		<beans:property name="securityMetadataSource" ref="securityMetadataSource" />
+	</beans:bean>
+	
+	<beans:bean id="userDetailService" class="cn.edu.bjut.dhl.core.auth.UserDetailServiceImpl" />
+
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider user-service-ref="userDetailService">
+			<password-encoder hash="md5" />
+		</authentication-provider>
+	</authentication-manager>
+	
+	<beans:bean id="accessDecisionManager"
+        class="org.springframework.security.access.vote.AffirmativeBased">
+        <beans:property name="allowIfAllAbstainDecisions" value="false"/>
+        <beans:property name="decisionVoters">
+        	<beans:list>
+        		<beans:bean class="org.springframework.security.access.vote.RoleVoter" />
+        	</beans:list>
+        </beans:property>
+    </beans:bean>
+    
+    <beans:bean id="securityMetadataSource" class="cn.edu.bjut.dhl.core.auth.SecurityMetadataSource" />
+
+</beans:beans>

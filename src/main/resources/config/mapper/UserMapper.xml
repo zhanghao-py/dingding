@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.bjut.dhl.account.dao.UserDao">
+
+	<resultMap type="cn.edu.bjut.dhl.core.bo.User" id="userResultMap">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="username" property="username" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="enabled" property="enabled" jdbcType="BOOLEAN" />
+	</resultMap>
+	
+	<!--
+	<resultMap type="cn.edu.bjut.dhl.account.web.action.dto.SearchUsersVO" id="searchUsersResultMap">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="username" property="username" jdbcType="VARCHAR" />
+		<result column="enabled" property="enabled" jdbcType="BOOLEAN" />
+		<result column="name" property="shopName" jdbcType="VARCHAR" />
+		<result column="description" property="shopDescription" jdbcType="VARCHAR" />
+	</resultMap>
+	-->
+
+	<select id="findUserByUsername" parameterType="java.lang.String" resultMap="userResultMap">
+		select id, password, username, enabled from tb_user
+		<where>
+			username = #{username, jdbcType=VARCHAR}
+		</where>
+	</select>
+	
+	<insert id="save" parameterType="cn.edu.bjut.dhl.core.bo.User" useGeneratedKeys="true" keyProperty="id">
+		insert into tb_user (username, password, enabled) 
+		values (
+			#{username, jdbcType=VARCHAR},
+			#{password, jdbcType=VARCHAR},
+			#{enabled, jdbcType=BOOLEAN}
+		) 
+	</insert>
+	
+	<!--  
+	<select id="searchUsers" parameterType="com.thirdblock.migo.account.web.action.dto.UserSearchForm" resultMap="searchUsersResultMap">
+		select u.id, u.username, u.enabled, s.name, s.description from tb_user u left join tb_shop s on u.shop_id = s.id
+	</select>
+	-->
+
+
+</mapper>
+
