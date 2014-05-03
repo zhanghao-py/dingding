@@ -21,10 +21,10 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("index");
     }
 	
-	@RequestMapping(value = "page403", method = RequestMethod.GET) 
-    public ModelAndView page403() {
-        return new ModelAndView("page403");
-    }
+//	@RequestMapping(value = "page403", method = RequestMethod.GET) 
+//    public ModelAndView page403() {
+//        return new ModelAndView("page403");
+//    }
 	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
@@ -33,13 +33,13 @@ public class DemoAction extends BaseAction {
 	
 	@RequestMapping(value = "checkSignature", method = RequestMethod.GET) 
 	@ResponseBody
-    public boolean checkSignature(@ModelAttribute CheckSignatureForm form) {
+    public String checkSignature(@ModelAttribute CheckSignatureForm form) {
 		String token = SystemConfig.TOKEN;
 		
 		// TODO: 1.token timestamp nonce按字典序排序 -> tmpStr
-		// TODO: 2.sha1(tmpStr) isEquals signature -> true else fasle
+		// TODO: 2.sha1(tmpStr) isEquals signature -> form.getEchostr() else ""
 		
-        return Boolean.TRUE;
+        return form.getEchostr();
     }
 
 }

@@ -5,6 +5,15 @@ public class CheckSignatureForm {
 	private String signature;
 	private String timestamp;
 	private String nonce;
+	private String echostr;
+
+	public String getEchostr() {
+		return echostr;
+	}
+
+	public void setEchostr(String echostr) {
+		this.echostr = echostr;
+	}
 
 	public String getSignature() {
 		return signature;
