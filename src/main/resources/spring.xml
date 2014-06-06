@@ -23,10 +23,12 @@
 		</property>
 	</bean>
 
-	<!--
+	
 	<import resource="classpath:spring-dataSource.xml" />
+	<!--
 	<import resource="classpath:spring-config.xml" />
 	<import resource="classpath:spring-security.xml" />
 	-->
+	
 
 </beans>

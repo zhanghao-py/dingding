@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>   
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.edu.bjut.dhl.account.dao.UserDao">
+<mapper namespace="cn.edu.bjut.weichat.account.dao.UserDao">
 
-	<resultMap type="cn.edu.bjut.dhl.core.bo.User" id="userResultMap">
+	<resultMap type="cn.edu.bjut.weichat.core.bo.User" id="userResultMap">
 		<id column="id" property="id" jdbcType="BIGINT" />
 		<result column="username" property="username" jdbcType="VARCHAR" />
 		<result column="password" property="password" jdbcType="VARCHAR" />
@@ -26,7 +26,7 @@
 		</where>
 	</select>
 	
-	<insert id="save" parameterType="cn.edu.bjut.dhl.core.bo.User" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="cn.edu.bjut.weichat.core.bo.User" useGeneratedKeys="true" keyProperty="id">
 		insert into tb_user (username, password, enabled) 
 		values (
 			#{username, jdbcType=VARCHAR},
