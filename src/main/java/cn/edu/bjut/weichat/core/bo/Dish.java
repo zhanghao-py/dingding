@@ -1,6 +1,6 @@
 package cn.edu.bjut.weichat.core.bo;
 
-public class Dishes {
+public class Dish {
 
 	
 		 private long dishId;   //菜品id

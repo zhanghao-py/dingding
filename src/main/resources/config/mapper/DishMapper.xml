@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.edu.bjut.weichat.dish.dao.DishDao">
+	<resultMap type="cn.edu.bjut.weichat.core.bo.Dish" id="dishResultMap">
+		<id column="dishId" property="dishId" jdbcType="BIGINT" />
+		<result column="restId" property="restId" jdbcType="BIGINT" />
+		<result column="dishName" property="dishName" jdbcType="VARCHAR" />
+		<result column="material" property="material" jdbcType="VARCHAR" />
+		<result column="concoction" property="concoction" jdbcType="INTEGER" />
+		<result column="categor" property="categor" jdbcType="INTEGER" />
+		<result column="cuisine" property="cuisine" jdbcType="INTEGER" />
+		<result column="price" property="price" jdbcType="FLOAT" />
+		<result column="support" property="support" jdbcType="INTEGER" />
+	</resultMap>
+
+	<select id="selectDishByName" parameterType="java.lang.String" resultMap="dishResultMap">
+		select * from tb_dish
+		<where>
+			dishName = #{dishName, jdbcType=VARCHAR}
+		</where>
+	</select>
+</mapper>
