@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.edu.bjut.weichat.dish.dao.RestaurantDao">
+	<resultMap type="cn.edu.bjut.weichat.core.bo.Restaurant" id="restResultMap">
+		<id column="restId" property="restId" jdbcType="BIGINT" />
+		<result column="restName" property="restName" jdbcType="VARCHAR" />
+		<result column="restIntro" property="restIntro" jdbcType="VARCHAR" />
+		<result column="restAddress" property="restAddress" jdbcType="VARCHAR" />
+		<result column="restContact" property="restContact" jdbcType="VARCHAR" />
+		<result column="avgPrice" property="avgPrice" jdbcType="INTEGER" />
+		<result column="latitude" property="latitude" jdbcType="DOUBLE" />
+		<result column="longitude" property="longitude" jdbcType="DOUBLE" />
+	</resultMap>
+
+</mapper>

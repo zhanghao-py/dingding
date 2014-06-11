@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.edu.bjut.weichat.dish.dao.OrderDao">
+	<resultMap type="cn.edu.bjut.weichat.core.bo.Order" id="orderResultMap">
+		<id column="orderId" property="orderId" jdbcType="BIGINT" />
+		<result column="restId" property="restId" jdbcType="BIGINT" />
+		<result column="userId" property="userId" jdbcType="BIGINT" />
+		<result column="totalPrice" property="totalPrice" jdbcType="FLOAT" />
+		<result column="state" property="state" jdbcType="INTEGER" />
+		<result column="remarks" property="remarks" jdbcType="VARCHAR" />
+		<result column="createTime" property="createTime" jdbcType="TIME" />
+		<result column="payTime" property="payTime" jdbcType="TIME" />
+	</resultMap>
+</mapper>
