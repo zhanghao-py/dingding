@@ -31,6 +31,11 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("dishList");
     }
 	
+	@RequestMapping(value = "dishDetail", method = RequestMethod.GET) 
+    public ModelAndView dishDetail() {
+        return new ModelAndView("dishDetail");
+    }
+	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
         return new ModelAndView(new RedirectView("index"));
