@@ -1,3 +1,4 @@
+/*********************** 左边菜单栏样式  ***********************/
 .leftmenu {
 	width: 100px;
 	background-color: #eee;
@@ -23,6 +24,9 @@
 	color: #ffcc33;
 }
 
+
+
+/*********************** 右上角分享图标样式  ***********************/
 .bar .btn.pull-right.share {
   border:0;
   width: 37px;
@@ -36,14 +40,17 @@
 	background: url("../img/shareicon1.png") no-repeat;
 }
 
+
+
+/************************ 菜品详情样式 ************************/
 .content .dishdtl {
 	background-color: #fff;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #ddd;
 }
 
 .content .dishdtl img {
 	margin: 0;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #ddd;
 }
 
 .content .dishdtl .dishdtlcont {
@@ -118,4 +125,72 @@
 	color: #fff;
 	line-height: 45px;
 	font-size: 18px;
+}
+
+.changedtlbtn {
+	background-color: #fe8302;
+	height: 45px;
+	width: 50px;
+	border: 0;
+	border-radius:5px;
+	margin: 5px;
+	color: #fff;
+	line-height: 45px;
+	font-size: 14px;
+}
+
+.content .dishdtlbtns {
+	background-color: #fff;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	margin-top: 10px;
+	padding: 10px 20px 10px 20px;
+	color: #999;
+}
+
+
+
+
+/************************ 订单详情样式  ************************/
+.ordertitle {
+	background: transparent;
+	font-size: 24px;
+	color: #000;
+	line-height: 60px;
+	text-align: center;
+}
+
+.orderdtl {
+	background-color: #fff;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 7px;
+	padding: 5px 20px 10px 20px;
+}
+
+.orderdtl .orderdtltitle {
+	padding-left: 10px;
+	line-height: 40px;
+	font-size: 20px;
+	border-bottom: 2px solid #eee;
+}
+
+.orderdishnm {
+	line-height: 20px;
+	font-size: 18px;
+	color: #999;
+}
+
+.ordertotalp {
+	float: left;
+	line-height: 50px;
+	padding-left: 20px;
+}
+
+.orderdtlbtn {
+	background-color: #fe8302;
+	height: 55px;
+	border: 0;
+	color: #fff;
+	font-size: 20px;
 }

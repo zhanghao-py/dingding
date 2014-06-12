@@ -36,6 +36,16 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("dishDetail");
     }
 	
+	@RequestMapping(value = "smartDishDetail", method = RequestMethod.GET) 
+    public ModelAndView smartDishDetail() {
+        return new ModelAndView("smartDishDetail");
+    }
+	
+	@RequestMapping(value = "orderList", method = RequestMethod.GET) 
+    public ModelAndView orderList() {
+        return new ModelAndView("orderList");
+    }
+	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
         return new ModelAndView(new RedirectView("index"));
