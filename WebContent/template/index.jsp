@@ -10,6 +10,6 @@
 <html>
 <body>
 	<h1>Hello World!</h1>
-	${list.dishName}
+	${list}
 </body>
 </html>

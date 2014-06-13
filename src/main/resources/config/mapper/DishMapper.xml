@@ -8,7 +8,7 @@
 		<result column="dishName" property="dishName" jdbcType="VARCHAR" />
 		<result column="material" property="material" jdbcType="VARCHAR" />
 		<result column="concoction" property="concoction" jdbcType="INTEGER" />
-		<result column="categor" property="categor" jdbcType="INTEGER" />
+		<result column="category" property="category" jdbcType="INTEGER" />
 		<result column="cuisine" property="cuisine" jdbcType="INTEGER" />
 		<result column="price" property="price" jdbcType="FLOAT" />
 		<result column="support" property="support" jdbcType="INTEGER" />
@@ -20,4 +20,20 @@
 			dishName = #{dishName, jdbcType=VARCHAR}
 		</where>
 	</select>
+	
+	
+	<select id="selectDishByRestIdAndCategory" parameterType="Map" resultMap="dishResultMap">
+		select * from tb_dish where restId = #{restId} and category= #{cate}
+	</select>
+	
+	<select id="selectDishById" parameterType="long" resultMap="dishResultMap">
+		select * from tb_dish where dishId = #{dishId}
+	</select>
+	
+	<select id="selectDishByRestId" parameterType="long" resultMap="dishResultMap">
+		select * from tb_dish where restId = #{restId}
+	</select>
+	
+	
+	 
 </mapper>

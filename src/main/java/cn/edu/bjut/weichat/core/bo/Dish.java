@@ -11,7 +11,7 @@ public class Dish {
 	
 	private int concoction;
 	
-	private int categor;
+	private int category;
 	
 	private int cuisine;
 	
@@ -59,12 +59,12 @@ public class Dish {
 		this.concoction = concoction;
 	}
 
-	public int getCategor() {
-		return categor;
+	public int getCategory() {
+		return category;
 	}
 
-	public void setCategor(int categor) {
-		this.categor = categor;
+	public void setCategory(int category) {
+		this.category = category;
 	}
 
 	public int getCuisine() {
