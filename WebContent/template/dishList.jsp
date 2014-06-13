@@ -32,6 +32,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		var w = val-45;
     		$(".chosen").css({"margin-left":w+"px"});
     		$(".leftmenu").innerHeight(document.body.clientHeight);
+    		var aw = $(".tab-item").width();
+    		$(".menudiv").innerWidth(aw);
+    		$(".menudiv").css({"display":"none"});
+    		
     	});
     	
     	function choose(e) {
@@ -53,10 +57,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		var ele = e.parentNode;
     		$(ele).css({"border-right":"5px solid #FF6600"});
     	}
+    	
+    	function showmenu() {
+    		$(".menudiv").slideToggle(50);
+    	}
     </script>
   </head>
   
-  <body>
+  <body style="background: #eee;">
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
       <button class="btn pull-left back"></button>
@@ -69,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="slider">
       <div class="slide-group"  id="mySlider">
       	<div class="slide" id="slide1" style="width: 100px">
-      		<div class="leftmenu">
+      		<div class="leftmenu" id="leftmenu">
       			<div class="leftmenuitem">搜索</div>
       			<div class="leftmenuitem active">凉菜</div>
       			<div class="leftmenuitem">热菜</div>
@@ -81,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	</div>
          <div class="slide">
       <div>
-        <ul class="table-view">
+        <ul class="table-view" style="margin-bottom:0">
           <li class="table-view-cell media">
             <a class="" onclick="choose(this)">
               <img class="media-object pull-left" src="img/kongpaochicken.PNG">
@@ -147,23 +155,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </a>
           </li>
         </ul>
+        <div class="loadmore" onclick="loadmore()">≡ 点击加载更多菜品...</div>
       </div></div>
       </div></div>
     </div>
-   <!--  <nav class="bar bar-tab">
-      <a class="tab-item active" href="#">
-        <span class="icon icon-home"></span>
-        <span class="tab-label">Home</span>
+    <nav class="bar bar-tab">
+      <a class="tab-item active" href="javascript(void(0))" onclick="showmenu()">
+        <span class="icon order"></span>
+        <span class="tab-label">点餐模式</span>
+        <div class="menudiv" id="followmenu" style="bottom:139px;">按菜单</div>
+    	<div class="menudiv" id="followmeat" style="bottom:99px;">按荤素</div>
+    	<div class="menudiv" id="followmaterial" style="bottom:59px">按食材</div>
       </a>
-      <a class="tab-item" href="#">
-        <span class="icon icon-person"></span>
-        <span class="tab-label">Profile</span>
+      <a class="tab-item" href="javascript(void(0))">
+        <span class="icon noopsyche"></span>
+        <span class="tab-label">智能点餐</span>
       </a>
-      <a class="tab-item" href="#">
-        <span class="icon icon-star-filled"></span>
-        <span class="tab-label">Favorites</span>
+      <a class="tab-item" href="javascript(void(0))">
+        <span class="icon history"></span>
+        <span class="tab-label">历史点餐</span>
       </a>
-    </nav> -->
+      <a class="tab-item" href="javascript(void(0))">
+        <span class="icon discovery"></span>
+        <span class="tab-label">餐厅发现</span>
+      </a>
+    </nav>
   </body>
   <script src="./js/ratchet.js"></script>
 </html>
