@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-	<div style="width:500px;height:500px;margin:0 auto" id="allmap"></div>
+	<div style="width:100%;height:100%;margin:0 auto" id="allmap"></div>
 </body>
 <script type="text/javascript">
 	$(function(){
@@ -79,6 +79,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
 		    var marker = new BMap.Marker(point);        // 创建标注,即地图上的小红点   
 		    map.addOverlay(marker);   
+		    var local = new BMap.LocalSearch(map, {
+		    	  renderOptions:{map: map, autoViewport:true}
+		    	});
+		    local.searchNearby("天天餐厅", "北京工业大学");
 		}
 		});
 	</script>

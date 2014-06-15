@@ -291,7 +291,7 @@ a:active {
 }
 
 .bar-tab ~ .content {
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 }
 
 .bar-footer-secondary-tab ~ .content {

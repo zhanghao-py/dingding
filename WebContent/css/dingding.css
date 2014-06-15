@@ -1,3 +1,7 @@
+body {
+	background-color: #eee;
+}
+
 /*********************** 左边菜单栏样式  ***********************/
 .leftmenu {
 	width: 100px;
@@ -261,4 +265,87 @@
 .loadmore:active {
 	background-color: #ccc;
 	color: #fff;
+}
+
+
+
+
+/************************ 饭店详情样式  ************************/
+.btn.pull-left.resback {
+	border:0;
+	width:50px;
+	background: url("../img/restaurant_back.png") no-repeat;
+	outline: 0;
+}
+
+.btn.pull-right.resmore {
+	border:0;
+	width:50px;
+	background: url("../img/restaurant_more.png") no-repeat;
+	outline: 0;
+}
+
+.resdiv {
+	background-color: #fff;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 7px;
+	padding: 5px 20px 10px 20px;
+}
+
+.resdiv .resdivtitle {
+	line-height: 33px;
+	font-size: 20px;
+	border-bottom: 2px solid #eee;
+	margin-bottom: 10px;
+}
+
+.resdiv .resinfo {
+	width:100%;
+	padding-left: 5px;
+}
+
+.resinfo .resinfotext {
+	float: left;
+	width: 50%;
+	height: auto;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+.resinfo img {
+	width: 45%;
+	margin-left: 10px;
+	margin-right: 0;
+	float: left;
+}
+
+.resdiv .rescommdishlist {
+	overflow: auto;
+	white-space: nowrap;
+}
+
+.rescommdishlist .rescommdish {
+	float: left;
+	width: 90px;
+	margin-right: 10px;
+	font-size: 14px;
+	line-height: 17px;
+	display: inline;
+}
+
+.rescommdishlist .rescommdish:active {
+	background-color: #eee;
+}
+
+.rescommdishlist .rescommdish img {
+	width: 90px;
+}
+
+.reslisttable td {
+	padding-right: 10px;
+}
+
+.resdiv .resmap {
+	border: 1px solid #999;
 }
