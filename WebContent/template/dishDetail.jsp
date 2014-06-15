@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -17,6 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="./css/ratchet.css" rel="stylesheet">
     <link href="./css/dingding.css" rel="stylesheet">
     <script src="./js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="./js/dish/dishList.js"></script>
     <!-- <script type="text/javascript" src="js/thumbs.0.6.0.js"></script> -->
     <script type="text/javascript">
     	$(function(){
@@ -62,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	<img alt="" src="img/dishpng.png">
       	<div class="dishdtlcont">
       	  <div style="height: 40px;">
-      	    <div style="float:left">宫保鸡丁</div>
+      	    <div style="float:left"><c:out value="${dish.dishName}"></c:out></div>
       	    <div style="float:right">价格：<span style="color:#FF6600">￥15</span></div>
       	  </div>
       	  <div class="dishdtlinfo">月销量：205份<span style="margin-left:30px">甜、辣</span><span class="recommend">推荐</span></div>
@@ -75,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	  </div>
       	</div>
       </div>
-      <input type="button" class="orderdishbtn" value="加入订单">
+      <input type="button" class="orderdishbtn" id="addToOrder" value="加入订单">
     </div>
   </body>
   <script src="./js/ratchet.js"></script>

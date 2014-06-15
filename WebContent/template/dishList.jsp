@@ -92,14 +92,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div>
         <ul class="table-view" style="margin-bottom:0" id="displayDish">
           <li class="table-view-cell media">
-            <a class="" onclick="choose(this)">
+            <a class="" onclick='choose(this)'>
               <img class="media-object pull-left" src="img/kongpaochicken.PNG">
               <div class="media-body">
                 <div class="dishnm">宫保鸡丁</div>
                 <div class="dishinfo">
                 	<div class="dishprice"><span>￥</span><span style="font-size: 20px;color: red">23</span><span style="color: red">/份</span></div>
                 	<div class="dishsell">月销量：<span style="color: #FF6600;font-size: 18px">207</span></div>
-                	<input type="hidden" value="12">
+                	<input type="hidden" value="100000">
                 </div>
                 <div class="dishline"></div>
                 <div class="dishcomm">
