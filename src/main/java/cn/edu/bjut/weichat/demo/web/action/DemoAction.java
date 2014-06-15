@@ -46,6 +46,11 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("orderList");
     }
 	
+	@RequestMapping(value = "smartOrderList", method = RequestMethod.GET) 
+    public ModelAndView smartOrderList() {
+        return new ModelAndView("smartOrderList");
+    }
+	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
         return new ModelAndView(new RedirectView("index"));

@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		for(var i = 0; i < pricelist.length; i++){
     			price += Number(pricelist[i].innerHTML) * Number(amountlist[i].innerHTML);
     		}
-    		$("#orderprice").html(price);
+    		$("#smartorderprice").html(price);
     	}
     	
     </script>
@@ -58,12 +58,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
       <button class="btn pull-left back"></button>
-      <h1 class="title" style="font-family: '微软雅黑'；;font-size: 24px">订单详情</h1>
+      <h1 class="title" style="font-family: '微软雅黑'；;font-size: 24px">智能点餐</h1>
     </header>
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content" style="padding-bottom: 55px;">
-      <div class="ordertitle">北京工业大学天天餐厅</div>
+      <div class="ordertitle" style="text-align: left;padding-left: 30px"><span style="font-size: 18px;color: #555">人数：</span>4人&nbsp;<span style="font-size: 18px;color: #555">人均：</span>￥15</div>
       <c:forEach items="${a }" var="dishtype" varStatus="st">
       <div class="orderdtl">
       	<div class="orderdtltitle"><c:out value="${dishtype}"/>：<span class="ordercount">2</span></div>
@@ -89,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </c:forEach>
     </div>
     <nav class="bar bar-tab" style="background-color: #eee;">
-      <div class="ordertotalp">总计￥&nbsp;<span id="orderprice" style="color: #fe8302;font-size: 25px">0</span></div>
+      <div class="ordertotalp">总计￥&nbsp;<span id="smartorderprice" style="color: #fe8302;font-size: 25px">0</span></div>
       <input type="button" class="orderdtlbtn" value="提交订单">
     </nav>
   </body>
