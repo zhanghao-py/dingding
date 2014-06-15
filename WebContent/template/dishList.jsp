@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -91,13 +92,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <div class="slide">
       <div>
         <ul class="table-view" style="margin-bottom:0" id="displayDish">
+        <c:forEach items="${list}"  var="dish">
           <li class="table-view-cell media">
             <a class="" onclick='choose(this)'>
               <img class="media-object pull-left" src="img/kongpaochicken.PNG">
               <div class="media-body">
-                <div class="dishnm">宫保鸡丁</div>
+                <div class="dishnm"><c:out value="${dish.dishName}"></c:out></div>
                 <div class="dishinfo">
-                	<div class="dishprice"><span>￥</span><span style="font-size: 20px;color: red">23</span><span style="color: red">/份</span></div>
+                	<div class="dishprice"><span>￥</span><span style="font-size: 20px;color: red"><c:out value="${dish.price}"></c:out></span><span style="color: red">/份</span></div>
                 	<div class="dishsell">月销量：<span style="color: #FF6600;font-size: 18px">207</span></div>
                 	<input type="hidden" value="100000">
                 </div>
@@ -120,42 +122,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <div class="chosen" style="display:none"></div>
             </a>
           </li>
-          <li class="table-view-cell media">
-            <a class="navigate-right">
-              <img class="media-object pull-left" src="img/menu_singleDish_dishImage.png">
-              <div class="media-body">
-                Item 2
-                <p>Lorem ipsum dolor sit amet</p>
-              </div>
-            </a>
-          </li>
-          <li class="table-view-cell media">
-            <a class="navigate-right">
-              <img class="media-object pull-left" src="img/menu_singleDish_dishImage.png">
-              <div class="media-body">
-                Item 3
-                <p>Lorem ipsum dolor sit amet</p>
-              </div>
-            </a>
-          </li>
-          <li class="table-view-cell media">
-            <a class="navigate-right">
-              <img class="media-object pull-left" src="img/menu_singleDish_dishImage.png">
-              <div class="media-body">
-                Item 4
-                <p>Lorem ipsum dolor sit amet</p>
-              </div>
-            </a>
-          </li>
-          <li class="table-view-cell media">
-            <a class="navigate-right">
-              <img class="media-object pull-left" src="img/menu_singleDish_dishImage.png">
-              <div class="media-body">
-                Item 5
-                <p>Lorem ipsum dolor sit amet</p>
-              </div>
-            </a>
-          </li>
+        </c:forEach>
         </ul>
         <div class="loadmore" id="clickmore">≡ 点击加载更多菜品...</div>
       </div></div>
