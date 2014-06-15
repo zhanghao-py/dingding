@@ -22,4 +22,13 @@ public enum Category {
 	public int getNum(){
 		return this.num;
 	}
+	
+	public static int getNumByName(String name){
+		for(Category cate:Category.values()){
+			if(cate.getName().equals(name)){
+				return cate.getNum();
+			}
+		}
+		return -1;
+	}
 }

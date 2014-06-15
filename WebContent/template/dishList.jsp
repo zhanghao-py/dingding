@@ -17,6 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="./css/ratchet.css" rel="stylesheet">
     <link href="./css/dingding.css" rel="stylesheet">
     <script src="./js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="./js/dish/dishList.js"></script>
     <!-- <script type="text/javascript" src="js/thumbs.0.6.0.js"></script> -->
     <script type="text/javascript">
     	$(function(){
@@ -89,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	</div>
          <div class="slide">
       <div>
-        <ul class="table-view" style="margin-bottom:0">
+        <ul class="table-view" style="margin-bottom:0" id="displayDish">
           <li class="table-view-cell media">
             <a class="" onclick="choose(this)">
               <img class="media-object pull-left" src="img/kongpaochicken.PNG">
@@ -98,6 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="dishinfo">
                 	<div class="dishprice"><span>￥</span><span style="font-size: 20px;color: red">23</span><span style="color: red">/份</span></div>
                 	<div class="dishsell">月销量：<span style="color: #FF6600;font-size: 18px">207</span></div>
+                	<input type="hidden" value="12">
                 </div>
                 <div class="dishline"></div>
                 <div class="dishcomm">
@@ -155,7 +157,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </a>
           </li>
         </ul>
-        <div class="loadmore" onclick="loadmore()">≡ 点击加载更多菜品...</div>
+        <div class="loadmore" id="clickmore">≡ 点击加载更多菜品...</div>
       </div></div>
       </div></div>
     </div>
