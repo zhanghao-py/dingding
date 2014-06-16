@@ -5,14 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.edu.bjut.weichat.core.bo.Dish;
 import cn.edu.bjut.weichat.core.mybatis.pagination.PageBean;
-import cn.edu.bjut.weichat.core.util.JackSonUtil;
 import cn.edu.bjut.weichat.dao.bean.DishDetail;
 import cn.edu.bjut.weichat.dish.dao.DishDao;
 import cn.edu.bjut.weichat.dish.service.DishService;
