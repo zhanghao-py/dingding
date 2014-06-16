@@ -61,6 +61,16 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("bdmap");
     }
 	
+	@RequestMapping(value = "allOrderList", method = RequestMethod.GET) 
+    public ModelAndView allOrderList() {
+        return new ModelAndView("allOrderList");
+    }
+	
+	@RequestMapping(value = "payment", method = RequestMethod.GET) 
+    public ModelAndView payment() {
+        return new ModelAndView("payment");
+    }
+	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
         return new ModelAndView(new RedirectView("index"));

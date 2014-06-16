@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </header>
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-    <div class="content">
+    <div class="content" style="padding-bottom: 67px;">
     <div class="slider">
       <div class="slide-group">
       <c:forEach begin="0" end="4" step="1">
@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div></div>
       </c:forEach>
       </div></div>
-      <div class="resdiv">
+      <div class="resdiv" style="margin-bottom: 67px;">
         <div class="resdivtitle">地图</div>
         <div align="center" class="resmap">
           <jsp:include page="bdmap.jsp"></jsp:include>
