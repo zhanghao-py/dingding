@@ -3,8 +3,16 @@
 
 <mapper namespace="cn.edu.bjut.weichat.dish.dao.ImageOfDishDao">
 	<resultMap type="cn.edu.bjut.weichat.core.bo.ImageOfDish" id="imageResultMap">
-		<id column="id" property="id" jdbcType="BIGINT" />
+		<id column="dishImageId" property="id" jdbcType="BIGINT" />
 		<result column="dishId" property="dishId" jdbcType="BIGINT" />
 		<result column="imageUrl" property="imageUrl" jdbcType="VARCHAR" />
 	</resultMap>
+	
+	
+	
+	<select id="getImageByDishId" resultMap="imageResultMap">
+		select * from tb_dishimage where dishId = #{dishId,jdbcType="BIGINT"}
+	</select>
+	
+	
 </mapper>

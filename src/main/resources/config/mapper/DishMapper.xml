@@ -14,26 +14,48 @@
 		<result column="support" property="support" jdbcType="INTEGER" />
 	</resultMap>
 
-	<select id="selectDishByName" parameterType="java.lang.String" resultMap="dishResultMap">
+	<resultMap type="cn.edu.bjut.weichat.dao.bean.DishDetail" id="dishDetail">
+		<id column="dishId" property="dishId" jdbcType="BIGINT" />
+		<result column="restId" property="restId" jdbcType="BIGINT" />
+		<result column="dishName" property="dishName" jdbcType="VARCHAR" />
+		<result column="material" property="material" jdbcType="VARCHAR" />
+		<result column="concoction" property="concoction" jdbcType="INTEGER" />
+		<result column="category" property="category" jdbcType="INTEGER" />
+		<result column="cuisine" property="cuisine" jdbcType="INTEGER" />
+		<result column="price" property="price" jdbcType="FLOAT" />
+		<result column="support" property="support" jdbcType="INTEGER" />
+		<result column="imageUrl" property="imageUrl" jdbcType="VARCHAR"/>
+	</resultMap>
+
+
+
+	<select id="selectDishByName" parameterType="java.lang.String"
+		resultMap="dishResultMap">
 		select * from tb_dish
 		<where>
 			dishName = #{dishName, jdbcType=VARCHAR}
 		</where>
 	</select>
-	
-	
-	<select id="selectDishByRestIdAndCategory" parameterType="Map" resultMap="dishResultMap">
-		select * from tb_dish where restId = #{restId} and category= #{cate}
+
+
+	<select id="selectDishByRestIdAndCategory" resultMap="dishResultMap">
+		select *
+		from tb_dish where restId = #{map.restId,jdbcType=BIGINT} and
+		category= #{map.cate,jdbcType=INTEGER}
 	</select>
-	
+
 	<select id="selectDishById" parameterType="long" resultMap="dishResultMap">
 		select * from tb_dish where dishId = #{dishId}
 	</select>
-	
+
 	<select id="selectDishByRestId" parameterType="long" resultMap="dishResultMap">
 		select * from tb_dish where restId = #{restId}
 	</select>
-	
-	
-	 
+
+
+	<select id="getDishDetail" parameterType="long" resultMap="dishDetail">
+		select dish.*,image.imageUrl from tb_dish dish INNER JOIN tb_dishimage
+		image where dish.dishId = image.dishId and dish.dishId = #{dishId,jdbcType=BIGINT}
+	</select>
+
 </mapper>

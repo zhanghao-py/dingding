@@ -31,4 +31,13 @@ public enum Category {
 		}
 		return -1;
 	}
+	
+	public static String getNameByNum(int num){
+		for(Category cate:Category.values()){
+			if(cate.getNum() == num){
+				return cate.getName();
+			}
+		}
+		return null;
+	}
 }

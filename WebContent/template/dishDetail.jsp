@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content">
       <div class="dishdtl">
-      	<img alt="" src="img/dishpng.png">
+      	<img alt="" src='<c:out value="${dish.imageUrl}"></c:out>'>
       	<div class="dishdtlcont">
       	  <div style="height: 40px;">
       	    <div style="float:left"><c:out value="${dish.dishName}"></c:out></div>

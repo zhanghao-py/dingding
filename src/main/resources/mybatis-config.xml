@@ -2,10 +2,9 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<!--
 	<plugins>
-		<plugin interceptor="com.thirdblock.migo.core.mybatis.interceptor.PaginationInterceptor" />
+		<plugin interceptor="cn.edu.bjut.weichat.core.mybatis.interceptor.PaginationInterceptor"/>
 	</plugins>
-	-->
+
 	
 </configuration>
