@@ -71,6 +71,11 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("payment");
     }
 	
+	@RequestMapping(value = "restrDiscovery", method = RequestMethod.GET) 
+    public ModelAndView restrDiscovery() {
+        return new ModelAndView("restrDiscovery");
+    }
+	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
         return new ModelAndView(new RedirectView("index"));
