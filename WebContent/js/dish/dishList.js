@@ -26,7 +26,7 @@ $(function(){
 		
 		var dishNum = $(".table-view").children().length;
 		
-		var pageNum = Math.floor(dishNum/5);
+		var pageNum = Math.floor(dishNum/5)+1;
 		
 		var categorys = $("#leftmenu").children();
 		
@@ -52,6 +52,11 @@ $(function(){
 				if(1 == info.status){
 					alert("数据加载出错！");
 					return;
+				}
+				
+				if(-1 == info.statusInfo){
+					alert("已经是最后一页！");
+					document.getElementById("clickmore").style.display = "none";
 				}
 				
 				var oFrag = document.createDocumentFragment();
@@ -107,18 +112,34 @@ $(function(){
 	 */
 	$("#addToOrder").click(function(){
 		
+		var dishId = $("#dishId").val();
+		
+		var num = $("#dishamount").html();
+				
 		$.ajax({
 			type:'POST',
 			url:'orders/addDish',
-			data:{dishId:1,dishNum:2},
+			data:{dishId:dishId,dishNum:num},
 			success:function(info){
 				if(info.status == 0){
 					alert("添加成功！");
 				}
 			}
 		});
-		
 	});
+	
+	
+	
+	
+	/**
+	 * 点击菜的种类
+	 */
+	
+	$("#leftmenu").children().click(function(){
+		//alert("hahha");
+		$(this).className = "leftmenuitem active";
+	});
+	
 	
 	
 	

@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import cn.edu.bjut.weichat.core.web.action.BaseAction;
 import cn.edu.bjut.weichat.core.web.action.dto.StatusInfo;
 import cn.edu.bjut.weichat.dao.bean.OrderList;
+import cn.edu.bjut.weichat.dao.bean.OrderOfDetail;
 import cn.edu.bjut.weichat.dish.service.ImageOfDishService;
 import cn.edu.bjut.weichat.dish.service.OrderService;
 
@@ -81,17 +82,19 @@ public class OrderAction extends BaseAction {
 		
 		List<List<String>> orderList = (List<List<String>>) session.getAttribute("order");
 		
+		OrderOfDetail ood  = null;
+		
 		if(null == orderList){
 			logger.warn("获取订单失败");
 		}
 		
-		
-		
-		
-		List<OrderList> list = orderService.getOrderDetail(orderList);
-		
-		
-		return new ModelAndView("orderList");
+		try {
+			ood = orderService.getOrderDetail(orderList);
+		} catch (Exception e) {
+			logger.warn("", e);
+		}
+		//session.removeAttribute("order");
+		return new ModelAndView("orderList","order",ood);
 	}
 	
 	

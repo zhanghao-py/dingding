@@ -101,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="dishinfo">
                 	<div class="dishprice"><span>￥</span><span style="font-size: 20px;color: red"><c:out value="${dish.price}"></c:out></span><span style="color: red">/份</span></div>
                 	<div class="dishsell">月销量：<span style="color: #FF6600;font-size: 18px">207</span></div>
-                	<input type="hidden" value="100000">
+                	<input type="hidden" value="<c:out value="${dish.dishId}"></c:out>">
                 </div>
                 <div class="dishline"></div>
                 <div class="dishcomm">

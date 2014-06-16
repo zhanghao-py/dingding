@@ -66,6 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	  <div style="height: 40px;">
       	    <div style="float:left"><c:out value="${dish.dishName}"></c:out></div>
       	    <div style="float:right">价格：<span style="color:#FF6600">￥<c:out value="${dish.price }"></c:out></span></div>
+      	  	<input type="hidden" id="dishId" value='<c:out value="${dish.dishId}"></c:out>'>
       	  </div>
       	  <div class="dishdtlinfo">月销量：205份<span style="margin-left:30px">甜、辣</span><span class="recommend">推荐</span></div>
       	  <div class="dishdtlinfo"><c:out value="${dish.material}"></c:out></div>

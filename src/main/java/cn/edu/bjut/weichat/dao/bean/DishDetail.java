@@ -27,6 +27,10 @@ public class DishDetail {
 	private String tasteName;
 	
 	private String tagName;
+	
+	private int num;
+	
+	private float subtotal;
 
 	public long getDishId() {
 		return dishId;
@@ -130,6 +134,22 @@ public class DishDetail {
 
 	public void setTagName(String tagName) {
 		this.tagName = tagName;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public float getSubtotal() {
+		return subtotal;
+	}
+
+	public void setSubtotal(float subtotal) {
+		this.subtotal = subtotal;
 	}
 	
 	

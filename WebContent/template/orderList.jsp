@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -64,20 +65,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content" style="padding-bottom: 55px;">
       <div class="ordertitle">北京工业大学天天餐厅</div>
-      <c:forEach items="${a }" var="dishtype" varStatus="st">
+      <c:forEach items="${order.dishs}" var="dishes" varStatus="st">
       <div class="orderdtl">
-      	<div class="orderdtltitle"><c:out value="${dishtype}"/>：<span class="ordercount">2</span></div>
+      	<div class="orderdtltitle"><c:out value="${dishes.key}"/>：<span class="ordercount"><c:out value="${fn:length(order.dishs[dishes.key])}"></c:out></span></div>
       	<ul class="table-view" style="border: 0;margin: 0">
       	  <c:set value="${st.index}" var="si"/>
-      	  <c:forEach items="${a[si] }" var="dish">
+      	  <c:forEach items="${order.dishs[dishes.key]}" var="dish">
           <li class="table-view-cell media" style="border: 0;margin: 0">
             <a class="">
       	    <img class="media-object pull-left" src="img/dishpng.png" style="width: 60px;height: 45px">
       	    <div class="media-body">
       	      <table>
       	      	<tr style="height: 45px">
-      	      	  <td style="width: 130px;padding-right: 10px"><span class="orderdishnm"><c:out value="${dish}"/></span></td>
-      	      	  <td style="width: 50px"><span class="orderamount">1</span>份</td>
+      	      	  <td style="width: 130px;padding-right: 10px"><span class="orderdishnm"><c:out value="${dish.dishName}"/></span></td>
+      	      	  <td style="width: 50px"><span class="orderamount"><c:out value="${dish.num}"></c:out></span>份</td>
       	      	  <td style="width: 80px;color: #ff6600">￥<span class="orderprdata">15</span>/份</td>
       	      </tr></table>
       	    </div>

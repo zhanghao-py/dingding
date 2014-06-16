@@ -95,12 +95,15 @@ public class DishInitAction extends BaseAction {
 		} catch (Exception e) {
 			logger.warn("", e);
 			status.setStatus(StatusInfo.FAILED);
-			status.setStatusInfo(StatusInfo.SUCCESS_MSG);
+			status.setStatusInfo("查询失败！");
 			return status;
 		}
 		
+		if(list.size() < 5)
+			status.setStatusInfo("-1");
+		else
+			status.setStatusInfo(StatusInfo.SUCCESS_MSG);
 		status.setStatus(StatusInfo.SUCCESS);
-		status.setStatusInfo(StatusInfo.SUCCESS_MSG);
 		status.setData(list);
 		
 		return status;
