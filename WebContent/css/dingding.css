@@ -83,39 +83,39 @@ body {
 	margin-left: 30px;
 }
 
-.dishdtlinfo .adddish {
+.adddish {
 	width: 50px;
 	height: 50px;
 	float: left;
 	background: url("../img/dishDetails_add1.png") no-repeat;
 }
 
-.dishdtlinfo .adddish.active {
+.adddish.active {
 	width: 50px;
 	height: 50px;
 	float: left;
-	background: url("../img/dishDetails_add.png") no-repeat;
+	background: url("../img/dishDetails_add0.png") no-repeat;
 }
 
-.dishdtlinfo .adddish.active:active {
+.adddish.active:active {
 	background: url("../img/dishDetails_active1.png") no-repeat;
 }
 
-.dishdtlinfo .reducedish {
+.reducedish {
 	width: 50px;
 	height: 50px;
 	float: left;
 	background: url("../img/dishDetails_reduce1.png") no-repeat;
 }
 
-.dishdtlinfo .reducedish.active {
+.reducedish.active {
 	width: 50px;
 	height: 50px;
 	float: left;
-	background: url("../img/dishDetails_reduce.png") no-repeat;
+	background: url("../img/dishDetails_reduce0.png") no-repeat;
 }
 
-.dishdtlinfo .reducedish.active:active {
+.reducedish.active:active {
 	background: url("../img/dishDetails_active.png") no-repeat;
 }
 
@@ -415,4 +415,54 @@ body {
 	float: right;
 	border: 0;
 	display: inline;
+}
+
+
+
+
+
+/************************ 智能点餐首页样式  ************************/
+.smarthomediv {
+	width: 100%;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+	font-size: 20px;
+	padding: 5px 20px 5px 20px;
+}
+
+.smarthomediv .smartdiv {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+	height: 60px;
+	line-height: 50px;
+	border-bottom: 1px solid #eee;
+}
+
+.smarthomebtn {
+	width: 150px;
+	height: 50px;
+	color: #fff;
+	text-align: center;
+	border: 0;
+	line-height: 40px;
+	background-color: #fe8302;
+	margin-top: 30px;
+	border-radius: 3px;
+}
+
+.smartdiv .smcbbox td {
+	width: 180px;
+	height: 30px;
+	font-size: 18px;
+	color: #999;
+}
+
+.smartdiv .smcbbox img {
+	width: 20px;
+	margin-left: -25px;
+}
+
+.smartdiv .smcbbox .smartdivcb {
+	visibility: hidden;
 }

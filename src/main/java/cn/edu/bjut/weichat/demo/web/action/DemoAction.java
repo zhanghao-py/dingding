@@ -76,6 +76,11 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("restrDiscovery");
     }
 	
+	@RequestMapping(value = "smartHome", method = RequestMethod.GET) 
+    public ModelAndView smartHome() {
+        return new ModelAndView("smartHome");
+    }
+	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
         return new ModelAndView(new RedirectView("index"));
