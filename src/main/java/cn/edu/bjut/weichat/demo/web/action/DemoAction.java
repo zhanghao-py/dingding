@@ -81,6 +81,11 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("smartHome");
     }
 	
+	@RequestMapping(value = "commonDish", method = RequestMethod.GET) 
+    public ModelAndView commonDish() {
+        return new ModelAndView("commonDish");
+    }
+	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
         return new ModelAndView(new RedirectView("index"));

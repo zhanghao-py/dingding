@@ -30,6 +30,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    		$("#smreducedish").attr("class","reducedish active");
 	    		var newamount = Number($("#smamount").html()) + 1;
 	    		$("#smamount").html(newamount);
+	    		$("#smpreducedish").attr("class","reducedish active");
+	    		var pnewamount = Number($("#smpamount").html()) + 30;
+	    		$("#smpamount").html(pnewamount);
 	    	});
 	    	
 	    	$("#smreducedish").unbind("click"); //防止多次绑定。
@@ -42,13 +45,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    			}
 	    			var newamount = Number($("#smamount").html()) - 1;
 		    		$("#smamount").html(newamount);
+		    		var pnewamount;
+		    		if((Number($("#smpamount").html())-30) <= (Number($("#smamount").html())*15)) {
+		    			pnewamount= Number($("#smamount").html())*15;
+			    		$("#smpamount").html(pnewamount);
+			    		$("#smpreducedish").attr("class","reducedish");
+		    		} else {
+		    			pnewamount= Number($("#smpamount").html()) - 30;
+			    		$("#smpamount").html(pnewamount);
+		    		}
+		    		
 	    		}
 	    	});
 	    	
 	    	$("#smpadddish").unbind("click"); //防止多次绑定。
 	    	$("#smpadddish").click(function() {
 	    		$("#smpreducedish").attr("class","reducedish active");
-	    		var newamount = Number($("#smpamount").html()) + 1;
+	    		var newamount = Number($("#smpamount").html()) + 5;
 	    		$("#smpamount").html(newamount);
 	    	});
 	    	
@@ -57,10 +70,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    		if($("#smpreducedish").attr("class") == "reducedish") {
 	    			
 	    		} else {
-	    			if($("#smpamount").html() == "6") {
+	    			if($("#smpamount").html() == (String)(Number($("#smamount").html())*15+5) ) {
 	    				$("#smpreducedish").attr("class","reducedish");
 	    			}
-	    			var newamount = Number($("#smpamount").html()) - 1;
+	    			var newamount = Number($("#smpamount").html()) - 5;
 		    		$("#smpamount").html(newamount);
 	    		}
 	    	});
@@ -98,9 +111,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	    <div class="adddish active" id="smadddish"></div>
       	</div>
       	<div class="smartdiv">
-        	<div style="float: left;margin-right: 20px;">人均</div>
-        	<div class="reducedish" id="smpreducedish"></div>
-      	    <div style="float: left;margin-left: 15px;margin-right: 15px;">￥<span id="smpamount">5</span></div>
+        	<div style="float: left;margin-right: 20px;">总计</div>
+        	<div class="reducedish active" id="smpreducedish"></div>
+      	    <div style="float: left;margin-left: 15px;margin-right: 15px;">￥<span id="smpamount">30</span></div>
       	    <div class="adddish active" id="smpadddish"></div>
       	</div>
       	<div class="smartdiv" style="height: auto;border: 0">
