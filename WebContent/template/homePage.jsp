@@ -5,12 +5,13 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <base href="<%=basePath%>">
     
     <title>叮叮点餐</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -23,37 +24,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	$(function(){
     		var mt = $(".mpbg").height()-17;
     		$(".mpcontent").css({"margin-top":mt+"px"});
-    		
-    		var switchSpeed = 3000; //图片切换时间 
-    		var fadeSpeed = 1500; //渐变时间 
-    		setInterval(function(){ 
-    		$(".mpbg").last().fadeOut(fadeSpeed, function(){ 
-    		$(this).show().prependTo($(".mpbggroup")); 
-    		}); 
-    		}, switchSpeed); 
     	});
-    	
     </script>
+    <style type="text/css"> 
+		ul{position:absolute;top: 0;width: 100%;height: 70%;padding: 0;margin: 0} 
+		ul li{display:block; position:absolute;top:0;width: 100%;height: 100%} 
+		.mpbg {width: 100%;height: 100%;z-index: 1;}
+	</style> 
   </head>
-  <%
+   <%
 	  List a = new ArrayList();
 	  a.add("北京工业大学第一食堂");
 	  a.add("麦当劳奥特莱斯店");
 	  request.setAttribute("a",a);
   	 %>
   <body style="background-color: #fff">
-    <div class="content" style="background-color: #fff">
-      <div class="mpbggroup">
-        <img class="mpbg" alt="" src="img/mainpage_bg2.png"/>
-        <img class="mpbg" alt="" src="img/mainpage_bg3.png"/>
-        <img class="mpbg" alt="" src="img/mainpage_bg4.png"/>
-        <img class="mpbg" alt="" src="img/mainpage_bg5.png"/>
-        <img class="mpbg" alt="" src="img/mainpage_bg6.png"/>
-        <img class="mpbg" alt="" src="img/mainpage_bg7.png"/>
-        <img class="mpbg" alt="" src="img/mainpage_bg8.png"/>
-        <img class="mpbg" alt="" src="img/mainpage_bg9.png"/>
-        <img class="mpbg" alt="" src="img/mainpage_bg1.png"/>
-      </div>
+   <div class="content" style="background-color: #fff">
+      <ul class="mpbggroup">
+        <li><img class="mpbg" alt="" src="img/mainpage_bg2.png"/></li>
+        <li><img class="mpbg" alt="" src="img/mainpage_bg3.png"/></li>
+        <li><img class="mpbg" alt="" src="img/mainpage_bg4.png"/></li>
+        <li><img class="mpbg" alt="" src="img/mainpage_bg5.png"/></li>
+        <li><img class="mpbg" alt="" src="img/mainpage_bg6.png"/></li>
+        <li><img class="mpbg" alt="" src="img/mainpage_bg7.png"/></li>
+        <li><img class="mpbg" alt="" src="img/mainpage_bg8.png"/></li>
+        <li><img class="mpbg" alt="" src="img/mainpage_bg9.png"/></li>
+        <li><img class="mpbg" alt="" src="img/mainpage_bg1.png"/></li>
+      </ul>
       <img class="mpdingding" alt="" src="img/mainpage_title.png"/>
       <div class="mpcontent">
       	<span style="line-height:30px;vertical-align: middle;"><br/>
@@ -79,7 +76,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
       <img class="mpbottom" alt="" src="img/mainpage_bottom_bar.png"/>
       <div class="mpversion">V1.0</div>
-    </div>
+   </div>
   </body>
+  <script type="text/javascript">
+		var switchSpeed = 3000; //图片切换时间 
+		var fadeSpeed = 1500; //渐变时间 
+		setInterval(function(){ 
+		$('.mpbg').last().fadeOut(fadeSpeed, function(){ 
+		$(this).show().parent().prependTo($('ul')); 
+		}); 
+		}, switchSpeed); 
+      </script>
   <script src="./js/ratchet.js"></script>
 </html>
