@@ -86,6 +86,11 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("commonDish");
     }
 	
+	@RequestMapping(value = "homePage", method = RequestMethod.GET) 
+    public ModelAndView homePage() {
+        return new ModelAndView("homePage");
+    }
+	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
         return new ModelAndView(new RedirectView("index"));

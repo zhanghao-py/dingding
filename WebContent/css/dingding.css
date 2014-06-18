@@ -12,7 +12,7 @@ body {
 	width:100px;
 	height:42px;
 	/* background: url("../img/menu_sideMenu_button_pressed1.png") no-repeat; */
-	background-color: #ffcc33;
+	background-color: #FE8302;
 	font-size: 20px;
 	line-height: 42px;
 	text-align: center;
@@ -25,7 +25,7 @@ body {
 .leftmenu .leftmenuitem.active, .leftmenu .leftmenuitem:active {
 	background: url("../img/menu_sideMenu_button_idle1.png") no-repeat;
 	background-color: #fff;
-	color: #ffcc33;
+	color: #FE8302;
 }
 
 
@@ -465,4 +465,65 @@ body {
 
 .smartdiv .smcbbox .smartdivcb {
 	visibility: hidden;
+}
+
+
+/************************ Ê×Ò³ÑùÊ½  ************************/
+.mpbg {
+	width: 100%;
+	height: 70%;
+	position:absolute;
+	top:0;
+	z-index: 1;
+}
+
+.mpdingding {
+	position: absolute;
+	z-index: 999;
+	width: 60%;
+	margin-top: 14%;
+	right: 0;
+}
+
+.mpcontent {
+	background-color: rgba(255,255,255,0.5);
+	position:relative;
+	z-index: 999;
+	color: #ff6600;
+	text-align: center;
+}
+
+.mpbottom {
+	z-index: 1;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 5%;
+}
+
+.mpversion {
+	z-index: 999;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+	color: #fff;
+	line-height: 25px;
+}
+
+.mprefresh {
+	width: 130px;
+	height: 50px;
+	border: 1px solid #ccc;
+	background-color:#fff;
+	color: #ff6600;
+	text-align: center;
+	line-height: 45px;
+	margin-top: 15px;
+	font-size: 20px;
+}
+
+.mprefresh:active {
+	color: #fff;
+	background-color: #ff6600;
 }

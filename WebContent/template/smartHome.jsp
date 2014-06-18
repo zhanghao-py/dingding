@@ -107,13 +107,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="smartdiv">
         	<div style="float: left;margin-right: 20px;">人数</div>
         	<div class="reducedish" id="smreducedish"></div>
-      	    <div id="smamount" style="float: left;margin-left: 20px;margin-right: 20px;">1</div>
+      	    <div id="smamount" style="float: left;width: 65px;text-align: center;">1</div>
       	    <div class="adddish active" id="smadddish"></div>
       	</div>
       	<div class="smartdiv">
         	<div style="float: left;margin-right: 20px;">总计</div>
         	<div class="reducedish active" id="smpreducedish"></div>
-      	    <div style="float: left;margin-left: 15px;margin-right: 15px;">￥<span id="smpamount">30</span></div>
+      	    <div style="float: left;width: 65px;text-align: center;">￥<span id="smpamount">30</span></div>
       	    <div class="adddish active" id="smpadddish"></div>
       	</div>
       	<div class="smartdiv" style="height: auto;border: 0">
