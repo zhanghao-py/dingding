@@ -1,5 +1,6 @@
 package cn.edu.bjut.weichat.core.web.action.dish;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,11 +33,12 @@ public class DishInitAction extends BaseAction {
 	
 	private int category;
 	
-	@RequestMapping("")
+	@RequestMapping(value="init",method=RequestMethod.GET)
 	public ModelAndView initPage(){
 		//接收餐厅的id，然后查出该餐厅的凉菜的前5种
 		
 		List<Dish> list = null;
+		String paraString = "";
 		
 		long restId = 100000;
 		
@@ -44,12 +46,22 @@ public class DishInitAction extends BaseAction {
 		
 		listNum = DishUtil.ListNUM;
 		
+		category = Category.COLD.getNum();
 		
 		if(null != request.getParameter("restId"))
 			restId = Long.parseLong(request.getParameter("restId"));
+		if(null != (paraString=request.getParameter("category"))){
+			try {
+				category=Integer.parseInt(paraString);
+			} catch (Exception e) {
+				logger.warn("", e);
+				category = Category.COLD.getNum();
+			}
+			
+		}		
 		
 		try {
-		    list = dishService.selectDishByRestIdAndCategory(restId, Category.COLD.getNum(), pageNum, listNum);
+		    list = dishService.selectDishByRestIdAndCategory(restId, category, pageNum, listNum);
 		} catch (Exception e) {
 			logger.warn(" ",e);
 		}
@@ -73,14 +85,12 @@ public class DishInitAction extends BaseAction {
 			
 			String cate = request.getParameter("category");
 			
-			if(-1 != (category=Category.getNumByName(cate)));
-			else {
-				logger.warn("类型出错");
-				status.setStatus(StatusInfo.FAILED);
-				status.setStatusInfo(StatusInfo.SUCCESS_MSG);
-				return status;
+			try {
+				category=Integer.parseInt(cate);
+			} catch (Exception e) {
+				logger.warn("", e);
+				category = Category.COLD.getNum();
 			}
-			
 		}
 		else
 			category = Category.COLD.getNum();

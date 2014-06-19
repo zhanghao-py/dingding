@@ -19,6 +19,7 @@ import cn.edu.bjut.weichat.dao.bean.OrderList;
 import cn.edu.bjut.weichat.dao.bean.OrderOfDetail;
 import cn.edu.bjut.weichat.dish.service.ImageOfDishService;
 import cn.edu.bjut.weichat.dish.service.OrderService;
+import cn.edu.bjut.weichat.dish.service.RestaurantService;
 
 
 @Controller
@@ -28,6 +29,9 @@ public class OrderAction extends BaseAction {
 	@Autowired
 	private OrderService orderService;
 	
+	
+	@Autowired
+	private RestaurantService restaurantService;
 	
 	
 	@RequestMapping(value="/addDish",method=RequestMethod.POST)
@@ -86,16 +90,48 @@ public class OrderAction extends BaseAction {
 		
 		if(null == orderList){
 			logger.warn("获取订单失败");
+			return new ModelAndView("page403");//返回一个错误页面
 		}
 		
 		try {
 			ood = orderService.getOrderDetail(orderList);
+			
+			ood.setRestName(restaurantService.getRestaurantByRestId(ood.getRestId()).get(0).getRestName());
 		} catch (Exception e) {
 			logger.warn("", e);
 		}
 		//session.removeAttribute("order");
+		
+		if(null == session.getAttribute("orders"))
+			session.setAttribute("orders", ood);
+		else{
+			session.removeAttribute("orders");
+			session.setAttribute("orders", ood);
+		}
+		
+		
+		
 		return new ModelAndView("orderList","order",ood);
 	}
 	
+	@RequestMapping(value="/addOrder",method=RequestMethod.GET)
+	public ModelAndView addOrder(){
+		
+		OrderOfDetail ood = null;
+		
+		
+		if(null == session.getAttribute("orders"))
+			return new ModelAndView("page403");
+		else{
+			ood = (OrderOfDetail)session.getAttribute("orders");
+			int result = orderService.addOrder(ood);
+			if(result < 0)
+				return new ModelAndView("page403");
+		}
+		
+		session.removeAttribute("order");
+		
+		return new ModelAndView("payment");
+	}
 	
 }

@@ -3,7 +3,7 @@ package cn.edu.bjut.weichat.core.bo;
 public class OrderOfDishes {
 
 	
-	private long orderFoodId;  //订单菜品表
+	private long dishOrderId;  //订单菜品表
 	
 	private long orderId;   //订单id
 	
@@ -13,12 +13,12 @@ public class OrderOfDishes {
 	
 	private float subtotal;  //小记
 
-	public long getOrderFoodId() {
-		return orderFoodId;
+	public long getDishOrderId() {
+		return dishOrderId;
 	}
 
-	public void setOrderFoodId(long orderFoodId) {
-		this.orderFoodId = orderFoodId;
+	public void setDishOrderId(long dishOrderId) {
+		this.dishOrderId = dishOrderId;
 	}
 
 	public long getOrderId() {

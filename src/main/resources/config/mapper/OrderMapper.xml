@@ -12,4 +12,23 @@
 		<result column="createTime" property="createTime" jdbcType="TIME" />
 		<result column="payTime" property="payTime" jdbcType="TIME" />
 	</resultMap>
+	
+	
+	
+	<insert id="addOrder" parameterType="cn.edu.bjut.weichat.core.bo.Order">
+		<selectKey resultType="java.lang.Long" keyProperty="orderId">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into tb_order(restId,userId,totalPrice,state,remarks,createTime,payTime)
+		values(#{restId,jdbcType=BIGINT},#{userId,jdbcType=BIGINT},#{totalPrice,jdbcType=FLOAT},
+		#{state,jdbcType=INTEGER},#{remarks,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP},
+		#{payTime,jdbcType=TIMESTAMP})
+	</insert>
+	
+	
+	<select id="getAllOrders" resultMap="orderResultMap">
+		select * from tb_order where userId = #{userId,jdbcType=BIGINT} order by createTime
+	</select>
+	
+	
 </mapper>

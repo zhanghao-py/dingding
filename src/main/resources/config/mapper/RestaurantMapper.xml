@@ -13,4 +13,9 @@
 		<result column="longitude" property="longitude" jdbcType="DOUBLE" />
 	</resultMap>
 
+
+	<select id="getRestaurantByRestId" resultMap="restResultMap">
+		select * from tb_restaurant where restId = #{restId}
+	</select>
+
 </mapper>

@@ -3,10 +3,18 @@
 
 <mapper namespace="cn.edu.bjut.weichat.dish.dao.OrderOfDishesDao">
 	<resultMap type="cn.edu.bjut.weichat.core.bo.OrderOfDishes" id="odResultMap">
-		<id column="orderFoodId" property="orderFoodId" jdbcType="BIGINT" />
+		<id column="dishOrderId" property="dishOrderId" jdbcType="BIGINT" />
 		<result column="orderId" property="orderId" jdbcType="BIGINT" />
 		<result column="dishId" property="dishId" jdbcType="BIGINT" />
 		<result column="num" property="num" jdbcType="INTEGER" />
 		<result column="subtotal" property="subtotal" jdbcType="FLOAT" />
 	</resultMap>
+	
+	<insert id="addDish" parameterType="cn.edu.bjut.weichat.core.bo.OrderOfDishes">
+		<selectKey resultType="long" keyProperty="orderFoodId">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into tb_dishorder(orderId,dishId,num,subtotal) values(#{orderId,jdbcType=BIGINT},
+		#{dishId,jdbcType=BIGINT},#{num,jdbcType=INTEGER},#{subtotal,jdbcType=FLOAT})
+	</insert>
 </mapper>

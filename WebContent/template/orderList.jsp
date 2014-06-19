@@ -19,6 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="./css/ratchet.css" rel="stylesheet">
     <link href="./css/dingding.css" rel="stylesheet">
     <script src="./js/jquery-1.11.0.js"></script>
+	    <script type="text/javascript" src="./js/dish/order.js"></script>
     <!-- <script type="text/javascript" src="js/thumbs.0.6.0.js"></script> -->
     <script type="text/javascript">
     	$(function(){
@@ -43,18 +44,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	
     </script>
   </head>
-  <%
-	List b = new ArrayList();
-  	b.add("宫保鸡丁");
-  	b.add("宫保鸡丁2");
-  	List b1 = new ArrayList();
-  	b1.add("宫保鸡丁3");
-  	List a = new ArrayList();
-  	a.add(b);
-  	a.add(b1);
-  	request.setAttribute("a",a);
-  	request.setAttribute("b",b);
-  %>
   <body style="background-color: #eee">
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
@@ -64,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content" style="padding-bottom: 55px;">
-      <div class="ordertitle">北京工业大学天天餐厅</div>
+      <div class="ordertitle"><c:out value="${order.restName}"></c:out></div>
       <c:forEach items="${order.dishs}" var="dishes" varStatus="st">
       <div class="orderdtl">
       	<div class="orderdtltitle"><c:out value="${dishes.key}"/>：<span class="ordercount"><c:out value="${fn:length(order.dishs[dishes.key])}"></c:out></span></div>
@@ -79,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	      	<tr style="height: 45px">
       	      	  <td style="width: 130px;padding-right: 10px"><span class="orderdishnm"><c:out value="${dish.dishName}"/></span></td>
       	      	  <td style="width: 50px"><span class="orderamount"><c:out value="${dish.num}"></c:out></span>份</td>
-      	      	  <td style="width: 80px;color: #ff6600">￥<span class="orderprdata">15</span>/份</td>
+      	      	  <td style="width: 80px;color: #ff6600">￥<span class="orderprdata"><c:out value="${dish.price}"></c:out></span>/份</td>
       	      </tr></table>
       	    </div>
       	    </a>
@@ -90,8 +79,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </c:forEach>
     </div>
     <nav class="bar bar-tab" style="background-color: #eee;">
-      <div class="ordertotalp">总计￥&nbsp;<span id="orderprice" style="color: #fe8302;font-size: 25px">0</span></div>
-      <input type="button" class="orderdtlbtn" value="提交订单">
+      <div class="ordertotalp">总计￥&nbsp;<span id="orderprice" style="color: #fe8302;font-size: 25px"><c:out value="${order.totalPrice}"></c:out></span>元</div>
+      <input type="button" class="orderdtlbtn" id="orderSubmit" value="提交订单">
     </nav>
   </body>
   <script src="./js/ratchet.js"></script>

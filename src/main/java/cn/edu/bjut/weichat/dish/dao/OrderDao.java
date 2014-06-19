@@ -9,7 +9,7 @@ public interface OrderDao {
 
 	public List<Order> getOrders(long userId);
 	
-	public void addOrder(Order order);
+	public int addOrder(Order order); //类型改为long就报错
 	
 	public void deleteOrder(long orderId);
 	

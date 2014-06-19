@@ -11,7 +11,7 @@ public class Restaurant {
 	
 	private String restAddress;  //餐厅地址
 	 
-	private String restTel;  // 联系方式
+	private String restContact;  // 联系方式
 	
 	private int avgPrice;  //人均消费
 	 
@@ -52,12 +52,13 @@ public class Restaurant {
 		this.restAddress = restAddress;
 	}
 
-	public String getRestTel() {
-		return restTel;
+
+	public String getRestContact() {
+		return restContact;
 	}
 
-	public void setRestTel(String restTel) {
-		this.restTel = restTel;
+	public void setRestContact(String restContact) {
+		this.restContact = restContact;
 	}
 
 	public int getAvgPrice() {

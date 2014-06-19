@@ -9,13 +9,13 @@ public class OrderOfDetail {
 
 	private long restId;
 
-	private long userId;
+	private long userId = 1;
 
 	private float totalPrice; // 订单总价
 
 	private int state; // 是否支付
 
-	private String remarks; // 备注
+	private String remarks = ""; // 备注
 
 	private Date createTime; // 订单创建时间
 

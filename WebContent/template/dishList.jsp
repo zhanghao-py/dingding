@@ -80,13 +80,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="slide-group"  id="mySlider">
       	<div class="slide" id="slide1" style="width: 100px">
       		<div class="leftmenu" id="leftmenu">
-      			<div class="leftmenuitem">搜索</div>
-      			<div class="leftmenuitem active">凉菜</div>
-      			<div class="leftmenuitem">热菜</div>
-      			<div class="leftmenuitem">主食</div>
-      			<div class="leftmenuitem">汤</div>
-      			<div class="leftmenuitem">饮料</div>
-      			<div class="leftmenuitem">酒水</div>
+      			<div class="leftmenuitem">搜索<input type="hidden" value="0" class="leftmenuvalue"></div>
+      			<div class="leftmenuitem active">凉菜<input type="hidden" value="1" class="leftmenuvalue"></div>
+      			<div class="leftmenuitem">热菜<input type="hidden" value="2" class="leftmenuvalue"></div>
+      			<div class="leftmenuitem">主食<input type="hidden" value="3" class="leftmenuvalue"></div>
+      			<div class="leftmenuitem">汤<input type="hidden" value="4" class="leftmenuvalue"></div>
+      			<!--  <div class="leftmenuitem">饮料<input type="hidden" value="5" class="leftmenuvalue"></div>-->
+      			<div class="leftmenuitem">酒水<input type="hidden" value="5" class="leftmenuvalue"></div>
       		</div>
       	</div>
          <div class="slide">
