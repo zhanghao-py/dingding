@@ -94,7 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		},3000);
 		
 		setTimeout(function(){
-			window.location.href="restrDetail"; 
+			window.location.href="rest/restDetail"; 
 		},6000);
       </script>
   <script src="./js/ratchet.js"></script>
