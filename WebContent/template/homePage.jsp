@@ -41,30 +41,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body style="background-color: #fff">
    <div class="content" style="background-color: #fff">
       <ul class="mpbggroup">
-        <li><img class="mpbg" alt="" src="img/mainpage_bg2.png"/></li>
-        <li><img class="mpbg" alt="" src="img/mainpage_bg3.png"/></li>
+        <!-- <li><img class="mpbg" alt="" src="img/mainpage_bg2.png"/></li>
+        <li><img class="mpbg" alt="" src="img/mainpage_bg3.png"/></li> -->
         <li><img class="mpbg" alt="" src="img/mainpage_bg4.png"/></li>
         <li><img class="mpbg" alt="" src="img/mainpage_bg5.png"/></li>
-        <li><img class="mpbg" alt="" src="img/mainpage_bg6.png"/></li>
+        <!-- <li><img class="mpbg" alt="" src="img/mainpage_bg6.png"/></li> -->
         <li><img class="mpbg" alt="" src="img/mainpage_bg7.png"/></li>
         <li><img class="mpbg" alt="" src="img/mainpage_bg8.png"/></li>
-        <li><img class="mpbg" alt="" src="img/mainpage_bg9.png"/></li>
-        <li><img class="mpbg" alt="" src="img/mainpage_bg1.png"/></li>
+        <!-- <li><img class="mpbg" alt="" src="img/mainpage_bg9.png"/></li>
+        <li><img class="mpbg" alt="" src="img/mainpage_bg1.png"/></li> -->
       </ul>
       <img class="mpdingding" alt="" src="img/mainpage_title.png"/>
-      <div class="mpcontent">
+      <div class="mpcontent" id="locating">
       	<span style="line-height:30px;vertical-align: middle;"><br/>
       	  <img src="img/mainpage_wlan.gif" style="width: 30px;vertical-align: middle;"/>
       	  餐厅定位中...</span><br/>
       	<img src="img/mainpage_wlan_connecting.gif" style="width: 50px;margin-top: 20px"/>
       </div>
-      <div class="mpcontent" style="display: none">
+      <div class="mpcontent" style="display: none" id="locatefail">
       	<span style="line-height:35px;vertical-align: middle;color: red"><br/>
       	  <img src="img/mainpage_wlan_failed.gif" style="width: 30px;vertical-align: middle;"/>
       	  定位失败，请您检查网络:(</span><br/>
       	<div align="center"><input type="button" class="mprefresh" value="刷新"/></div>
       </div>
-      <div class="mpcontent" style="display: none">
+      <div class="mpcontent" style="display: none" id="locatesuccess">
       	<img src="img/mainpage_wlan_success.gif" style="width: 150px;margin-top: 30px;margin-bottom: 15px;"/>
       	<div align="center"><div style="border-top: 1px solid #ccc;width: 80%;height: 15px"></div></div>
       	<div style="text-align: left;margin-left: 23%">
@@ -72,9 +72,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	  <span style="line-height: 25px;color: #ccc;"><img src="img/mainpage_restaurant_icon.png" style="width: 25px;vertical-align: middle;margin-top: -4px"/>
       	  <a class="locateplace" style="color: #ccc;text-decoration: none"><c:out value="${place }"/></a></span><br/>
       	</c:forEach>
+      	<span style="line-height: 25px;color: #ccc;">......</span>
       	</div>
       </div>
-      <img class="mpbottom" alt="" src="img/mainpage_bottom_bar.png"/>
+      <img class="mpbottom" alt="" src="img/mainpage_bottom_bar.png" style="z-index: 999"/>
       <div class="mpversion">V1.0</div>
    </div>
   </body>
@@ -86,6 +87,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(this).show().parent().prependTo($('ul')); 
 		}); 
 		}, switchSpeed); 
+		
+		setTimeout(function(){
+			document.getElementById("locating").style.display = "none";
+			document.getElementById("locatesuccess").style.display = "";
+		},3000);
+		
+		setTimeout(function(){
+			window.location.href="restrDetail"; 
+		},6000);
       </script>
   <script src="./js/ratchet.js"></script>
 </html>
