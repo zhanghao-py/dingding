@@ -84,13 +84,15 @@ public class DishServiceImpl implements DishService {
 
 	@Override
 	public List<DishDetail> getDishDetail(long dishId) {
-		//List<DishDetail> list = null;
+		List<DishDetail> list = null;
 		PageBean<DishDetail> page = new PageBean<DishDetail>();
+		
 		if(dishId <= 0)
 			return null;
 		
 		try {
-			return dishDao.getDishDetail(dishId,page);
+			list = dishDao.getDishDetail(dishId,page);
+			return list;
 		} catch (Exception e) {
 			logger.warn("", e);
 			return null;

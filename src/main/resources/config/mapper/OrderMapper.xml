@@ -9,10 +9,21 @@
 		<result column="totalPrice" property="totalPrice" jdbcType="FLOAT" />
 		<result column="state" property="state" jdbcType="INTEGER" />
 		<result column="remarks" property="remarks" jdbcType="VARCHAR" />
-		<result column="createTime" property="createTime" jdbcType="TIME" />
-		<result column="payTime" property="payTime" jdbcType="TIME" />
+		<result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="payTime" property="payTime" jdbcType="TIMESTAMP" />
 	</resultMap>
 	
+	<resultMap type="cn.edu.bjut.weichat.dao.bean.AllOrders" id="ordersMap">
+		<id column="orderId" property="orderId" jdbcType="BIGINT" />
+		<result column="restId" property="restId" jdbcType="BIGINT" />
+		<result column="userId" property="userId" jdbcType="BIGINT" />
+		<result column="totalPrice" property="totalPrice" jdbcType="FLOAT" />
+		<result column="state" property="state" jdbcType="INTEGER" />
+		<result column="remarks" property="remarks" jdbcType="VARCHAR" />
+		<result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="payTime" property="payTime" jdbcType="TIMESTAMP" />
+		<result column="restName" property="restName" jdbcType="VARCHAR"/>
+	</resultMap>
 	
 	
 	<insert id="addOrder" parameterType="cn.edu.bjut.weichat.core.bo.Order">
@@ -26,8 +37,9 @@
 	</insert>
 	
 	
-	<select id="getAllOrders" resultMap="orderResultMap">
-		select * from tb_order where userId = #{userId,jdbcType=BIGINT} order by createTime
+	<select id="getAllOrders" resultMap="ordersMap">
+		select orde.*,rest.restName from tb_order orde INNER JOIN tb_restaurant rest where orde.restId = rest.restId and orde.userId = #{userId,jdbcType=BIGINT} 
+		order by createTime desc
 	</select>
 	
 	

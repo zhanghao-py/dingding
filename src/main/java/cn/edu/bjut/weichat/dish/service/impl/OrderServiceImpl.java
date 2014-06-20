@@ -25,6 +25,7 @@ import cn.edu.bjut.weichat.core.mybatis.pagination.PageBean;
 import cn.edu.bjut.weichat.core.util.Category;
 import cn.edu.bjut.weichat.core.util.DateFormat;
 import cn.edu.bjut.weichat.core.util.OrderState;
+import cn.edu.bjut.weichat.dao.bean.AllOrders;
 import cn.edu.bjut.weichat.dao.bean.DishDetail;
 import cn.edu.bjut.weichat.dao.bean.OrderOfDetail;
 import cn.edu.bjut.weichat.dish.dao.DishDao;
@@ -130,6 +131,27 @@ public class OrderServiceImpl implements OrderService {
 
 		return 1;
 
+	}
+
+	@Override
+	public List<AllOrders> getAllOrders(long userId,int pageNum,int listNum) {
+		
+		List<AllOrders> list = null;
+		PageBean<AllOrders> page = new PageBean<AllOrders>();
+		
+		if(userId <= 0||pageNum < 0||listNum < 0)
+			return null;
+		
+		try {
+			page.setPageSize(listNum);
+			page.setCurrentPage(pageNum);
+			list = orderDao.getAllOrders(userId, page);
+		} catch (Exception e) {
+			logger.warn("", e);
+			return null;
+		}
+		
+		return list;
 	}
 
 }

@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="./css/ratchet.css" rel="stylesheet">
     <link href="./css/dingding.css" rel="stylesheet">
     <script src="./js/jquery-1.11.0.js"></script>
-	    <script type="text/javascript" src="./js/dish/order.js"></script>
+	<script type="text/javascript" src="./js/dish/order.js"></script>
     <!-- <script type="text/javascript" src="js/thumbs.0.6.0.js"></script> -->
     <script type="text/javascript">
     	$(function(){
@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body style="background-color: #eee">
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
-      <button class="btn pull-left back"></button>
+      <button class="btn pull-left back" onclick="javascript:history.back(-1);"></button>
       <h1 class="title" style="font-family: '微软雅黑'；;font-size: 24px">订单详情</h1>
     </header>
 

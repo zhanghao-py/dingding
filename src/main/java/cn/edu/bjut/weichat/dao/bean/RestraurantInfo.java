@@ -1,8 +1,11 @@
-package cn.edu.bjut.weichat.core.bo;
+package cn.edu.bjut.weichat.dao.bean;
 
-public class Restaurant {
-	
-	
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.edu.bjut.weichat.core.bo.Dish;
+
+public class RestraurantInfo {
 	private long restId;   //餐厅id
 	  
 	private String restName;   // 餐厅名称
@@ -20,8 +23,9 @@ public class Restaurant {
 	private double latitude;  //经度
 	
 	private double longitude;  //纬度
-
 	
+	private List<Dish> recommendDishs = new ArrayList<Dish>();
+
 	public long getRestId() {
 		return restId;
 	}
@@ -53,7 +57,6 @@ public class Restaurant {
 	public void setRestAddress(String restAddress) {
 		this.restAddress = restAddress;
 	}
-
 
 	public String getRestContact() {
 		return restContact;
@@ -87,6 +90,14 @@ public class Restaurant {
 		this.longitude = longitude;
 	}
 
+	public List<Dish> getRecommendDishs() {
+		return recommendDishs;
+	}
+
+	public void setRecommendDishs(List<Dish> recommendDishs) {
+		this.recommendDishs = recommendDishs;
+	}
+
 	public String getImageOfRest() {
 		return imageOfRest;
 	}
@@ -94,7 +105,6 @@ public class Restaurant {
 	public void setImageOfRest(String imageOfRest) {
 		this.imageOfRest = imageOfRest;
 	}
-	
 	
 	
 }

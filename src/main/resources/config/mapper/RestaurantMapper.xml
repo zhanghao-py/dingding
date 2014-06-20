@@ -9,6 +9,19 @@
 		<result column="restAddress" property="restAddress" jdbcType="VARCHAR" />
 		<result column="restContact" property="restContact" jdbcType="VARCHAR" />
 		<result column="avgPrice" property="avgPrice" jdbcType="INTEGER" />
+		<result column="imageOfRest" property="imageOfRest" jdbcType="VARCHAR"/>
+		<result column="latitude" property="latitude" jdbcType="DOUBLE" />
+		<result column="longitude" property="longitude" jdbcType="DOUBLE" />
+	</resultMap>
+	
+	<resultMap type="cn.edu.bjut.weichat.dao.bean.RestraurantInfo" id="restInfotMap">
+		<id column="restId" property="restId" jdbcType="BIGINT" />
+		<result column="restName" property="restName" jdbcType="VARCHAR" />
+		<result column="restIntro" property="restIntro" jdbcType="VARCHAR" />
+		<result column="restAddress" property="restAddress" jdbcType="VARCHAR" />
+		<result column="restContact" property="restContact" jdbcType="VARCHAR" />
+		<result column="avgPrice" property="avgPrice" jdbcType="INTEGER" />
+		<result column="imageOfRest" property="imageOfRest" jdbcType="VARCHAR"/>
 		<result column="latitude" property="latitude" jdbcType="DOUBLE" />
 		<result column="longitude" property="longitude" jdbcType="DOUBLE" />
 	</resultMap>
@@ -17,5 +30,11 @@
 	<select id="getRestaurantByRestId" resultMap="restResultMap">
 		select * from tb_restaurant where restId = #{restId}
 	</select>
-
+	
+	
+	<select id="loadRestraurantInfo" resultMap="restInfotMap">
+		select * from tb_restaurant
+	</select>
+	
+	
 </mapper>

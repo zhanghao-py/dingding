@@ -82,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    var local = new BMap.LocalSearch(map, {
 		    	  renderOptions:{map: map, autoViewport:true}
 		    	});
-		    local.searchNearby("天天餐厅", "北京工业大学");
+		    local.searchNearby("餐厅", "北京工业大学");
 		}
 		});
 	</script>

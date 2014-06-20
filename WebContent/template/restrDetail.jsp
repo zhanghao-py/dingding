@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		var bodywidth = document.body.clientWidth;
     		$(".resmap").innerWidth(bodywidth-40);
     		$(".resmap").innerHeight($(".resmap").innerWidth());
-    		$(".resinfo").innerHeight($(".resinfotext").innerHeight() > $(".resinfo img").innerHeight() ? $(".resinfotext").innerHeight() : ($(".resinfo img").innerHeight()+20));
+    		$(".resinfo").innerHeight($(".resinfotext").height() > $(".resinfo img").height() ? $(".resinfotext").height() : $(".resinfo img").height());
     		var aw = $(".tab-item").width();
     		$(".menudiv").innerWidth(aw);
     		$(".menudiv").css({"display":"none"});
@@ -41,24 +41,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <header class="bar bar-nav" style="border:0">
       <button class="btn pull-left resback"></button>
       <button class="btn pull-right share"></button>
-      <h1 class="title" style="font-family: '微软雅黑';font-size: 24px">北京工业大学天天餐厅</h1>
+      <h1 class="title" style="font-family: '微软雅黑';font-size: 24px">餐厅详情</h1>
     </header>
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content" style="padding-bottom: 67px;">
     <div class="slider">
       <div class="slide-group">
-      <c:forEach begin="0" end="4" step="1">
+      <c:forEach items="${rests}" var="rest">
       	<div class="slide">
       <div class="resdiv">
-      	<div class="resdivtitle">餐厅详情</div>
+      	<div class="resdivtitle"><c:out value="${rest.restName}"></c:out></div>
       	<div class="resinfo">
+      	<input type="hidden" id="restname" value="${rest.restName}"/>
       	  <div class="resinfotext" style="white-space: normal;">
-      		 地址：<span class="resaddr">北京市朝阳区北工大路平乐园100号工业大学内（近大望路）</span><br/>
-      		人均：<span style="color: red">￥<span class="resprice">50</span></span><br/>
-      		联系方式：<span class="restel">8888888</span>
+      		 地址：<span class="resaddr"><c:out value="${rest.restIntro}"></c:out></span><br/>
+      		人均：<span style="color: red">￥<span class="resprice"><c:out value="${rest.avgPrice}"></c:out></span></span><br/>
+      		联系方式：<span class="restel"><c:out value="${rest.restContact}"></c:out></span>
       	  </div>
-      	  <img src="img/tiantianres.jpg">
+      	  <img src="<c:out value='${rest.imageOfRest}'></c:out>">
       	</div>
       </div>
       <div class="resdiv" style="padding-left: 0;padding-right: 0;">
@@ -67,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	<table class="reslisttable">
       	  <tr>
       	    <td></td><td></td>
-      	    <c:forEach begin="0" end="4" step="1">
+      	    <c:forEach begin="0" end="2" step="1">
       		<td class="rescommdish">
       		  <img src="img/dishpng.png"/><br/>
       		  <span class="commdishnm">宫保鸡丁</span>

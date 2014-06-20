@@ -69,8 +69,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body style="background: #eee;">
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
-      <button class="btn pull-left back"></button>
-      <button class="btn pull-right order"></button>
+      <button class="btn pull-left back" onclick="javascript:history.back(-1);"></button>
+      <button class="btn pull-right order" id="toOrderList"></button>
       <h1 class="title" style="font-family: '微软雅黑'">北京工业大学第一食堂</h1>
     </header>
 
