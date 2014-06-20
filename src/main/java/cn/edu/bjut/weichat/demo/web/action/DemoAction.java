@@ -21,10 +21,10 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("index");
     }
 	
-//	@RequestMapping(value = "page403", method = RequestMethod.GET) 
-//    public ModelAndView page403() {
-//        return new ModelAndView("page403");
-//    }
+	@RequestMapping(value = "page403", method = RequestMethod.GET) 
+    public ModelAndView page403() {
+        return new ModelAndView("page403");
+    }
 	
 	@RequestMapping(value = "dishList", method = RequestMethod.GET) 
     public ModelAndView dishList() {
@@ -89,6 +89,16 @@ public class DemoAction extends BaseAction {
 	@RequestMapping(value = "homePage", method = RequestMethod.GET) 
     public ModelAndView homePage() {
         return new ModelAndView("homePage");
+    }
+	
+	@RequestMapping(value = "groupPurchase", method = RequestMethod.GET) 
+    public ModelAndView groupPurchase() {
+        return new ModelAndView("groupPurchase");
+    }
+	
+	@RequestMapping(value = "orderHistory", method = RequestMethod.GET) 
+    public ModelAndView orderHistory() {
+        return new ModelAndView("orderHistory");
     }
 	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
