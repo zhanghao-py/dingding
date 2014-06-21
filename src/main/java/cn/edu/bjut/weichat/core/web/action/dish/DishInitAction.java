@@ -64,6 +64,7 @@ public class DishInitAction extends BaseAction {
 		    list = dishService.selectDishByRestIdAndCategory(restId, category, pageNum, listNum);
 		} catch (Exception e) {
 			logger.warn(" ",e);
+			return new ModelAndView("page403");
 		}
 		
 		return new ModelAndView("dishList","list",list);
