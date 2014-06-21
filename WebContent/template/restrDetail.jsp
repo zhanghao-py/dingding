@@ -29,10 +29,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		var aw = $(".tab-item").width();
     		$(".menudiv").innerWidth(aw);
     		$(".menudiv").css({"display":"none"});
+    		$(".discoverydiv").innerWidth(aw);
+    		$(".discoverydiv").css({"display":"none"});
     	});
     	
     	function showmenu() {
     		$(".menudiv").slideToggle(50);
+    	}
+    	
+    	function showdisc() {
+    		$(".discoverydiv").slideToggle(50);
     	}
     </script>
   </head>
@@ -89,20 +95,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
     </div>
     <nav class="bar bar-tab">
-      <a class="tab-item" href="javascript(void(0))" onclick="showmenu()">
+      <a class="tab-item" href="javascript:void(0)" onclick="showmenu()">
         <span class="icon order"></span>
         <span class="tab-label">点餐模式</span>
         <div class="menudiv" id="followmenu" style="bottom:139px;">按菜单</div>
     	<div class="menudiv" id="followmeat" style="bottom:99px;">按荤素</div>
     	<div class="menudiv" id="followmaterial" style="bottom:59px">按食材</div>
       </a>
-      <a class="tab-item" href="javascript(void(0))">
+      <a class="tab-item" href="javascript:void(0)">
         <span class="icon noopsyche"></span>
         <span class="tab-label">智能点餐</span>
       </a>
-      <a class="tab-item active" href="javascript(void(0))">
+      <a class="tab-item" href="javascript:void(0)" onclick="showdisc()">
         <span class="icon discovery"></span>
         <span class="tab-label">餐厅发现</span>
+        <div class="discoverydiv" id="restdisc" style="bottom:99px;">餐厅发现</div>
+    	<div class="discoverydiv" id="group" style="bottom:59px;">叮叮团</div>
       </a>
     </nav>
   </body>

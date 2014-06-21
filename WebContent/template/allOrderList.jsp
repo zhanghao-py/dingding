@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>叮叮菜单列表</title>
+<title>叮叮点餐_全部订单</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">

@@ -37,6 +37,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		var aw = $(".tab-item").width();
     		$(".menudiv").innerWidth(aw);
     		$(".menudiv").css({"display":"none"});
+    		$(".discoverydiv").innerWidth(aw);
+    		$(".discoverydiv").css({"display":"none"});
+    		$(".historydiv").innerWidth(aw);
+    		$(".historydiv").css({"display":"none"});
     		
     	});
     	
@@ -62,6 +66,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	
     	function showmenu() {
     		$(".menudiv").slideToggle(50);
+    	}
+    	
+    	function showdisc() {
+    		$(".discoverydiv").slideToggle(50);
+    	}
+    	
+    	function showhis() {
+    		$(".historydiv").slideToggle(50);
     	}
     	
     	function toRestDetail(){
@@ -133,24 +145,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div></div>
     </div>
     <nav class="bar bar-tab">
-      <a class="tab-item active" href="javascript(void(0))" onclick="showmenu()">
+      <a class="tab-item active" href="javascript:void(0)" onclick="showmenu()">
         <span class="icon order"></span>
         <span class="tab-label">点餐模式</span>
         <div class="menudiv" id="dishfollowmenu" style="bottom:139px;">按菜单</div>
     	<div class="menudiv" id="dishfollowmeat" style="bottom:99px;">按荤素</div>
     	<div class="menudiv" id="dishfollowmaterial" style="bottom:59px">按食材</div>
       </a>
-      <a class="tab-item" href="javascript(void(0))">
+      <a class="tab-item" href="javascript:void(0)">
         <span class="icon noopsyche"></span>
         <span class="tab-label">智能点餐</span>
       </a>
-      <a class="tab-item" href="javascript(void(0))">
+      <a class="tab-item" href="javascript:void(0)" onclick="showhis()">
         <span class="icon history"></span>
         <span class="tab-label">历史点餐</span>
+        <div class="historydiv" id="dishhistory" style="bottom:99px;">历史点餐</div>
+    	<div class="historydiv" id="dishallorder" style="bottom:59px;">全部订单</div>
       </a>
-      <a class="tab-item" href="javascript(void(0))">
+      <a class="tab-item" href="javascript:void(0)" onclick="showdisc()">
         <span class="icon discovery"></span>
         <span class="tab-label">餐厅发现</span>
+        <div class="discoverydiv" id="dishrestdisc" style="bottom:99px;">餐厅发现</div>
+    	<div class="discoverydiv" id="dishgroup" style="bottom:59px;">叮叮团</div>
       </a>
     </nav>
   </body>

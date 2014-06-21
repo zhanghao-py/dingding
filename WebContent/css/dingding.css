@@ -235,7 +235,7 @@ body {
 	background: url("../img/noopsyche_discovery1.png") no-repeat;
 }
 
-.tab-item .menudiv {
+.tab-item .menudiv, .tab-item .discoverydiv, .tab-item .historydiv {
 	width: 70px;
 	height: 40px;
 	float: left;
@@ -250,7 +250,7 @@ body {
 	font-size: 14px;
 }
 
-.tab-item .menudiv:active {
+.tab-item .menudiv:active, .tab-item .discoverydiv:active, .tab-item .historydiv:active {
 	background-color: #eee;
 }
 
