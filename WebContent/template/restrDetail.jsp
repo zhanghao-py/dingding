@@ -18,6 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="./css/ratchet.css" rel="stylesheet">
     <link href="./css/dingding.css" rel="stylesheet">
     <script src="./js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="./js/dish/dishList.js"></script>
     <!-- <script type="text/javascript" src="js/thumbs.0.6.0.js"></script> -->
     <script type="text/javascript">
     	$(function(){

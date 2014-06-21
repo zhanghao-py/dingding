@@ -19,12 +19,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="./css/dingding.css" rel="stylesheet">
     <script src="./js/jquery-1.11.0.js"></script>
     <script type="text/javascript" src="./js/dish/dishList.js"></script>
+    <script type="text/javascript" src="./js/dish/history.js"></script>
     <!-- <script type="text/javascript" src="js/thumbs.0.6.0.js"></script> -->
     <script type="text/javascript">
     	$(function(){
     		var headh = $("header").height();
-    		var navh = $("nav").height();
-    		var newimgh = (document.body.clientHeight-navh-headh)/6;
+    		var newimgh = (document.body.clientHeight-headh)/8;
     		$("img").innerHeight(newimgh);
     		if(document.body.clientHeight < 450){
     			$(".media-body p").hide();
@@ -77,16 +77,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="content">
       <div>
         <ul class="table-view" style="margin-bottom:0" id="historyDish">
-        <c:forEach items="${list}"  var="dish">
+        <c:forEach items="${history.maps}"  var="dish">
           <li class="table-view-cell media">
-            <a class="" onclick='choose(this)'>
-              <img class="media-object pull-left" src="img/kongpaochicken.PNG">
+            <a class="">
+              <img class="media-object pull-left" src='<c:out value="${history.maps[dish.key].imageUrl}"></c:out>'>
               <div class="media-body">
-                <div class="dishnm"><c:out value="${dish.dishName}"></c:out></div>
+                <div class="dishnm"><c:out value="${dish.key}"></c:out></div>
                 <div class="dishinfo">
-                	<div class="dishprice"><span>￥</span><span style="font-size: 20px;color: red"><c:out value="${dish.price}"></c:out></span><span style="color: red">/份</span></div>
-                	<div class="dishsell">已点<span style="color: #FF6600;font-size: 18px" id="orderamount">207</span>次</div>
-                	<input type="hidden" value="<c:out value="${dish.dishId}"></c:out>">
+                	<div class="dishprice"><span>￥</span><span style="font-size: 20px;color: red"><c:out value="${history.maps[dish.key].price}"></c:out></span><span style="color: red">/份</span></div>
+                	<div class="dishsell">已点<span style="color: #FF6600;font-size: 18px" class="orderamount"><c:out value="${history.maps[dish.key].numOfOrder}"></c:out></span>次</div>
+                	<input type="hidden" value="<c:out value="${history.maps[dish.key].dishId}"></c:out>">
                 </div>
                 <div class="dishline"></div>
                 <div class="dishcomm">

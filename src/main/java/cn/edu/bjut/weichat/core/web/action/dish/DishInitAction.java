@@ -75,6 +75,11 @@ public class DishInitAction extends BaseAction {
 	public StatusInfo moreDish(){
 		
 		List<Dish> list = null;
+		long restId = 100000;
+		
+		
+		if(null != request.getParameter("restId"))
+			restId = Long.parseLong(request.getParameter("restId"));
 		
 		if(null != request.getParameter("pageNum"))
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
@@ -101,7 +106,7 @@ public class DishInitAction extends BaseAction {
 		
 		try {
 			//list = dishService.selectDishByName("宫保鸡丁");
-			list = dishService.selectDishByRestIdAndCategory(100000,category, pageNum, listNum);
+			list = dishService.selectDishByRestIdAndCategory(restId,category, pageNum, listNum);
 		} catch (Exception e) {
 			logger.warn("", e);
 			status.setStatus(StatusInfo.FAILED);
@@ -144,6 +149,7 @@ public class DishInitAction extends BaseAction {
 				dish = list.get(0);			
 		} catch (Exception e) {
 			logger.warn("", e);
+			new ModelAndView("page403");
 		}
 		
 		return new ModelAndView("dishDetail","dish",dish); 

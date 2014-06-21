@@ -27,6 +27,8 @@ import cn.edu.bjut.weichat.core.util.DateFormat;
 import cn.edu.bjut.weichat.core.util.OrderState;
 import cn.edu.bjut.weichat.dao.bean.AllOrders;
 import cn.edu.bjut.weichat.dao.bean.DishDetail;
+import cn.edu.bjut.weichat.dao.bean.HistoryDish;
+import cn.edu.bjut.weichat.dao.bean.HistoryDishs;
 import cn.edu.bjut.weichat.dao.bean.OrderOfDetail;
 import cn.edu.bjut.weichat.dish.dao.DishDao;
 import cn.edu.bjut.weichat.dish.dao.OrderDao;
@@ -152,6 +154,50 @@ public class OrderServiceImpl implements OrderService {
 		}
 		
 		return list;
+	}
+
+	@Override
+	public HistoryDishs loadHistoryDishs(long restId, long userId, int pageNum,
+			int listNum) {
+		HistoryDishs hd = new HistoryDishs();
+		List<HistoryDish> list = null;
+		
+		PageBean<HistoryDish> page = new PageBean<HistoryDish>();
+		
+		
+		page.setCurrentPage(pageNum);
+		page.setPageSize(listNum);
+		
+		if(restId <= 0 || userId <= 0)
+			return null;
+		hd.setRestId(restId);
+		hd.setUserId(userId);
+		
+		try {
+			list = orderDao.loadOrdersByRestIdAndUserId(userId, restId, page);
+			Map<String, HistoryDish> map = hd.getMaps();
+			Set<String > dishNames = map.keySet();
+			for(int i = 0;i < list.size();i++){
+				String dishName = list.get(i).getDishName();
+				if(dishNames.contains(dishName)){
+					HistoryDish hDish = map.get(dishName);
+					int num = hDish.getNumOfOrder() + 1;
+					hDish.setNumOfOrder(num);
+					hd.setNum(hd.getNum() + 1);
+				}
+				else {
+					list.get(i).setNumOfOrder(1);
+					map.put(dishName, list.get(i));
+					hd.setNum(hd.getNum() + 1);
+				}
+				
+			}
+			
+		} catch (Exception e) {
+			logger.warn("", e);
+			return null;
+		}
+		return hd;
 	}
 
 }

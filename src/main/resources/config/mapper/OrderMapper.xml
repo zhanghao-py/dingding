@@ -25,6 +25,21 @@
 		<result column="restName" property="restName" jdbcType="VARCHAR"/>
 	</resultMap>
 	
+	<resultMap type="cn.edu.bjut.weichat.dao.bean.HistoryDish" id="dishsMap">
+		<id column="orderId" property="orderId" jdbcType="BIGINT" />
+		<result column="restId" property="restId" jdbcType="BIGINT" />
+		<result column="userId" property="userId" jdbcType="BIGINT" />
+		<result column="dishId" property="dishId" jdbcType="BIGINT" />
+		<result column="dishName" property="dishName" jdbcType="VARCHAR" />
+		<result column="material" property="material" jdbcType="VARCHAR" />
+		<result column="concoction" property="concoction" jdbcType="INTEGER" />
+		<result column="category" property="category" jdbcType="INTEGER" />
+		<result column="cuisine" property="cuisine" jdbcType="INTEGER" />
+		<result column="price" property="price" jdbcType="FLOAT" />
+		<result column="support" property="support" jdbcType="INTEGER" />
+		<result column="imageUrl" property="imageUrl" jdbcType="VARCHAR"/>
+	</resultMap>
+	
 	
 	<insert id="addOrder" parameterType="cn.edu.bjut.weichat.core.bo.Order">
 		<selectKey resultType="java.lang.Long" keyProperty="orderId">
@@ -40,6 +55,12 @@
 	<select id="getAllOrders" resultMap="ordersMap">
 		select orde.*,rest.restName from tb_order orde INNER JOIN tb_restaurant rest where orde.restId = rest.restId and orde.userId = #{userId,jdbcType=BIGINT} 
 		order by createTime desc
+	</select>
+	
+	
+	<select id="loadOrdersByRestIdAndUserId" resultMap="dishsMap">
+		select dish.*,orde.orderId,orde.userId,image.imageUrl from tb_order orde INNER JOIN tb_dishOrder dishO INNER JOIN tb_dish dish INNER JOIN tb_dishimage image where 
+		orde.orderId = dishO.orderId and dishO.dishId = dish.dishId and image.dishId = dish.dishId and orde.restId = #{restId,jdbcType=BIGINT} and orde.userId = #{userId,jdbcType=BIGINT}
 	</select>
 	
 	

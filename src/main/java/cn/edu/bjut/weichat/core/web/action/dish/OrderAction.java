@@ -2,9 +2,7 @@ package cn.edu.bjut.weichat.core.web.action.dish;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import cn.edu.bjut.weichat.core.util.DishUtil;
 import cn.edu.bjut.weichat.core.web.action.BaseAction;
 import cn.edu.bjut.weichat.core.web.action.dto.StatusInfo;
-import cn.edu.bjut.weichat.dao.bean.OrderList;
+import cn.edu.bjut.weichat.dao.bean.AllOrders;
 import cn.edu.bjut.weichat.dao.bean.OrderOfDetail;
-import cn.edu.bjut.weichat.dish.service.ImageOfDishService;
 import cn.edu.bjut.weichat.dish.service.OrderService;
 import cn.edu.bjut.weichat.dish.service.RestaurantService;
 
@@ -34,15 +32,22 @@ public class OrderAction extends BaseAction {
 	private RestaurantService restaurantService;
 	
 	
+	
+	private int pageNum;
+	
+	private int listNum;
+	
+	
+	
 	@RequestMapping(value="/addDish",method=RequestMethod.POST)
 	@ResponseBody
 	public StatusInfo addDishToOrder(){
 				
 		List<String> dish = new ArrayList<String>();
 		
-		String dishId = "";
+		String dishId = "100000";
 		
-		String dishNum = "";
+		String dishNum = "1";
 		
 		if(null != (dishId = request.getParameter("dishId")))
 			dish.add(dishId);
@@ -62,7 +67,6 @@ public class OrderAction extends BaseAction {
 			return status;
 		}
 		
-			
 		List<List<String>> dishs = (List<List<String>>) session.getAttribute("order");
 		
 		
@@ -99,6 +103,7 @@ public class OrderAction extends BaseAction {
 			ood.setRestName(restaurantService.getRestaurantByRestId(ood.getRestId()).get(0).getRestName());
 		} catch (Exception e) {
 			logger.warn("", e);
+			return new ModelAndView("page403");
 		}
 		//session.removeAttribute("order");
 		
@@ -134,4 +139,67 @@ public class OrderAction extends BaseAction {
 		return new ModelAndView("payment");
 	}
 	
+	
+	@RequestMapping(value="/allOrders",method=RequestMethod.GET)
+	public ModelAndView getAllOrders(){
+		List<AllOrders> list = null;
+		long userId = 1;
+		String paraString =  "";
+		
+		pageNum = DishUtil.INITPAGENUM;
+		listNum = DishUtil.ListNUM;
+		
+		if(null != request.getParameter("pageNum"))
+			pageNum = Integer.parseInt(request.getParameter("pageNum"));
+		
+		if(null !=(paraString = request.getParameter("userId")))
+			userId = Integer.parseInt(paraString);
+		
+		
+		try {
+			list = orderService.getAllOrders(userId,pageNum,listNum);
+		} catch (Exception e) {
+			logger.warn("", e);
+			return new ModelAndView("page403");
+		}
+		
+		return new ModelAndView("allOrderList","orders",list);
+	}
+	
+	@RequestMapping(value="/moreOrders",method=RequestMethod.POST)
+	@ResponseBody
+	public StatusInfo loadMoreOrders(){
+		
+		List<AllOrders> list = null;
+		long userId = 1;
+		String paraString =  "";
+		
+		pageNum = DishUtil.INITPAGENUM;
+		listNum = DishUtil.ListNUM;
+		
+		if(null != request.getParameter("pageNum"))
+			pageNum = Integer.parseInt(request.getParameter("pageNum"));
+		
+		if(null !=(paraString = request.getParameter("userId")))
+			userId = Integer.parseInt(paraString);
+		
+		
+		try {
+			list = orderService.getAllOrders(userId,pageNum,listNum);
+		} catch (Exception e) {
+			logger.warn("", e);
+			status.setStatus(StatusInfo.FAILED);
+			return status;
+		}
+		
+		if(list.size() < 5)
+			status.setStatusInfo("-1");
+		else
+			status.setStatusInfo(StatusInfo.SUCCESS_MSG);
+		
+		status.setStatus(StatusInfo.SUCCESS);
+		status.setData(list);
+		
+		return status;
+	}
 }

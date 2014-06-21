@@ -63,13 +63,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	function showmenu() {
     		$(".menudiv").slideToggle(50);
     	}
+    	
+    	function toRestDetail(){
+    		location.href = "rest/restDetail";
+    	}
     </script>
   </head>
   
   <body style="background: #eee;">
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
-      <button class="btn pull-left back" onclick="javascript:history.back(-1);"></button>
+      <button class="btn pull-left back" onclick="toRestDetail()"></button>
       <button class="btn pull-right order" id="toOrderList"></button>
       <h1 class="title" style="font-family: '微软雅黑'">北京工业大学第一食堂</h1>
     </header>
@@ -132,9 +136,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <a class="tab-item active" href="javascript(void(0))" onclick="showmenu()">
         <span class="icon order"></span>
         <span class="tab-label">点餐模式</span>
-        <div class="menudiv" id="followmenu" style="bottom:139px;">按菜单</div>
-    	<div class="menudiv" id="followmeat" style="bottom:99px;">按荤素</div>
-    	<div class="menudiv" id="followmaterial" style="bottom:59px">按食材</div>
+        <div class="menudiv" id="dishfollowmenu" style="bottom:139px;">按菜单</div>
+    	<div class="menudiv" id="dishfollowmeat" style="bottom:99px;">按荤素</div>
+    	<div class="menudiv" id="dishfollowmaterial" style="bottom:59px">按食材</div>
       </a>
       <a class="tab-item" href="javascript(void(0))">
         <span class="icon noopsyche"></span>

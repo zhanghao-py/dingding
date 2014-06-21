@@ -181,5 +181,33 @@ $(function(){
 		location.href="orders/orderList";
 	});
 	
+	$("#dishfollowmenu").click(function(){
+		location.href="dishPage/init";
+	});
+	
+	$("#dishfollowmeat").click(function(){
+		location.href="dishPage/init";
+	});
+	
+	$("#dishfollowmaterial").click(function(){
+		location.href="dishPage/init";
+	});
+	
+	$("#followmenu").click(function(){
+		location.href="dishPage/init";
+	});
+	
+	$("#followmeat").click(function(){
+		location.href="dishPage/init";
+	});
+	
+	$("#followmaterial").click(function(){
+		location.href="dishPage/init";
+	});
+	
+	
+	
+	
+	
 	
 });
