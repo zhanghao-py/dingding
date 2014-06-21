@@ -68,8 +68,9 @@ $(function(){
 				var more = document.getElementById("historyDish");
 				more.appendChild(oFrag);
 				var headh = $("header").height();
-	    		var newimgh = (document.body.clientHeight-headh)/8;
+	    		var newimgh = (document.body.clientHeight-headh)/8.5;
 	    		$("img").innerHeight(newimgh);
+	    		$("img").innerWidth(80);
 				
 			}
 		});

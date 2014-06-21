@@ -38,10 +38,10 @@
 	</select>
 
 
-	<select id="selectDishByRestIdAndCategory" resultMap="dishResultMap">
-		select *
-		from tb_dish where restId = #{map.restId,jdbcType=BIGINT} and
-		category= #{map.cate,jdbcType=INTEGER}
+	<select id="selectDishByRestIdAndCategory" resultMap="dishDetail">
+		select dish.*,image.imageUrl
+		from tb_dish dish INNER JOIN tb_dishimage image  where dish.dishId = image.dishId and dish.restId = #{map.restId,jdbcType=BIGINT} and
+		dish.category= #{map.cate,jdbcType=INTEGER}
 	</select>
 
 	<select id="selectDishById" parameterType="long" resultMap="dishResultMap">

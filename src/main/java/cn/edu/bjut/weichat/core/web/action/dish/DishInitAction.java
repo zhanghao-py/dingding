@@ -37,7 +37,7 @@ public class DishInitAction extends BaseAction {
 	public ModelAndView initPage(){
 		//接收餐厅的id，然后查出该餐厅的凉菜的前5种
 		
-		List<Dish> list = null;
+		List<DishDetail> list = null;
 		String paraString = "";
 		
 		long restId = 100000;
@@ -74,7 +74,7 @@ public class DishInitAction extends BaseAction {
 	@ResponseBody
 	public StatusInfo moreDish(){
 		
-		List<Dish> list = null;
+		List<DishDetail> list = null;
 		long restId = 100000;
 		
 		

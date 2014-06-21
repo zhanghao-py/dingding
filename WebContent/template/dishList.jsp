@@ -26,6 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		var navh = $("nav").height();
     		var newimgh = (document.body.clientHeight-navh-headh)/6;
     		$("img").innerHeight(newimgh);
+    		$("img").innerWidth(80);
     		if(document.body.clientHeight < 450){
     			$(".media-body p").hide();
     		}
@@ -41,6 +42,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		$(".discoverydiv").css({"display":"none"});
     		$(".historydiv").innerWidth(aw);
     		$(".historydiv").css({"display":"none"});
+    		
+    		$("#dishhistory").click(function(){
+    			location.href="history";
+    		});
+    		$("#dishallorder").click(function(){
+    			location.href="orders/allOrders";
+    		});
+    		$("#dishrestdisc").click(function(){
+    			location.href="restrDiscovery";
+    		});
+    		$("#dishgroup").click(function(){
+    			location.href="groupPurchase";
+    		});
     		
     	});
     	
@@ -111,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <c:forEach items="${list}"  var="dish">
           <li class="table-view-cell media">
             <a class="" onclick='choose(this)'>
-              <img class="media-object pull-left" src="img/kongpaochicken.PNG">
+              <img class="media-object pull-left" src='<c:out value="${dish.imageUrl}"></c:out>'>
               <div class="media-body">
                 <div class="dishnm"><c:out value="${dish.dishName}"></c:out></div>
                 <div class="dishinfo">

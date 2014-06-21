@@ -23,7 +23,7 @@ public interface DishDao {
 	
 	public List<Dish> selectDishByRestId(long restId);  //根据餐厅的id来显示菜品
 	
-	public List<Dish> selectDishByRestIdAndCategory(@Param("map")Map<String,Object> map,@Param("page")PageBean<Dish> page); //根据餐厅id和菜品种类来显示菜品
+	public List<DishDetail> selectDishByRestIdAndCategory(@Param("map")Map<String,Object> map,@Param("page")PageBean<Dish> page); //根据餐厅id和菜品种类来显示菜品
 	
 	public List<DishDetail> getDishDetail(@Param("dishId")long dishId,@Param("page")PageBean<DishDetail> page);
 }

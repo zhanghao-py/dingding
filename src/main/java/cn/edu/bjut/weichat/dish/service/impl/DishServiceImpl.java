@@ -59,8 +59,8 @@ public class DishServiceImpl implements DishService {
 	}
 
 	@Override
-	public List<Dish> selectDishByRestIdAndCategory(long restId, int cate,int pageNum,int listNum) {
-		List<Dish> list = null;
+	public List<DishDetail> selectDishByRestIdAndCategory(long restId, int cate,int pageNum,int listNum) {
+		List<DishDetail> list = null;
 		if(restId > 0&&cate > 0){
 			try {
 				Map<String, Object> map = new HashMap<String, Object>();

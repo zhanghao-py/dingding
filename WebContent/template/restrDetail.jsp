@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav" style="border:0">
-      <button class="btn pull-left resback"></button>
+      <button class="btn pull-left resback" onclick="javascript:history.back(-1);"></button>
       <button class="btn pull-right share"></button>
       <h1 class="title" style="font-family: '微软雅黑';font-size: 24px">餐厅详情</h1>
     </header>
@@ -75,11 +75,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	<table class="reslisttable">
       	  <tr>
       	    <td></td><td></td>
-      	    <c:forEach begin="0" end="2" step="1">
+      	    <c:forEach items="${rest.recommendDishs }" var="dish">
       		<td class="rescommdish">
-      		  <img src="img/dishpng.png"/><br/>
-      		  <span class="commdishnm">宫保鸡丁</span>
-      		  <span style="color: red">￥<span class="commdishprice">15</span></span>
+      		  <img src='<c:out value="${dish.imageUrl}"></c:out>'/><br/>
+      		  <span class="commdishnm"><c:out value="${dish.dishName}"></c:out></span>
+      		  <span style="color: red">￥<span class="commdishprice"><c:out value="${dish.price}"></c:out></span></span>
       		</td>
       		</c:forEach>
       	  </tr>

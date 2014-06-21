@@ -24,7 +24,7 @@ public class RestraurantInfo {
 	
 	private double longitude;  //纬度
 	
-	private List<Dish> recommendDishs = new ArrayList<Dish>();
+	private List<DishDetail> recommendDishs = new ArrayList<DishDetail>();
 
 	public long getRestId() {
 		return restId;
@@ -90,11 +90,11 @@ public class RestraurantInfo {
 		this.longitude = longitude;
 	}
 
-	public List<Dish> getRecommendDishs() {
+	public List<DishDetail> getRecommendDishs() {
 		return recommendDishs;
 	}
 
-	public void setRecommendDishs(List<Dish> recommendDishs) {
+	public void setRecommendDishs(List<DishDetail> recommendDishs) {
 		this.recommendDishs = recommendDishs;
 	}
 

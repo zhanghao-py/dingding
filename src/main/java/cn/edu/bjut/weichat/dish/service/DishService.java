@@ -16,7 +16,7 @@ public interface DishService {
 	
 	public List<Dish> selectDishById(long dishId);
 	
-	public List<Dish> selectDishByRestIdAndCategory(long restId,int cate,int pageNum,int listNum);
+	public List<DishDetail> selectDishByRestIdAndCategory(long restId,int cate,int pageNum,int listNum);
 
 	public List<DishDetail> getDishDetail(long dishId);
 }

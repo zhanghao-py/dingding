@@ -38,6 +38,9 @@ $(function(){
 			}
 		}
 		
+		if(category == 0)
+			return;
+		
 		getDishs(pageNum,category);
 		
 	});
@@ -109,6 +112,9 @@ $(function(){
 			}
 		}
 		$(".table-view").children().remove();
+		
+		if(category == 0)
+			return;
 		getDishs(pageNum,category);
 		
 	});
@@ -156,7 +162,7 @@ $(function(){
 					var li1 = document.createElement("li");
 					li1.className = "table-view-cell media";
 					//var html1 = '<a class="" onclick="choose(this)"><img class="media-object pull-left" src="img/kongpaochicken.PNG"><div class="media-body"><div class="dishnm">��������</div><div class="dishinfo"><div class="dishprice"><span>��</span><span style="font-size: 20px;color: red">23</span><span style="color: red">/��</span></div><div class="dishsell">��������<span style="color: #FF6600;font-size: 18px">207</span></div></div><div class="dishline"></div><div class="dishcomm"><div class="dishcommleft"><div class="branddish"></div><div class="sale"></div><div class="bestsale"></div><div class="healthy"></div></div><div class="dishcommright"><div class="hot"></div><div class="meat"></div><div class="sweat"></div><div class="spicy"></div></div></div></div><div class="chosen" style="display:none"></div></a>';
-					var html1 = part1+'img/kongpaochicken.PNG'+part2+info.data[i].dishName+part3+info.data[i].price+part4+'207'+part6+info.data[i].dishId+part7;
+					var html1 = part1+info.data[i].imageUrl+part2+info.data[i].dishName+part3+info.data[i].price+part4+'207'+part6+info.data[i].dishId+part7;
 					li1.innerHTML = html1;
 					oFrag.appendChild(li1);
 					html1="";
@@ -167,6 +173,7 @@ $(function(){
 	    		var navh = $("nav").height();
 	    		var newimgh = (document.body.clientHeight-navh-headh)/6;
 	    		$("img").innerHeight(newimgh);
+	    		$("img").innerWidth(80);
 	    		
 	    		$(".table-view-cell.media").click(function(){
 	    			location.href = "dishPage/dishDetail?dishId="+$(this).find("input").val();
@@ -204,7 +211,6 @@ $(function(){
 	$("#followmaterial").click(function(){
 		location.href="dishPage/init";
 	});
-	
 	
 	
 	

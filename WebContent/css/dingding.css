@@ -315,6 +315,7 @@ body {
 
 .resinfo img {
 	width: 45%;
+	height:90px;
 	margin-left: 10px;
 	margin-right: 0;
 	float: left;
@@ -340,6 +341,7 @@ body {
 
 .rescommdishlist .rescommdish img {
 	width: 90px;
+	height: 70px;
 }
 
 .reslisttable td {

@@ -23,10 +23,10 @@ public class DemoAction2 extends BaseAction {
 	public ModelAndView getDishName(){
 		
 		//Dish dish = dishService.selectDishByName("宫保鸡丁").get(0);
-		Dish dish = dishService.selectDishByRestIdAndCategory(100000, 1,1,5).get(0);
-		System.out.println(dish.getDishName());
+//		Dish dish = dishService.selectDishByRestIdAndCategory(100000, 1,1,5).get(0);
+//		System.out.println(dish.getDishName());
 		
-		return new ModelAndView("index","list",dish);
+		return new ModelAndView("index");
 	}
 	
 	

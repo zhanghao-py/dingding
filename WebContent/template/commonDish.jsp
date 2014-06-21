@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body style="background: #eee;">
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
-      <button class="btn pull-left back"></button>
+      <button class="btn pull-left back" onclick="javascript:history.back(-1);" ></button>
       <h1 class="title" style="font-family: '微软雅黑';font-size: 24px">同种食材推荐</h1>
     </header>
 

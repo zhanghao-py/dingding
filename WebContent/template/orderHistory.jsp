@@ -24,8 +24,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript">
     	$(function(){
     		var headh = $("header").height();
-    		var newimgh = (document.body.clientHeight-headh)/8;
+    		var newimgh = (document.body.clientHeight-headh)/8.5;
     		$("img").innerHeight(newimgh);
+    		$("img").innerWidth(80);
     		if(document.body.clientHeight < 450){
     			$(".media-body p").hide();
     		}
@@ -37,6 +38,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		var aw = $(".tab-item").width();
     		$(".menudiv").innerWidth(aw);
     		$(".menudiv").css({"display":"none"});
+    		
+    		
+    		
     		
     	});
     	
@@ -69,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body style="background: #eee;">
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
-      <button class="btn pull-left back"></button>
+      <button class="btn pull-left back" onclick="javascript:history.back(-1);"></button>
       <h1 class="title" style="font-family: '微软雅黑';font-size: 24px">点餐历史</h1>
     </header>
 
