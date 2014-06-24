@@ -17,7 +17,7 @@ $(function(){
 	var part4 = '</span><span style="color: red">/份</span></div><div class="dishsell">月销量:<span style="color: #FF6600;font-size: 18px">';
 	//var part5 = '<span style="color: #FF6600;font-size: 18px">';
 	var part6 = '</span></div><input type="hidden" value="';
-	var part7 = '"></div><div class="dishline"></div><div class="dishcomm"><div class="dishcommleft"><div class="branddish"></div><div class="sale"></div><div class="bestsale"></div><div class="healthy"></div></div><div class="dishcommright"><div class="hot"></div><div class="meat"></div><div class="sweat"></div><div class="spicy"></div></div></div></div><div class="chosen" style="display:none"></div></a>';
+	var part7 = '"></div><div class="dishline"></div><div class="dishcomm"><div class="dishcommleft"><div class="branddish"></div><div class="healthy"></div></div><div class="dishcommright"><div class="hot"></div><div class="meat"></div><div class="sweat"></div></div></div></div><div class="chosen" style="display:none"></div></a>';
 	
 	
 	$("#clickmore").click(function(){

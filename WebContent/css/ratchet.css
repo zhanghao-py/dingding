@@ -275,19 +275,19 @@ a:active {
 }
 
 .bar-nav ~ .content {
-  padding-top: 50px;
+  padding-top: 45px;
 }
 
 .bar-header-secondary ~ .content {
-  padding-top: 100px;
+  padding-top: 90px;
 }
 
 .bar-footer ~ .content {
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 }
 
 .bar-footer-secondary ~ .content {
-  padding-bottom: 100px;
+  padding-bottom: 120px;
 }
 
 .bar-tab ~ .content {
@@ -489,7 +489,7 @@ input[type="button"] {
   right: 0;
   left: 0;
   z-index: 10;
-  height: 50px;
+  height: 45px;
   background-color: #FE8302;
   border-bottom: 1px solid #ddd;
 
@@ -532,7 +532,7 @@ input[type="button"] {
   margin: 0;
   font-size: 17px;
   font-weight: 500;
-  line-height: 50px;
+  line-height: 45px;
   color: #fff;
   text-align: center;
   white-space: nowrap;
@@ -546,7 +546,7 @@ input[type="button"] {
   bottom: 0;
   display: table;
   width: 100%;
-  height: 50px;
+  height: 45px;
   padding: 0;
   table-layout: fixed;
   border-top: 1px solid #ddd;
@@ -555,7 +555,7 @@ input[type="button"] {
 .bar-tab .tab-item {
   display: table-cell;
   width: 1%;
-  height: 60px;
+  height: 45px;
   color: #e9ceb2;
   text-align: center;
   vertical-align: middle;
@@ -565,14 +565,14 @@ input[type="button"] {
 }
 .bar-tab .tab-item .icon {
   top: 3px;
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   padding-top: 0;
   padding-bottom: 0;
 }
 .bar-tab .tab-item .icon ~ .tab-label {
   display: block;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .bar .btn {
@@ -582,7 +582,7 @@ input[type="button"] {
   padding: 6px 12px 7px;
   margin-top: 0;
   font-weight: 400;
-  height: 49px;
+  height: 44px;
 }
 .bar .btn.pull-right {
   margin-left: 0;
@@ -594,13 +594,13 @@ input[type="button"] {
 .bar .btn.pull-left.back {
   border:0;
   width:66px;
-  background: url("../img/menu_topBar_back_idle1.png") no-repeat;
+  background: url("../img/menu_topBar_back_idle.png") no-repeat;
 }
 
 .bar .btn.pull-right.order {
   border:0;
   width:66px;
-  background: url("../img/menu_topBar_orederList_idle1.png") no-repeat;
+  background: url("../img/menu_topBar_orederList_idle.png") no-repeat;
 }
 
 .bar .btn-link {

@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>叮叮菜单列表</title>
+    <title>叮叮点餐·智能点餐</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -109,14 +109,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	
     	function showmenu() {
     		$(".menudiv").slideToggle(50);
+    		$(".discoverydiv").slideUp(50);
+    		$(".historydiv").slideUp(50);
     	}
     	
     	function showdisc() {
     		$(".discoverydiv").slideToggle(50);
+    		$(".menudiv").slideUp(50);
+    		$(".historydiv").slideUp(50);
     	}
     	
     	function showhis() {
     		$(".historydiv").slideToggle(50);
+    		$(".menudiv").slideUp(50);
+    		$(".discoverydiv").slideUp(50);
     	}
     </script>
   </head>
@@ -185,9 +191,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <a class="tab-item" href="javascript:void(0)" onclick="showmenu()">
         <span class="icon order"></span>
         <span class="tab-label">点餐模式</span>
-        <div class="menudiv" id="smfollowmenu" style="bottom:139px;">按菜单</div>
-    	<div class="menudiv" id="smfollowmeat" style="bottom:99px;">按荤素</div>
-    	<div class="menudiv" id="smfollowmaterial" style="bottom:59px">按食材</div>
+        <div class="menudiv" id="smfollowmenu" style="bottom:128px;">按菜单</div>
+    	<div class="menudiv" id="smfollowmeat" style="bottom:88px;">按荤素</div>
+    	<div class="menudiv" id="smfollowmaterial" style="bottom:48px">按食材</div>
       </a>
       <a class="tab-item active" href="javascript:void(0)">
         <span class="icon noopsyche"></span>
@@ -196,14 +202,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <a class="tab-item" href="javascript:void(0)" onclick="showhis()">
         <span class="icon history"></span>
         <span class="tab-label">历史点餐</span>
-        <div class="historydiv" id="smhistory" style="bottom:99px;">历史点餐</div>
-    	<div class="historydiv" id="smallorder" style="bottom:59px;">全部订单</div>
+        <div class="historydiv" id="smhistory" style="bottom:88px;">历史点餐</div>
+    	<div class="historydiv" id="smallorder" style="bottom:48px;">全部订单</div>
       </a>
       <a class="tab-item" href="javascript:void(0)" onclick="showdisc()">
         <span class="icon discovery"></span>
         <span class="tab-label">餐厅发现</span>
-        <div class="discoverydiv" id="smrestdisc" style="bottom:99px;">餐厅发现</div>
-    	<div class="discoverydiv" id="smgroup" style="bottom:59px;">叮叮团</div>
+        <div class="discoverydiv" id="smrestdisc" style="bottom:88px;">餐厅发现</div>
+    	<div class="discoverydiv" id="smgroup" style="bottom:48px;">叮叮团</div>
       </a>
     </nav>
   </body>

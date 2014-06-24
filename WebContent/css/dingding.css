@@ -4,21 +4,21 @@ body {
 
 /*********************** ×ó±ß²Ëµ¥À¸ÑùÊ½  ***********************/
 .leftmenu {
-	width: 100px;
+	width: 75px;
 	background-color: #eee;
 	margin: 0;
 }
 .leftmenu .leftmenuitem {
-	width:100px;
-	height:42px;
+	width:75px;
+	height:37px;
 	/* background: url("../img/menu_sideMenu_button_pressed1.png") no-repeat; */
 	background-color: #FE8302;
-	font-size: 20px;
-	line-height: 42px;
+	font-size: 16px;
+	line-height: 37px;
 	text-align: center;
 	color: #fff;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
+	/* border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px; */
 	border-top: 1px solid #FEE6BF;
 }
 
@@ -207,7 +207,7 @@ body {
 	background: url("../img/noopsyche_order.png") no-repeat;
 }
 
-.bar-tab .tab-item.active .icon.order {
+.bar-tab .tab-item.active .icon.order, .bar-tab .tab-item:active .icon.order {
 	background: url("../img/noopsyche_order1.png") no-repeat;
 }
 
@@ -215,7 +215,7 @@ body {
 	background: url("../img/noopsyche_noopsyche.png") no-repeat;
 }
 
-.bar-tab .tab-item.active .icon.noopsyche {
+.bar-tab .tab-item.active .icon.noopsyche, .bar-tab .tab-item:active .icon.noopsyche {
 	background: url("../img/noopsyche_noopsyche1.png") no-repeat;
 }
 
@@ -223,7 +223,7 @@ body {
 	background: url("../img/noopsyche_history.png") no-repeat;
 }
 
-.bar-tab .tab-item.active .icon.history {
+.bar-tab .tab-item.active .icon.history, .bar-tab .tab-item:active .icon.history {
 	background: url("../img/noopsyche_history1.png") no-repeat;
 }
 
@@ -231,7 +231,7 @@ body {
 	background: url("../img/noopsyche_discovery.png") no-repeat;
 }
 
-.bar-tab .tab-item.active .icon.discovery {
+.bar-tab .tab-item.active .icon.discovery, .bar-tab .tab-item:active .icon.discovery {
 	background: url("../img/noopsyche_discovery1.png") no-repeat;
 }
 
@@ -274,7 +274,7 @@ body {
 .btn.pull-left.resback {
 	border:0;
 	width:50px;
-	background: url("../img/restaurant_back.png") no-repeat;
+	background: url("../img/restaurant_back1.png") no-repeat;
 	outline: 0;
 }
 
@@ -294,8 +294,8 @@ body {
 }
 
 .resdiv .resdivtitle {
-	line-height: 33px;
-	font-size: 20px;
+	line-height: 27px;
+	font-size: 16px;
 	border-bottom: 2px solid #eee;
 	margin-bottom: 10px;
 }
