@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="mpcontent" style="display: none" id="locatesuccess">
       	<img src="img/mainpage_wlan_success.gif" style="width: 130px;margin-top: 25px;margin-bottom: 10px;"/>
       	<div align="center"><div style="border-top: 1px solid #ccc;width: 80%;height: 10px"></div></div>
-      	<div style="text-align: left;margin-left: 23%;font-size: 14px">
+      	<div style="text-align: left;margin-left: 28%;font-size: 14px">
       	<c:forEach items="${a }" var="place" varStatus="st">
       	  <span style="line-height: 20px;color: #ccc;"><img src="img/mainpage_restaurant_icon.png" style="width: 20px;vertical-align: middle;margin-top: -4px"/>
       	  <a class="locateplace" style="color: #ccc;text-decoration: none"><c:out value="${place }"/></a></span><br/>
