@@ -65,14 +65,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	<div align="center"><input type="button" class="mprefresh" value="刷新"/></div>
       </div>
       <div class="mpcontent" style="display: none" id="locatesuccess">
-      	<img src="img/mainpage_wlan_success.gif" style="width: 150px;margin-top: 30px;margin-bottom: 15px;"/>
-      	<div align="center"><div style="border-top: 1px solid #ccc;width: 80%;height: 15px"></div></div>
-      	<div style="text-align: left;margin-left: 23%">
+      	<img src="img/mainpage_wlan_success.gif" style="width: 130px;margin-top: 25px;margin-bottom: 10px;"/>
+      	<div align="center"><div style="border-top: 1px solid #ccc;width: 80%;height: 10px"></div></div>
+      	<div style="text-align: left;margin-left: 23%;font-size: 14px">
       	<c:forEach items="${a }" var="place" varStatus="st">
-      	  <span style="line-height: 25px;color: #ccc;"><img src="img/mainpage_restaurant_icon.png" style="width: 25px;vertical-align: middle;margin-top: -4px"/>
+      	  <span style="line-height: 20px;color: #ccc;"><img src="img/mainpage_restaurant_icon.png" style="width: 20px;vertical-align: middle;margin-top: -4px"/>
       	  <a class="locateplace" style="color: #ccc;text-decoration: none"><c:out value="${place }"/></a></span><br/>
       	</c:forEach>
-      	<span style="line-height: 25px;color: #ccc;">......</span>
+      	<span style="line-height: 20px;color: #ccc;">......</span>
       	</div>
       </div>
       <img class="mpbottom" alt="" src="img/mainpage_bottom_bar.png" style="z-index: 999"/>
@@ -93,9 +93,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			document.getElementById("locatesuccess").style.display = "";
 		},3000);
 		
-		setTimeout(function(){
+		/* setTimeout(function(){
 			window.location.href="rest/restDetail"; 
-		},6000);
+		},6000); */
       </script>
   <script src="./js/ratchet.js"></script>
 </html>
