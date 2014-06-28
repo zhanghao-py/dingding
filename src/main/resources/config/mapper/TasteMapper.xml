@@ -7,4 +7,9 @@
 		<result column="tasteName" property="tasteName" jdbcType="VARCHAR" />
 		<result column="imageUrl" property="imageUrl" jdbcType="VARCHAR" />
 	</resultMap>
+	
+	
+	<select id="loadTastes" resultMap="tasteResultMap">
+		select taste.* from tb_taste taste INNER JOIN tb_dishtaste dishtaste where dishtaste.tasteId = taste.tasteId and dishtaste.dishId = #{dishId,jdbcType=BIGINT}
+	</select>
 </mapper>

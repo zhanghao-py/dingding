@@ -1,6 +1,5 @@
 package cn.edu.bjut.weichat.core.web.action.dish;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import cn.edu.bjut.weichat.core.bo.Dish;
 import cn.edu.bjut.weichat.core.util.Category;
 import cn.edu.bjut.weichat.core.util.DishUtil;
 import cn.edu.bjut.weichat.core.web.action.BaseAction;

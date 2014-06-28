@@ -17,7 +17,9 @@ $(function(){
 	var part4 = '</span><span style="color: red">/份</span></div><div class="dishsell">月销量:<span style="color: #FF6600;font-size: 18px">';
 	//var part5 = '<span style="color: #FF6600;font-size: 18px">';
 	var part6 = '</span></div><input type="hidden" value="';
-	var part7 = '"></div><div class="dishline"></div><div class="dishcomm"><div class="dishcommleft"><div class="branddish"></div><div class="healthy"></div></div><div class="dishcommright"><div class="hot"></div><div class="meat"></div><div class="sweat"></div></div></div></div><div class="chosen" style="display:none"></div></a>';
+	var part7 = '"></div><div class="dishline"></div><div class="dishcomm"><div class="dishcommleft">';
+	var part8 = '</div><div class="dishcommright">';
+	var part9 = '</div></div></div><div class="chosen" style="display:none"></div></a>';
 	
 	
 	$("#clickmore").click(function(){
@@ -163,6 +165,39 @@ $(function(){
 					li1.className = "table-view-cell media";
 					//var html1 = '<a class="" onclick="choose(this)"><img class="media-object pull-left" src="img/kongpaochicken.PNG"><div class="media-body"><div class="dishnm">��������</div><div class="dishinfo"><div class="dishprice"><span>��</span><span style="font-size: 20px;color: red">23</span><span style="color: red">/��</span></div><div class="dishsell">��������<span style="color: #FF6600;font-size: 18px">207</span></div></div><div class="dishline"></div><div class="dishcomm"><div class="dishcommleft"><div class="branddish"></div><div class="sale"></div><div class="bestsale"></div><div class="healthy"></div></div><div class="dishcommright"><div class="hot"></div><div class="meat"></div><div class="sweat"></div><div class="spicy"></div></div></div></div><div class="chosen" style="display:none"></div></a>';
 					var html1 = part1+info.data[i].imageUrl+part2+info.data[i].dishName+part3+info.data[i].price+part4+'207'+part6+info.data[i].dishId+part7;
+					
+					var data = info.data[i].tags;
+					
+					for(var j = 0;j < data.length;j++){
+						//html1 += '<img src='+data[j].imageUrl+'/>';
+						
+						if(data[j].tagName == "branddish")
+							html1 += '<div class="branddish"></div>'; 
+						else if(data[j].tagName == "sale")
+							html1 += '<div class="sale"></div>';
+						else if(data[j].tagName == "bestsale")
+							html1 += '<div class="bestsale"></div>';
+						else if(data[j].tagName == "healthy")
+							html1 += '<div class="healthy"></div>';
+					}
+					html1 += part8;
+					
+					var data1 = info.data[i].tastes;
+					
+					for(var k = 0;k < data1.length;k++){
+						//html1 += '<img src='+data1[k].imageUrl+'/>';
+						if(data1[k].tasteName == "hot")
+							html1 += '<div class="hot"></div>'; 
+						else if(data1[k].tasteName == "meat")
+							html1 += '<div class="meat"></div>';
+						else if(data1[k].tasteName == "sweat")
+							html1 += '<div class="sweat"></div>';
+						else if(data1[k].tasteName == "spicy")
+							html1 += '<div class="spicy"></div>';
+					}
+					
+					html1 += part9;
+					
 					li1.innerHTML = html1;
 					oFrag.appendChild(li1);
 					html1="";

@@ -1,5 +1,11 @@
 package cn.edu.bjut.weichat.dao.bean;
 
+
+import java.util.List;
+
+import cn.edu.bjut.weichat.core.bo.Tag;
+import cn.edu.bjut.weichat.core.bo.Taste;
+
 public class DishDetail {
 
 	private long dishId;
@@ -31,7 +37,11 @@ public class DishDetail {
 	private int num;
 	
 	private float subtotal;
+	
+	private List<Tag> tags;
 
+	private List<Taste> tastes;
+	
 	public long getDishId() {
 		return dishId;
 	}
@@ -150,6 +160,22 @@ public class DishDetail {
 
 	public void setSubtotal(float subtotal) {
 		this.subtotal = subtotal;
+	}
+
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
+
+	public List<Taste> getTastes() {
+		return tastes;
+	}
+
+	public void setTastes(List<Taste> tastes) {
+		this.tastes = tastes;
 	}
 	
 	

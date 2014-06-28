@@ -8,4 +8,7 @@
 		<result column="imageUrl" property="imageUrl" jdbcType="VARCHAR" />
 	</resultMap>
 
+	<select id="loadTags" resultMap="tagResultMap">
+		select tag.* from tb_tag tag INNER JOIN tb_dishtag dishtag where dishtag.tagId = tag.tagId and dishtag.dishId = #{dishId,jdbcType=BIGINT}
+	</select>
 </mapper>

@@ -142,16 +142,50 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="dishline"></div>
                 <div class="dishcomm">
                 	<div class="dishcommleft">
-                		<div class="branddish"></div>
-                		<!-- <div class="sale"></div> -->
-                		<!-- <div class="bestsale"></div> -->
-                		<div class="healthy"></div>
+                	<c:forEach items="${dish.tags}" var="tag">
+                		
+                		<c:choose>
+                			<c:when test="${tag.tagName == 'branddish'}">
+                				<div class="branddish"></div>
+                			</c:when>
+                			<c:when test="${tag.tagName == 'sale' }">
+                				<div class="sale"></div>
+                			</c:when>
+                			<c:when test="${tag.tagName == 'bestsale' }">
+                				<div class="bestsale"></div>
+                			</c:when>
+                			<c:when test="${tag.tagName == 'healthy' }">
+                				<div class="healthy"></div>
+                			</c:when>
+                		</c:choose>
+                	</c:forEach>
+                	
+                		<!--<div class="branddish"></div>
+                		<div class="sale"></div>
+                		<div class="bestsale"></div>
+                		<div class="healthy"></div>-->
                 	</div>
                 	<div class="dishcommright">
-                		<div class="hot"></div>
+                	<c:forEach items="${dish.tastes}" var="taste">
+                	<c:choose>
+                			<c:when test="${taste.tasteName == 'hot'}">
+                				<div class="hot"></div>
+                			</c:when>
+                			<c:when test="${taste.tasteName  == 'meat' }">
+                				<div class="meat"></div>
+                			</c:when>
+                			<c:when test="${taste.tasteName  == 'sweat' }">
+                				<div class="sweat"></div>
+                			</c:when>
+                			<c:when test="${taste.tasteName  == 'spicy' }">
+                				<div class="spicy"></div>
+                			</c:when>
+                		</c:choose>
+                	</c:forEach>
+                		<!--<div class="hot"></div>
                 		<div class="meat"></div>
                 		<div class="sweat"></div>
-                		<!-- <div class="spicy"></div> -->
+                		 <div class="spicy"></div> -->
                 	</div>
                 </div>
               </div>
