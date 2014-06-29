@@ -1,5 +1,6 @@
 package cn.edu.bjut.weichat.core.web.action.smart;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import net.sf.json.JSONObject;
@@ -8,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.edu.bjut.weichat.core.web.action.BaseAction;
+import cn.edu.bjut.weichat.core.web.action.dto.StatusInfo;
 import cn.edu.bjut.weichat.dao.bean.DishDetail;
 import cn.edu.bjut.weichat.dao.bean.SmartChoice;
 import cn.edu.bjut.weichat.dish.service.DishService;
@@ -70,9 +73,42 @@ public class SmartOrderAction extends BaseAction {
 		return new ModelAndView("smartDishDetail","dish",list.get(3));
 	}
 	
+	@RequestMapping(value="addDish",method=RequestMethod.POST)
+	@ResponseBody
+	public StatusInfo addDish(){
+		
+		status.setStatus(StatusInfo.SUCCESS);
+		
+		
+		return status;
+	}
+	
+	
+	@RequestMapping(value="sameMat",method=RequestMethod.GET)
+	public ModelAndView loadSameMaterial(){
+		
+		String material = request.getParameter("material");
+		try {
+			String material1 = new String(material.getBytes("iso-8859-1"),"UTF-8");
+			System.out.println(material1);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return new ModelAndView();
+	}
+	
+	
+	
 	@RequestMapping(value="order",method=RequestMethod.GET)
 	public ModelAndView loadOrder(){
 		
 		return new ModelAndView("smartOrderList");
 	}
+	
+	
+	
+	
 }

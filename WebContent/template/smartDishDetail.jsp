@@ -18,6 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="./css/ratchet.css" rel="stylesheet">
     <link href="./css/dingding.css" rel="stylesheet">
     <script src="./js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="./js/dish/smart.js"></script>
     <!-- <script type="text/javascript" src="js/thumbs.0.6.0.js"></script> -->
     <script type="text/javascript">
     	$(function(){
@@ -68,6 +69,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	<div class="dishdtlcont">
       	  <div style="height: 40px;">
       	    <div style="float:left"><c:out value="${dish.dishName}"></c:out></div>
+      	     <input type="hidden" id="smDishId" value="<c:out value='${dish.dishId}'></c:out>"/>
+      	     <input type="hidden" id="sameMat" value="<c:out value='${dish.material}'></c:out>">
       	    <div style="float:right">价格：<span style="color:#FF6600">￥<c:out value="${dish.price}"></c:out></span></div>
       	  </div>
       	  <div class="dishdtlinfo">月销量：205份<span style="margin-left:30px">甜、辣</span><span class="recommend">推荐</span></div>
@@ -89,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	</div>
       	</div>
       	</div>
-      <input type="button" class="orderdishbtn" value="加入订单" style="position: fixed;bottom: 0;">
+      <input type="button" class="orderdishbtn" id="smAddToOrder" value="加入订单" style="position: fixed;bottom: 0;">
     </div>
   </body>
   <script src="./js/ratchet.js"></script>
