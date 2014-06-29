@@ -12,7 +12,9 @@ import cn.edu.bjut.weichat.core.bo.Dish;
 import cn.edu.bjut.weichat.core.bo.Tag;
 import cn.edu.bjut.weichat.core.bo.Taste;
 import cn.edu.bjut.weichat.core.mybatis.pagination.PageBean;
+import cn.edu.bjut.weichat.core.util.Concoction;
 import cn.edu.bjut.weichat.dao.bean.DishDetail;
+import cn.edu.bjut.weichat.dao.bean.SmartChoice;
 import cn.edu.bjut.weichat.dish.dao.DishDao;
 import cn.edu.bjut.weichat.dish.dao.TagDao;
 import cn.edu.bjut.weichat.dish.dao.TasteDao;
@@ -118,5 +120,29 @@ public class DishServiceImpl implements DishService {
 			logger.warn("", e);
 			return null;
 		}			
+	}
+
+	
+	
+	/**
+	 * 智能点餐，这只是一个例子
+	 */
+	
+	@Override
+	public List<DishDetail> getDishSmart(SmartChoice smartChoice) {
+
+		List<DishDetail> list = null;
+		PageBean<DishDetail> page = new PageBean<DishDetail>();
+		
+		try {
+
+			list = dishDao.getDishSmart(Concoction.MEAT.getNum(),page);
+			
+		} catch (Exception e) {
+			logger.warn("智能点餐结果出错", e);
+			return null;
+		}
+		
+		return list;
 	}
 }

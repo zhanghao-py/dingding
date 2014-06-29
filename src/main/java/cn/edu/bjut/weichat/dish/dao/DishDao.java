@@ -26,4 +26,12 @@ public interface DishDao {
 	public List<DishDetail> selectDishByRestIdAndCategory(@Param("map")Map<String,Object> map,@Param("page")PageBean<Dish> page); //根据餐厅id和菜品种类来显示菜品
 	
 	public List<DishDetail> getDishDetail(@Param("dishId")long dishId,@Param("page")PageBean<DishDetail> page);
+	
+	
+	
+	
+	/*
+	 * 智能点餐部分
+	 */
+	public List<DishDetail> getDishSmart(@Param("concoction")int concoction,@Param("page")PageBean<DishDetail> page);
 }

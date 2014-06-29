@@ -2,7 +2,7 @@ package cn.edu.bjut.weichat.core.util;
 
 public enum Concoction {
 
-	菜MEAT("荤菜",1),VEGETABLE("素材",2);
+	MEAT("荤菜",1),VEGETABLE("素菜",2);
 	
 	private String name;
 	

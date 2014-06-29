@@ -96,6 +96,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		$(".discoverydiv").slideUp(50);
     	}
     	
+    	function toSmart(){
+    		location.href = "smart";
+    	}
+    	
     	function toRestDetail(){
     		location.href = "rest/restDetail";
     	}
@@ -206,7 +210,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="menudiv" id="dishfollowmeat" style="bottom:88px;">按荤素</div>
     	<div class="menudiv" id="dishfollowmaterial" style="bottom:48px">按食材</div>
       </a>
-      <a class="tab-item" href="javascript:void(0)">
+      <a class="tab-item" href="javascript:void(0)" onclick="toSmart()">
         <span class="icon noopsyche"></span>
         <span class="tab-label">智能点餐</span>
       </a>

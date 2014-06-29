@@ -57,5 +57,15 @@
 		select dish.*,image.imageUrl from tb_dish dish INNER JOIN tb_dishimage
 		image where dish.dishId = image.dishId and dish.dishId = #{dishId,jdbcType=BIGINT}
 	</select>
+	
+	
+	
+	<select id="getDishSmart" resultMap="dishDetail">
+		select dish.*,image.imageUrl from tb_dish dish INNER JOIN tb_dishimage image
+		<where>
+			dish.dishId = image.dishId and dish.concoction = #{concoction,jdbcType=INTEGER} 
+		</where>
+	</select>
+	
 
 </mapper>
