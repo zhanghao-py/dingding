@@ -58,6 +58,8 @@ public class DishInitAction extends BaseAction {
 			
 		}		
 		
+		session.setAttribute("restId", restId);
+		
 		try {
 		    list = dishService.selectDishByRestIdAndCategory(restId, category, pageNum, listNum);
 		} catch (Exception e) {

@@ -71,17 +71,19 @@ $(function(){
 		var dishId = $("#smDishId").val();
 		
 		var num = $("#ndishamount").html();
+		
+		alert("添加成功！");
 				
-		$.ajax({
-			type:'POST',
-			url:'smart/addDish',
-			data:{dishId:dishId,dishNum:num},
-			success:function(info){
-				if(info.status == 0){
-					alert("添加成功！");
-				}
-			}
-		});
+//		$.ajax({
+//			type:'POST',
+//			url:'smart/addDish',
+//			data:{dishId:dishId,dishNum:num},
+//			success:function(info){
+//				if(info.status == 0){
+//					alert("添加成功！");
+//				}
+//			}
+//		});
 	});
 	
 	
@@ -95,8 +97,12 @@ $(function(){
 	});
 	
 	
-	
-	
+	/**
+	 * 
+	 */
+	$("#postSmartOrder").click(function(){
+		location.href = "smart/addOrder";
+	});
 	
 	
 	var SmartChoose = function(person,money,littlespicy,noonion,nospicy,nokelp,nosugar,nocaraway,nogarlic,nocarrot){

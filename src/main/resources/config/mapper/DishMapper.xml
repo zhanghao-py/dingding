@@ -24,7 +24,7 @@
 		<result column="cuisine" property="cuisine" jdbcType="INTEGER" />
 		<result column="price" property="price" jdbcType="FLOAT" />
 		<result column="support" property="support" jdbcType="INTEGER" />
-		<result column="imageUrl" property="imageUrl" jdbcType="VARCHAR"/>
+		<result column="imageUrl" property="imageUrl" jdbcType="VARCHAR" />
 	</resultMap>
 
 
@@ -39,9 +39,13 @@
 
 
 	<select id="selectDishByRestIdAndCategory" resultMap="dishDetail">
-		select dish.*,image.imageUrl
-		from tb_dish dish INNER JOIN tb_dishimage image  where dish.dishId = image.dishId and dish.restId = #{map.restId,jdbcType=BIGINT} and
-		dish.category= #{map.cate,jdbcType=INTEGER}
+		select
+		dish.*,image.imageUrl
+		from tb_dish dish INNER JOIN tb_dishimage image
+		where dish.dishId = image.dishId and dish.restId =
+		#{map.restId,jdbcType=BIGINT} and
+		dish.category=
+		#{map.cate,jdbcType=INTEGER}
 	</select>
 
 	<select id="selectDishById" parameterType="long" resultMap="dishResultMap">
@@ -55,17 +59,49 @@
 
 	<select id="getDishDetail" parameterType="long" resultMap="dishDetail">
 		select dish.*,image.imageUrl from tb_dish dish INNER JOIN tb_dishimage
-		image where dish.dishId = image.dishId and dish.dishId = #{dishId,jdbcType=BIGINT}
+		image where dish.dishId = image.dishId and dish.dishId =
+		#{dishId,jdbcType=BIGINT}
 	</select>
-	
-	
-	
+
+
+
 	<select id="getDishSmart" resultMap="dishDetail">
-		select dish.*,image.imageUrl from tb_dish dish INNER JOIN tb_dishimage image
+		select dish.*,image.imageUrl from tb_dish dish INNER JOIN tb_dishimage
+		image
 		<where>
-			dish.dishId = image.dishId and dish.concoction = #{concoction,jdbcType=INTEGER} 
+			dish.dishId = image.dishId and dish.concoction =
+			#{concoction,jdbcType=INTEGER}
 		</where>
 	</select>
+
+
+	<select id="getSameMatDish" resultMap="dishDetail">
+		select dish.*,image.imageUrl
+		from tb_dish dish INNER JOIN
+		tb_dishimage image where
+		dish.dishId = image.dishId and
+		dish.restId = #{restId,jdbcType=BIGINT} and
+		dish.material like %#{material,jdbcType=VARCHAR}%
+	</select>
 	
+		
+	<select id="getSamePricDish" resultMap="dishDetail">
+		 select dish.*,image.imageUrl
+   		 from tb_dish dish INNER JOIN tb_dishimage image
+   	     where dish.dishId = image.dishId and
+   		 dish.restId = #{restId,jdbcType=BIGINT} and 
+   		 dish.price &lt; #{price-5,jdbcType=FLOAT} and dish.price &gt; #{price+5,jdbcType=FLOAT}
+	</select>
+
+	<select id="" resultMap="dishDetail">
+		  select dish.*,image.imageUrl
+   		  from tb_dish dish INNER JOIN tb_dishimage image
+    	  INNER JOIN tb_dishtaste td INNER JOIN tb_taste taste
+          where dish.dishId = image.dishId and
+    	  dish.dishId = td.dishId and
+          td.tasteId = taste.tasteId and
+          dish.restId = #{restId.jdbcType=BIGINT} and 
+          taste.tasteName = #{tasteName,jdbcType=VARCHAR}
+	</select>
 
 </mapper>

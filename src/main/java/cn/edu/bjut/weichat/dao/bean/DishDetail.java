@@ -34,7 +34,7 @@ public class DishDetail {
 	
 	private String tagName;
 	
-	private int num;
+	private int num = 1;
 	
 	private float subtotal;
 	

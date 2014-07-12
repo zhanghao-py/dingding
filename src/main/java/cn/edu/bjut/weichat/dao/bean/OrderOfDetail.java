@@ -21,6 +21,10 @@ public class OrderOfDetail {
 
 	private Date payTime; // 支付时间
 	
+	private int personNum;
+	
+	private float averPrice;
+	
 	private String restName;
 	
 	public Map<String,List<DishDetail>> dishs = new HashMap<String, List<DishDetail>>(); //订单里的菜
@@ -96,6 +100,22 @@ public class OrderOfDetail {
 
 	public void setRestName(String restName) {
 		this.restName = restName;
+	}
+
+	public int getPersonNum() {
+		return personNum;
+	}
+
+	public void setPersonNum(int personNum) {
+		this.personNum = personNum;
+	}
+
+	public float getAverPrice() {
+		return averPrice;
+	}
+
+	public void setAverPrice(float averPrice) {
+		this.averPrice = averPrice;
 	}
 
 	

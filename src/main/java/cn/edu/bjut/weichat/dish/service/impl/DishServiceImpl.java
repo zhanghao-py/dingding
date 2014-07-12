@@ -145,4 +145,62 @@ public class DishServiceImpl implements DishService {
 		
 		return list;
 	}
+
+	@Override
+	public List<DishDetail> getSameMatDish(String material, long restId,int pageNum,int pageSize) {
+		
+		List<DishDetail> list = null;
+		PageBean<DishDetail> page = new PageBean<DishDetail>();
+		
+		try {
+		
+			page.setPageSize(pageSize);
+			page.setCurrentPage(pageNum);	
+	
+			list = dishDao.getSameMatDish(material, restId, page);
+		} catch (Exception e) {
+			logger.warn("加载同食材菜品出错", e);
+			return null;
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<DishDetail> getSamePricDish(float price, long restId,int pageNum,int pageSize) {
+		List<DishDetail> list = null;
+		PageBean<DishDetail> page = new PageBean<DishDetail>();
+		
+		try {
+		
+			page.setPageSize(pageSize);
+			page.setCurrentPage(pageNum);	
+	
+			list = dishDao.getSamePricDish(price, restId, page);
+		} catch (Exception e) {
+			logger.warn("加载同价格菜品出错", e);
+			return null;
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<DishDetail> getSameTasteDish(String taste, long restId,int pageNum,int pageSize) {
+		List<DishDetail> list = null;
+		PageBean<DishDetail> page = new PageBean<DishDetail>();
+		
+		try {
+		
+			page.setPageSize(pageSize);
+			page.setCurrentPage(pageNum);	
+	
+			list = dishDao.getSameTasteDish(taste, restId, page);
+		} catch (Exception e) {
+			logger.warn("加载同口味菜品出错", e);
+			return null;
+		}
+		
+		return list;
+	}
 }
