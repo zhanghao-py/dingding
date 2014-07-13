@@ -71,6 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	    <div style="float:left"><c:out value="${dish.dishName}"></c:out></div>
       	     <input type="hidden" id="smDishId" value="<c:out value='${dish.dishId}'></c:out>"/>
       	     <input type="hidden" id="sameMat" value="<c:out value='${dish.material}'></c:out>">
+      	     <input type="hidden" id="sameTaste" value="<c:out value='${dish.tasteName}'></c:out>">
       	     <input type="hidden" id="samePric" value="<c:out value='${dish.price}'></c:out>">
       	    <div style="float:right">价格：<span style="color:#FF6600">￥<c:out value="${dish.price}"></c:out></span></div>
       	  </div>

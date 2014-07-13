@@ -54,7 +54,7 @@ public interface DishDao {
 	 * @return
 	 */
 	
-	public List<DishDetail> getSamePricDish(@Param("price")float price,@Param("restId")long restId,@Param("page")PageBean<DishDetail> page);
+	public List<DishDetail> getSamePricDish(@Param("price1")float price1,@Param("price2")float price2,@Param("restId")long restId,@Param("page")PageBean<DishDetail> page);
 	
 	
 	

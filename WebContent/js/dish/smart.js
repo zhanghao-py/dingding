@@ -90,10 +90,31 @@ $(function(){
 	/**
 	 * 同类菜品查找
 	 */
+	$("#samematerial").unbind("click");
 	$("#samematerial").click(function(){
 		var material = $("#sameMat").val();
 		
 		location.href = "smart/sameMat?material="+material;
+	});
+	
+	
+	
+	$("#sameprice").unbind("click");
+	$("#sameprice").click(function(){
+		
+		var price = $("#samePric").val();
+		
+		
+		location.href = "smart/samePrice?price="+price;
+	});
+	
+	$("#sametaste").unbind("click");
+	$("#sametaste").click(function(){
+		
+		var taste = $("#sameTaste").val();
+		
+		
+		location.href = "smart/sameTaste?taste="+taste;
 	});
 	
 	

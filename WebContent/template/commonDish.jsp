@@ -70,17 +70,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
       <button class="btn pull-left back" onclick="javascript:history.back(-1);" ></button>
-      <h1 class="title" style="font-family: '微软雅黑';font-size: 24px">同种食材推荐</h1>
+      <h1 class="title" style="font-family: '微软雅黑';font-size: 24px"><c:out value="${dishs.smartType}"></c:out></h1>
     </header>
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content">
       <div>
         <ul class="table-view" style="margin-bottom:0" id="displaycommonDish">
-        <c:forEach items="${list}"  var="dish">
+        <c:forEach items="${dishs.dishs}"  var="dish">
           <li class="table-view-cell media">
             <a class="" onclick='choose(this)'>
-              <img class="media-object pull-left" src="img/kongpaochicken.PNG">
+              <img class="media-object pull-left" src="<c:out value='${dish.imageUrl}'></c:out>">
               <div class="media-body">
                 <div class="dishnm"><c:out value="${dish.dishName}"></c:out></div>
                 <div class="dishinfo">

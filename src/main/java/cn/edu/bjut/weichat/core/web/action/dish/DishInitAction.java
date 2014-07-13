@@ -58,7 +58,14 @@ public class DishInitAction extends BaseAction {
 			
 		}		
 		
-		session.setAttribute("restId", restId);
+		//从其他的地方可以获取到这个restId
+		
+		if(null == session.getAttribute("restId"))
+			session.setAttribute("restId", restId);
+		else if(null != session.getAttribute("restId")){
+			session.removeAttribute("restId");
+			session.setAttribute("restId", restId);
+		}
 		
 		try {
 		    list = dishService.selectDishByRestIdAndCategory(restId, category, pageNum, listNum);

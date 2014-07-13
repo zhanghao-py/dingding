@@ -176,7 +176,7 @@ public class DishServiceImpl implements DishService {
 			page.setPageSize(pageSize);
 			page.setCurrentPage(pageNum);	
 	
-			list = dishDao.getSamePricDish(price, restId, page);
+			list = dishDao.getSamePricDish(price-5,price+5,restId, page);
 		} catch (Exception e) {
 			logger.warn("加载同价格菜品出错", e);
 			return null;
