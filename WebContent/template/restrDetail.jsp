@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript">
     	$(function(){
     		var bodywidth = document.body.clientWidth;
+    		$(".slide").height(document.body.scrollHeight);
     		$(".resmap").innerWidth(bodywidth-40);
     		$(".resmap").innerHeight($(".resmap").innerWidth());
     		$(".resinfo").innerHeight($(".resinfotext").height() > $(".resinfo img").height() ? $(".resinfotext").height() : $(".resinfo img").height());
@@ -54,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </header>
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-    <div class="content" style="padding-bottom: 67px;">
+    <div class="content" style="padding-bottom: 100px;">
     <div class="slider">
       <div class="slide-group">
       <c:forEach items="${rests}" var="rest">
@@ -86,15 +87,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       		</c:forEach>
       	  </tr>
       	</table></div>
+      </div>
+      <div class="resdiv" style="margin-bottom: 100px;">
+        <div class="resdivtitle">地图</div>
+        <div align="center" class="resmap">
+          <img alt="" src="img/mapexample.png" style="width: 100%;height: 100%">
+        </div>
       </div></div>
       </c:forEach>
       </div></div>
-      <div class="resdiv" style="margin-bottom: 67px;">
-        <div class="resdivtitle">地图</div>
-        <div align="center" class="resmap">
-          <jsp:include page="bdmap.jsp"></jsp:include>
-        </div>
-      </div>
     </div>
     <nav class="bar bar-tab">
       <a class="tab-item" href="javascript:void(0)" onclick="showmenu()">
