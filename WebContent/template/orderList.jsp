@@ -128,7 +128,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		});
     		$t=$('.touchable').Hoverable({disableHover:true, logging:true});
     		$t.newHover(function(e, touch){
-    			$(".touchable").unbind();
+    			$(".touchable").unbind("click");
     			if(pl.isSetPosition){
     				pl.setPosition(pl.trigger.offset().left + pl.options.offsets.x, pl.trigger.offset().top + pl.trigger.get(0).offsetHeight + pl.options.offsets.y);
     			}
