@@ -715,8 +715,10 @@
   
   var sls = document.getElementById("mySlider");
   var sl = document.getElementById("slide1");
-  var ofset = sl.scrollWidth;
-  sls.style.webkitTransform = 'translate3d(-' + ofset + 'px,0,0)';
+  if(sl != null) {
+    var ofset = sl.scrollWidth;
+    sls.style.webkitTransform = 'translate3d(-' + ofset + 'px,0,0)';
+  }
   
   var getSlider = function (target) {
     var i;
