@@ -26,6 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		var navh = $("nav").height();
     		var newimgh = (document.body.clientHeight-navh-headh)/6;
     		$("img").innerHeight(newimgh);
+    		$("img").innerWidth(90);
     		if(document.body.clientHeight < 450){
     			$(".media-body p").hide();
     		}

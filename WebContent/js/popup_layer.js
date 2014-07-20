@@ -102,5 +102,9 @@ var PopupLayer = new Class({
 	close:function(){                      //鍏抽棴鏂规硶
 		this.options.useOverlay?this.overlay.hide():null;
 		this.options.useFx?this.doEffects("close"):this.popupLayer.hide();
+		$(".touchable").bind("click",function(){
+				var id = $(this).find(".orderdishid").val();
+				toDetail(id);
+			});
 	}
 });

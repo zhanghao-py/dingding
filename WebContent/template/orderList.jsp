@@ -76,6 +76,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </body>
   <script src="./js/ratchet.js"></script>
   <script src="./js/hoverableandtouchable.js"></script>
+  <script type="text/javascript">
+  function toDetail(dishId){
+		//alert(dishId);
+		
+		location.href = "smart/dishDetail?dishId="+dishId;
+	}
+  </script>
   <script src="./js/popup_layer.js"></script>
   <script type="text/javascript">
     	$(function(){
@@ -104,6 +111,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    		$("#orderperamount").html(newamount);
 	    		}
 	    	});
+	    	
+	    	$(".touchable").unbind("click"); //防止多次绑定。
+	    	$(".touchable").click(function() {
+	    		var id = $(this).find(".orderdishid").val();
+	    		location.href = "smart/dishDetail?dishId="+id;
+	    	});
     		
     		var pl = new PopupLayer({
     			trigger:".touchable",
@@ -115,6 +128,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		});
     		$t=$('.touchable').Hoverable({disableHover:true, logging:true});
     		$t.newHover(function(e, touch){
+    			$(".touchable").unbind();
     			if(pl.isSetPosition){
     				pl.setPosition(pl.trigger.offset().left + pl.options.offsets.x, pl.trigger.offset().top + pl.trigger.get(0).offsetHeight + pl.options.offsets.y);
     			}
