@@ -6,13 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import cn.edu.bjut.weichat.core.except.ServiceException;
 import cn.edu.bjut.weichat.core.web.action.BaseAction;
+import cn.edu.bjut.weichat.core.web.action.dto.StatusInfo;
 import cn.edu.bjut.weichat.dao.bean.DishDetail;
 import cn.edu.bjut.weichat.dao.bean.RestraurantInfo;
 import cn.edu.bjut.weichat.dish.service.RestaurantService;
-
 
 
 @Controller
@@ -30,6 +33,26 @@ public class RestraurantAction extends BaseAction {
 		return new ModelAndView("restrDiscovery");
 	}
 	
+	@RequestMapping(value="nearby", method = RequestMethod.POST)
+	@ResponseBody
+	public StatusInfo nearbyRest(@RequestParam("longitude") double longitude, @RequestParam("latitude") double latitude){
+		
+		List<RestraurantInfo> rests;
+		
+		try {
+			rests = restaurantService.findRearbyRestaurants(longitude, latitude);
+		} catch (ServiceException e) {
+			logger.warn("", e);
+			status.setStatus(StatusInfo.FAILED);
+			status.setStatusInfo(e.getMessage());
+			return status;
+		}
+
+		status.setStatusInfo(StatusInfo.SUCCESS_MSG);
+		status.setStatus(StatusInfo.SUCCESS);
+		status.setData(rests);
+		return status;
+	}
 	
 	@RequestMapping(value="restDetail",method=RequestMethod.GET)
 	public ModelAndView loadRestDetail(){

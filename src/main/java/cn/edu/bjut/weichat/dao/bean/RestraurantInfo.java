@@ -3,9 +3,7 @@ package cn.edu.bjut.weichat.dao.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.edu.bjut.weichat.core.bo.Dish;
-
-public class RestraurantInfo {
+public class RestraurantInfo implements Comparable<RestraurantInfo> {
 	private long restId;   //餐厅id
 	  
 	private String restName;   // 餐厅名称
@@ -23,6 +21,8 @@ public class RestraurantInfo {
 	private double latitude;  //经度
 	
 	private double longitude;  //纬度
+	
+	private Double distance; //距离
 	
 	private List<DishDetail> recommendDishs = new ArrayList<DishDetail>();
 
@@ -104,6 +104,19 @@ public class RestraurantInfo {
 
 	public void setImageOfRest(String imageOfRest) {
 		this.imageOfRest = imageOfRest;
+	}
+
+	public double getDistance() {
+		return distance;
+	}
+
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
+
+	@Override
+	public int compareTo(RestraurantInfo rest) {
+		return distance.compareTo(rest.getDistance());
 	}
 	
 	
