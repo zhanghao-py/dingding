@@ -22,10 +22,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-	<div style="width:100%;height:100%;margin:0 auto" id="allmap"></div>
+	<!-- <div style="width:100%;height:100%;margin:0 auto" id="allmap"></div> -->
+	<input id="longitude" style="border: 0;width: 25%;background: transparent;" readonly="readonly" value="0">
+	<input id="latitude" style="border: 0;width: 25%;background: transparent;" readonly="readonly" value="0">
+	<input type="button" value="点击获取" onclick="setattr();" style="color: #fe8302;float:right;width: 45%;border: 1px solid #FEE6BF;background: #FEF9EF">
 </body>
 <script type="text/javascript">
 	$(function(){
+		/* setattr(); */
+		
+		});
+	function setattr() {
 		var geol;		
 		try {
 			if (typeof(navigator.geolocation) == 'undefined') {
@@ -43,7 +50,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var nowLatitude = position.coords.latitude;
 		var nowLongitude = position.coords.longitude;
 		
-		getmap(nowLongitude,nowLatitude);
+		$("#longitude").val(nowLongitude.toFixed(2));
+		$("#latitude").val(nowLatitude.toFixed(2));
 	}, function(error) {
 		switch(error.code){
 		case error.TIMEOUT :
@@ -58,32 +66,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 	}, {timeout:10000});	//设置十秒超时
 		}
-		
-		function getmap(nowLongitude, nowLatitude) {
-			var map = new BMap.Map("allmap");   
-		    var point = new BMap.Point(nowLongitude, nowLatitude);  // 需要标注的位置的经纬度 
-		    map.centerAndZoom(point, 15);  // 中心位置和缩放倍数
-		    map.enableScrollWheelZoom();   // 添加滚动轴
-		    map.addControl(new BMap.NavigationControl());   // 添加左上角的标尺工具
-		    map.addControl(new BMap.NavigationControl());   
-		    map.addControl(new BMap.ScaleControl());   
-		    map.addControl(new BMap.OverviewMapControl());   
-		    map.addControl(new BMap.MapTypeControl());   
-		    map.setCurrentCity("北京");
-		    var opts = {   
-		         width : 180,     // 信息窗口宽度   
-		        height: 20,     // 信息窗口高度   
-		         title : "您的位置"  // 信息窗口标题  
-		    }   
-		    var infoWindow = new BMap.InfoWindow("北京工业大学<br/>经度："+nowLongitude.toFixed(3)+" 纬度："+nowLatitude.toFixed(3), opts);  // 创建信息窗口对象   
-		    map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
-		    var marker = new BMap.Marker(point);        // 创建标注,即地图上的小红点   
-		    map.addOverlay(marker);   
-		    var local = new BMap.LocalSearch(map, {
-		    	  renderOptions:{map: map, autoViewport:true}
-		    	});
-		    local.searchNearby("餐厅", "北京工业大学");
-		}
-		});
+	}
+	
+	function getmap(nowLongitude, nowLatitude) {
+		var map = new BMap.Map("allmap");   
+	    var point = new BMap.Point(nowLongitude, nowLatitude);  // 需要标注的位置的经纬度 
+	    map.centerAndZoom(point, 15);  // 中心位置和缩放倍数
+	    map.enableScrollWheelZoom();   // 添加滚动轴
+	    map.addControl(new BMap.NavigationControl());   // 添加左上角的标尺工具
+	    map.addControl(new BMap.NavigationControl());   
+	    map.addControl(new BMap.ScaleControl());   
+	    map.addControl(new BMap.OverviewMapControl());   
+	    map.addControl(new BMap.MapTypeControl());   
+	    map.setCurrentCity("北京");
+	    var opts = {   
+	         width : 180,     // 信息窗口宽度   
+	        height: 20,     // 信息窗口高度   
+	         title : "您的位置"  // 信息窗口标题  
+	    }   
+	    var infoWindow = new BMap.InfoWindow("北京工业大学<br/>经度："+nowLongitude.toFixed(3)+" 纬度："+nowLatitude.toFixed(3), opts);  // 创建信息窗口对象   
+	    map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
+	    var marker = new BMap.Marker(point);        // 创建标注,即地图上的小红点   
+	    map.addOverlay(marker);   
+	    var local = new BMap.LocalSearch(map, {
+	    	  renderOptions:{map: map, autoViewport:true}
+	    	});
+	    local.searchNearby("餐厅", "北京工业大学");
+	}
 	</script>
 </html>

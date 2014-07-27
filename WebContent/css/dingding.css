@@ -570,3 +570,151 @@ body {
 	margin-top: -20px;
 	margin-right: -20px;
 }
+
+/************************ 后台登录样式  ************************/
+
+.bgpic {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -999;
+}
+
+.bgpic img {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	z-index: -999;
+}
+
+.mngloginblk {
+	width: 50%;
+	color: #fff;
+	font-size: 20px;
+}
+
+.mngloginipt {
+	border: 1px solid #FEE6BF;
+	border-radius: 15px;
+	height:30px;
+	color: #fe8302;
+	outline: none;
+}
+
+.mngloginbtn {
+	border: 0;
+	background-color: #FEE6BF;
+	color: #fe8302;
+	width: 150px;
+	height: 45px;
+	font-size: 20px;
+	margin-top: 5%;
+	outline: none;
+}
+
+.mngloginbtn:active {
+	background-color: #fe8302;
+	color: #fff;
+}
+
+.mnglogina {
+	text-decoration: underline;
+	color: #B15D02;
+}
+
+.mnglogina:active {
+	color: #fe8302;
+}
+
+/************************ 后台注册样式  ************************/
+
+.restitle {
+	width:100%;
+	text-align:left;
+	font-size: 40px;
+	color: #fe8302;
+	margin-top:40px;
+}
+
+.restable {
+	margin: 0 auto;
+	margin-top: 30px;
+	font-size: 22px;
+	color: #000;
+}
+
+.restable tr {
+	height: 40px;
+}
+
+.resinput {
+	border: 1px solid #FEE6BF;
+	border-radius: 3px;
+	height: 30px;
+	width: 100%;
+	background-color: #FEF9EF;
+}
+
+.uglyupl {
+	width: 80%;
+	border: 0;
+	height:30px;
+	margin-top:-30px;
+	filter:alpha(opacity=0);
+    -moz-opacity:0;
+    opacity:0; 
+    cursor: hand;
+}
+
+.uplbtn {
+	border: 1px solid #FEE6BF;
+	height: 30px;
+	line-height:28px;
+	width: 95%;
+	background-color: #FEF9EF;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 18px;
+	font-family: serif;
+	color: #fe8302;
+	cursor: hand;
+}
+
+.uglyupl1 {
+	width: 47%;
+	border: 0;
+	height:25px;
+	margin-top:-25px;
+	filter:alpha(opacity=0);
+    -moz-opacity:0;
+    opacity:0; 
+    float: right;
+    cursor: hand;
+}
+
+.uplbtn1 {
+	border: 1px solid #FEE6BF;
+	height: 25px;
+	line-height:25px;
+	width: 47%;
+	background-color: #FEF9EF;
+	margin-top: 5px;
+	text-align: center;
+	font-size: 18px;
+	font-family: serif;
+	float: left;
+	font-size: 14px;
+	color: #fe8302;
+	cursor: hand;
+}
+
+.saveresinfo{
+	width: 100%;
+	height: 45px;
+	border: 1px solid #FEE6BF;
+	border-radius: 5px;
+	background-color: #fe8302;
+	color: #fff;
+}

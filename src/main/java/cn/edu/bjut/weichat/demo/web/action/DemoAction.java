@@ -101,6 +101,16 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("orderHistory");
     }
 	
+	@RequestMapping(value = "mnglogin", method = RequestMethod.GET) 
+    public ModelAndView mnglogin() {
+        return new ModelAndView("mnglogin");
+    }
+	
+	@RequestMapping(value = "mngregister", method = RequestMethod.GET) 
+    public ModelAndView mngregister() {
+        return new ModelAndView("mngregister");
+    }
+	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
         return new ModelAndView(new RedirectView("index"));
