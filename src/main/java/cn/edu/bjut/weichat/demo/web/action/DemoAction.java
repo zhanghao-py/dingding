@@ -111,6 +111,11 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("mngregister");
     }
 	
+	@RequestMapping(value = "mngstruct", method = RequestMethod.GET) 
+    public ModelAndView mngstruct() {
+        return new ModelAndView("mngstruct");
+    }
+	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
         return new ModelAndView(new RedirectView("index"));

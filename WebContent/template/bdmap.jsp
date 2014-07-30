@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="description" content="This is my page">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=F40f482bd78db3765c308288e87fe937"></script>
-<script src="js/jquery-1.11.0.js"></script>
+<!-- <script src="js/jquery-1.11.0.js"></script> -->
 </head>
 
 <body>
@@ -68,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 	}
 	
-	function getmap(nowLongitude, nowLatitude) {
+	/* function getmap(nowLongitude, nowLatitude) {
 		var map = new BMap.Map("allmap");   
 	    var point = new BMap.Point(nowLongitude, nowLatitude);  // 需要标注的位置的经纬度 
 	    map.centerAndZoom(point, 15);  // 中心位置和缩放倍数
@@ -92,6 +92,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	  renderOptions:{map: map, autoViewport:true}
 	    	});
 	    local.searchNearby("餐厅", "北京工业大学");
-	}
+	} */
 	</script>
 </html>

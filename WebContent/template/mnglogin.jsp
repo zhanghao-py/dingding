@@ -31,10 +31,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		}else {
     			$(".titlepic").css({"width":"50%","margin-top":"13%"});
     			$(".mngloginblk").css({"width":"75%","margin-top":"13%"});
-    			$(".mnglogina").css({"position":"absolute","bottom":"20px","left":"22%","width":"200px"});
+    			$(".mnglogina").css({"position":"absolute","bottom":"20px","left":(w/2-80)+"px","width":"150px"});
     		}
     		$(".mngloginipt").css({"border":"1px solid #FEE6BF","border-radius":"15px","height":"30px"});
     	});
+    	
+    	function loggores(){
+    		window.location.href = "mngregister";
+    	}
     </script>
   </head>
   <body style="background-color: #fff;font-family: '微软雅黑'">
@@ -50,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        	</tr>
        </table>
        <input type="button" class="mngloginbtn" id="mngloginbtn" value="登录">
-       <a href="javascript:void(0)" class="mnglogina">还未创建餐厅？</a>
+       <a href="javascript:void(0)" onclick="loggores()" class="mnglogina">还未创建餐厅？</a>
      </div>
    </div>
    <div class="bgpic"><img alt="" src="img/mngbg.jpg"/></div>
