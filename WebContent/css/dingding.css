@@ -640,7 +640,6 @@ body {
 
 .restable {
 	margin: 0 auto;
-	margin-top: 30px;
 	font-size: 22px;
 	color: #000;
 }
@@ -658,7 +657,7 @@ body {
 }
 
 .uglyupl {
-	width: 95%;
+	width: 100%;
 	border: 0;
 	height:30px;
 	margin-top:-30px;
@@ -672,7 +671,7 @@ body {
 	border: 1px solid #FEE6BF;
 	height: 30px;
 	line-height:28px;
-	width: 95%;
+	width: 100%;
 	background-color: #FEF9EF;
 	margin-top: 10px;
 	text-align: center;
@@ -683,7 +682,7 @@ body {
 }
 
 .uglyupl1 {
-	width: 47%;
+	width: 99%;
 	border: 0;
 	height:25px;
 	margin-top:-25px;
@@ -698,7 +697,7 @@ body {
 	border: 1px solid #FEE6BF;
 	height: 25px;
 	line-height:25px;
-	width: 47%;
+	width:99%;
 	background-color: #FEF9EF;
 	margin-top: 5px;
 	text-align: center;

@@ -22,6 +22,7 @@
 <link href="./css/ratchet.css" rel="stylesheet">
 <link href="./css/dingding.css" rel="stylesheet">
 <script src="./js/jquery-1.11.0.js"></script>
+<script src="./js/uploadPreview.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var w = document.body.clientWidth;
@@ -29,7 +30,6 @@
 		if (w > h) {
 			$(".restitle").css("text-align", "center");
 			$(".restable").css("width", "70%");
-			$("#restpicbox").css("width", "50%");
 			$("#restpicbox img").css("height", ($("#restpicbox img").width()/1.5)+"px");
 			$("#resuplrestpic").css("margin-top", "80px");
 			$("#resuplrestposition").css("margin-top", "80px");
@@ -44,7 +44,6 @@
 				"margin-left" : "10px",
 				"margin-right" : "10px"
 			});
-			$("#restpicbox").css("width", "50%");
 			$("#restpicbox img").css("height", ($("#restpicbox img").width()/1.5)+"px");
 			$(".resdish").css({
 				"width" : "50%",
@@ -53,11 +52,17 @@
 			});
 			$(".resdish img").css("height", ($(".resdish img").width()/1.5)+"px");
 		}
+		$("#uglyuplrestpic").uploadPreview({ Img: "restpic" });
+		for(var i = 1;i <= 4;i++){
+			$("#dishuglyupl"+i).uploadPreview({ Img: "resdishpic"+i });
+		}
+		$("#uglyuplrestposition").uploadPreview({ Img: "resrestposition" });
 	});
 	
 	function resgologin(){
 		window.location.href = "mnglogin";
 	}
+	
 </script>
 </head>
 <body style="background-color: #fff; font-family: '微软雅黑'">
@@ -68,7 +73,7 @@
     </header>
 	<div class="content" style="padding: 10px; padding-top:35px;background: #FEFCF7;">
 		<div align="center">
-			<table class="restable">
+			<table class="restable" style="margin-top: 30px;">
 				<tr>
 					<td style="width: 90px">名称：</td>
 					<td colspan="3"><input id="resrestname" class="resinput" /></td>
@@ -86,47 +91,78 @@
 					<td colspan="3"><jsp:include page="bdmap.jsp"></jsp:include></td>
 				</tr>
 				<tr>
-					<td colspan="2" valign="top" style="padding-top: 5px">餐厅图片：<br>
-						<input type="button" class="uplbtn" id="resuplrestpic" value="上传">
+					<td colspan="4" valign="top" style="padding-top: 5px">餐厅图片：</td>
+				</tr>
+				<tr>
+					<td colspan="4" id="restpicbox" style="padding-top: 5px"><div><img id="restpic"
+						alt="" src="img/nopic.jpg" style="width: 100%;"></div>
 						<div id="uplrestpic">
 							<div class="uplbtn">浏览</div>
 							<input type="file" class="uglyupl" id="uglyuplrestpic">
-						</div></td>
-					<td colspan="2" id="restpicbox" style="padding-top: 5px"><img
-						alt="" src="img/nopic.jpg" style="width: 100%;"></td>
+						</div>
+						</td>
 				</tr>
 				<tr>
 					<td colspan="4">推荐菜品：</td>
 				</tr>
 				<tr>
 					<td colspan="4" style="text-align: center">
-					<c:forEach begin="1" end="4" step="1">
 						<div class="resdish">
-							<img class="resdishpic" alt="" src="img/nopic.jpg"
-								style="width: 100%; margin-bottom: 5px"> <span
-								style="font-size: 14px; color: #000">价格：<input
+							<div><img class="resdishpic" alt="" src="img/nopic.jpg" id="resdishpic1"
+								style="width: 100%;"></div>
+							<div class="upldishpic">
+								<div class="uplbtn1" style="margin-bottom: 5px">浏览</div>
+								<input type="file" class="uglyupl1" id="dishuglyupl1">
+							</div>
+							<span style="font-size: 14px; color: #000">价格：<input
 								class="resdishprice"
 								style="width: 70%; border: 1px solid #FEE6BF"></span>
-							<input type="button" class="uplbtn1" value="上传">
-							<div class="upldishpic">
-								<div class="uplbtn1" style="float: right">浏览</div>
-								<input type="file" class="uglyupl1">
-							</div>
 						</div>
-					</c:forEach>
+						<div class="resdish">
+							<div><img class="resdishpic" alt="" src="img/nopic.jpg" id="resdishpic2"
+								style="width: 100%;"></div>
+							<div class="upldishpic">
+								<div class="uplbtn1" style="margin-bottom: 5px">浏览</div>
+								<input type="file" class="uglyupl1" id="dishuglyupl2">
+							</div>
+							<span style="font-size: 14px; color: #000">价格：<input
+								class="resdishprice"
+								style="width: 70%; border: 1px solid #FEE6BF"></span>
+						</div><div class="resdish">
+							<div><img class="resdishpic" alt="" src="img/nopic.jpg" id="resdishpic3"
+								style="width: 100%;"></div>
+							<div class="upldishpic">
+								<div class="uplbtn1" style="margin-bottom: 5px">浏览</div>
+								<input type="file" class="uglyupl1" id="dishuglyupl3">
+							</div>
+							<span style="font-size: 14px; color: #000">价格：<input
+								class="resdishprice"
+								style="width: 70%; border: 1px solid #FEE6BF"></span>
+						</div><div class="resdish">
+							<div><img class="resdishpic" alt="" src="img/nopic.jpg" id="resdishpic4"
+								style="width: 100%;"></div>
+							<div class="upldishpic">
+								<div class="uplbtn1" style="margin-bottom: 5px">浏览</div>
+								<input type="file" class="uglyupl1" id="dishuglyupl4">
+							</div>
+							<span style="font-size: 14px; color: #000">价格：<input
+								class="resdishprice"
+								style="width: 70%; border: 1px solid #FEE6BF"></span>
+						</div>
 					</td>
 				</tr>
 				<tr>
-				  <td colspan="2" valign="top" style="padding-top: 5px">餐厅地理位置：<br>
-						<input type="button" class="uplbtn" id="resuplrestposition" value="上传">
+				  <td colspan="4" valign="top" style="padding-top: 5px">餐厅地理位置：</td>
+				</tr>
+				<tr>
+					<td colspan="4" id="restpicbox" style="padding-top: 5px"><div><img
+						alt="" src="img/nopic.jpg" style="width: 100%;" id="resrestposition"></div>
 						<div id="uplrestposition">
 							<div class="uplbtn">浏览</div>
 							<input type="file" class="uglyupl" id="uglyuplrestposition">
 						</div></td>
-					<td colspan="2" id="restpicbox" style="padding-top: 5px"><img
-						alt="" src="img/nopic.jpg" style="width: 100%;"></td>
 				</tr>
-				<tr style="height:10px"></tr>
+				<tr style="height:30px"></tr>
 				<tr>
 				  <td colspan="4" style="text-align: center;"><input type="button" class="saveresinfo" id="saveresinfo" value="保存"></td>
 				</tr>
