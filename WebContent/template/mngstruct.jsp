@@ -112,18 +112,19 @@
 			<div class="content" style="padding: 10px; background: #FEFCF7;">
 			<input type="hidden" id="ischanged" value="0"/>
 		<div align="center">
-			<table class="restable">
+			<table class="restable"><!-- 表中所有的input均已加上value属性，按照value或src关键字搜索修改即可 -->
 				<tr>
 					<td style="width: 90px">名称：</td>
-					<td colspan="3"><input id="resrestname" class="resinput" /></td>
+					<td colspan="3"><input id="resrestname" class="resinput" value=""/></td>
+					<!-- 除了给各个input和img的src属性赋值加上value="${...}"之外，还需要给各个input[type=file]赋值（以便于判断是否修改过），可以为相应img的src值 -->
 				</tr>
 				<tr>
 					<td>地址：</td>
-					<td colspan="3"><input id="resrestaddr" class="resinput" /></td>
+					<td colspan="3"><input id="resrestaddr" class="resinput" value=""/></td>
 				</tr>
 				<tr>
 					<td>电话：</td>
-					<td colspan="3"><input id="resresttel" class="resinput" /></td>
+					<td colspan="3"><input id="resresttel" class="resinput" value=""/></td>
 				</tr>
 				<tr>
 					<td>经纬度：</td>
@@ -140,7 +141,7 @@
 						alt="" src="img/nopic.jpg" style="width: 100%;"></div>
 						<div id="uplrestpic">
 							<div class="uplbtn">浏览</div>
-							<input type="file" class="uglyupl" id="uglyuplrestpic">
+							<input type="file" class="uglyupl" id="uglyuplrestpic" value="">
 						</div>
 						</td>
 				</tr>
@@ -154,10 +155,10 @@
 								style="width: 100%;"></div>
 							<div class="upldishpic">
 								<div class="uplbtn1" style="margin-bottom: 5px">浏览</div>
-								<input type="file" class="uglyupl1" id="dishuglyupl1">
+								<input type="file" class="uglyupl1" id="dishuglyupl1" value="">
 							</div>
 							<span style="font-size: 14px; color: #000">价格：<input
-								class="resdishprice"
+								class="resdishprice" value=""
 								style="width: 70%; border: 1px solid #FEE6BF"></span>
 						</div>
 						<div class="resdish">
@@ -165,30 +166,30 @@
 								style="width: 100%;"></div>
 							<div class="upldishpic">
 								<div class="uplbtn1" style="margin-bottom: 5px">浏览</div>
-								<input type="file" class="uglyupl1" id="dishuglyupl2">
+								<input type="file" class="uglyupl1" id="dishuglyupl2" value="">
 							</div>
 							<span style="font-size: 14px; color: #000">价格：<input
-								class="resdishprice"
+								class="resdishprice" value=""
 								style="width: 70%; border: 1px solid #FEE6BF"></span>
 						</div><div class="resdish">
 							<div><img class="resdishpic" alt="" src="img/nopic.jpg" id="resdishpic3"
 								style="width: 100%;"></div>
 							<div class="upldishpic">
 								<div class="uplbtn1" style="margin-bottom: 5px">浏览</div>
-								<input type="file" class="uglyupl1" id="dishuglyupl3">
+								<input type="file" class="uglyupl1" id="dishuglyupl3" value="">
 							</div>
 							<span style="font-size: 14px; color: #000">价格：<input
-								class="resdishprice"
+								class="resdishprice" value=""
 								style="width: 70%; border: 1px solid #FEE6BF"></span>
 						</div><div class="resdish">
 							<div><img class="resdishpic" alt="" src="img/nopic.jpg" id="resdishpic4"
 								style="width: 100%;"></div>
 							<div class="upldishpic">
 								<div class="uplbtn1" style="margin-bottom: 5px">浏览</div>
-								<input type="file" class="uglyupl1" id="dishuglyupl4">
+								<input type="file" class="uglyupl1" id="dishuglyupl4" value="">
 							</div>
 							<span style="font-size: 14px; color: #000">价格：<input
-								class="resdishprice"
+								class="resdishprice" value=""
 								style="width: 70%; border: 1px solid #FEE6BF"></span>
 						</div>
 					</td>
@@ -201,7 +202,7 @@
 						alt="" src="img/nopic.jpg" style="width: 100%;" id="resrestposition"></div>
 						<div id="uplrestposition">
 							<div class="uplbtn">浏览</div>
-							<input type="file" class="uglyupl" id="uglyuplrestposition">
+							<input type="file" class="uglyupl" id="uglyuplrestposition" value="">
 						</div></td>
 				</tr>
 				<tr style="height:30px"></tr>
