@@ -654,6 +654,8 @@ body {
 	height: 30px;
 	width: 100%;
 	background-color: #FEF9EF;
+	padding-left: 10px;
+	font-size: 16px;
 }
 
 .uglyupl {
@@ -716,4 +718,9 @@ body {
 	border-radius: 5px;
 	background-color: #fe8302;
 	color: #fff;
+}
+
+.mngadddishcb {
+	float: left;
+	width: 22%;
 }

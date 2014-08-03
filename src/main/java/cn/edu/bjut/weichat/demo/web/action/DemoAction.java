@@ -116,6 +116,16 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("mngstruct");
     }
 	
+	@RequestMapping(value = "mngadddish", method = RequestMethod.GET) 
+    public ModelAndView mngadddish() {
+        return new ModelAndView("mngadddish");
+    }
+	
+	@RequestMapping(value = "mngeditdish", method = RequestMethod.GET) 
+    public ModelAndView mngeditdish() {
+        return new ModelAndView("mngeditdish");
+    }
+	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
         return new ModelAndView(new RedirectView("index"));

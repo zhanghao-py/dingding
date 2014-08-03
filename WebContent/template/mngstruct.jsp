@@ -35,7 +35,7 @@
 				if (w > h) {
 					$(".restitle").css("text-align", "center");
 					$(".restable").css("width", "70%");
-					$("#restpicbox img").css("height", ($("#restpicbox img").width()/1.5)+"px");
+					$("#msrestpicbox img").css("height", ($("#msrestpicbox img").width()/1.5)+"px");
 					$("#resuplrestpic").css("margin-top", "80px");
 					$("#resuplrestposition").css("margin-top", "80px");
 					$(".resdish").css({
@@ -49,9 +49,9 @@
 						"margin-left" : "10px",
 						"margin-right" : "10px"
 					});
-					$("#restpicbox img").css("height", ($("#restpicbox img").width()/1.5)+"px");
+					$("#msrestpicbox img").css("height", ($("#msrestpicbox img").width()/1.5)+"px");
 					$(".resdish").css({
-						"width" : "48%",
+						"width" : "47%",
 						"float" : "left",
 						"padding" : "5px"
 					});
@@ -77,7 +77,7 @@
 				for(var i = 1;i <= 4;i++){
 					$("#dishuglyupl"+i).uploadPreview({ Img: "resdishpic"+i });
 				}
-				$("#uglyuplrestposition").uploadPreview({ Img: "resrestposition" });
+				$("#msuglyuplrestposition").uploadPreview({ Img: "msrestposition" });
 			});
 			
 			function checkchange(){
@@ -101,12 +101,13 @@
 					/********************** 此处写保存餐厅信息代码 **************************/
 				}
 			}
+			
 		</script>
 </head>
 <body style="font-family: '微软雅黑'">
 	<div id="page">
 			<div class="header">
-				<a href="#menu"></a>
+				<a class="menua" href="#menu"></a>
 				餐厅管理
 			</div>
 			<div class="content" style="padding: 10px; background: #FEFCF7;">
@@ -115,16 +116,16 @@
 			<table class="restable"><!-- 表中所有的input均已加上value属性，按照value或src关键字搜索修改即可 -->
 				<tr>
 					<td style="width: 90px">名称：</td>
-					<td colspan="3"><input id="resrestname" class="resinput" value=""/></td>
-					<!-- 除了给各个input和img的src属性赋值加上value="${...}"之外，还需要给各个input[type=file]赋值（以便于判断是否修改过），可以为相应img的src值 -->
+					<td colspan="3"><input id="restname" class="resinput" value=""/>
+					<!-- 除了给各个input和img的src属性赋值(加上value属性)之外，还需要给各个input[type=file]赋值（以便于判断是否修改过），可以为相应img的src值 --></td>
 				</tr>
 				<tr>
 					<td>地址：</td>
-					<td colspan="3"><input id="resrestaddr" class="resinput" value=""/></td>
+					<td colspan="3"><input id="restaddr" class="resinput" value=""/></td>
 				</tr>
 				<tr>
 					<td>电话：</td>
-					<td colspan="3"><input id="resresttel" class="resinput" value=""/></td>
+					<td colspan="3"><input id="resttel" class="resinput" value=""/></td>
 				</tr>
 				<tr>
 					<td>经纬度：</td>
@@ -137,7 +138,7 @@
 					<td colspan="4" valign="top" style="padding-top: 5px">餐厅图片：</td>
 				</tr>
 				<tr>
-					<td colspan="4" id="restpicbox" style="padding-top: 5px"><div><img id="restpic"
+					<td colspan="4" id="msrestpicbox" style="padding-top: 5px"><div><img id="restpic"
 						alt="" src="img/nopic.jpg" style="width: 100%;"></div>
 						<div id="uplrestpic">
 							<div class="uplbtn">浏览</div>
@@ -198,22 +199,23 @@
 				  <td colspan="4" valign="top" style="padding-top: 5px">餐厅地理位置：</td>
 				</tr>
 				<tr>
-					<td colspan="4" id="restpicbox" style="padding-top: 5px"><div><img
-						alt="" src="img/nopic.jpg" style="width: 100%;" id="resrestposition"></div>
+					<td colspan="4" id="msrestpicbox" style="padding-top: 5px"><div><img
+						alt="" src="img/nopic.jpg" style="width: 100%;" id="msrestposition"></div>
 						<div id="uplrestposition">
 							<div class="uplbtn">浏览</div>
-							<input type="file" class="uglyupl" id="uglyuplrestposition" value="">
+							<input type="file" class="uglyupl" id="msuglyuplrestposition" value="">
 						</div></td>
 				</tr>
 				<tr style="height:30px"></tr>
 				<tr>
-				  <td colspan="4" style="text-align: center;"><input type="button" class="saveresinfo" id="saveresinfo" value="保存" onclick="saveinfo()"></td>
+				  <td colspan="4" style="text-align: center;"><input type="button" class="saveresinfo" id="mssaveresinfo" value="保存" onclick="saveinfo()"></td>
 				</tr>
 			</table>
 		</div>
 	</div>
 			<nav id="menu">
 				<ul>
+					<li><a>XXX，您好！</a></li>
 					<li><a href="#">餐厅管理</a></li>
 					<li><a href="javascript:void(0)">菜品管理</a>
 						<ul>
@@ -231,6 +233,7 @@
 							<li><a href="#">订单列表</a></li>
 						</ul>
 					</li>
+					<li><a href="javascript:void(0)" id="exit">退出</a></li>
 				</ul>
 			</nav>
 		</div>
