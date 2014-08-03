@@ -57,7 +57,36 @@
 					});
 					$(".resdish img").css("height", ($(".resdish img").width()/1.5)+"px");
 				}
+				$(".resinput").change(function(){
+					$("#ischanged").val("1");
+				});
+				
+				$(".resdishprice").change(function(){
+					$("#ischanged").val("1");
+				});
 			});
+			
+			function checkchange(){
+				if($("#ischanged").val() == "0") {
+					return false;
+				}
+				var eachimg;
+				for(var i = 0; i < document.getElementsByTagName("img").length; i++) {
+					eachimg = document.getElementsByTagName("img")[i].src;
+					if(eachimg.indexOf("img/nopic.jpg") != -1) {
+						return false;
+					}
+				}
+				return true;
+			}
+			
+			function saveinfo(){
+				if(!checkchange()) {
+					alert("餐厅信息无变化！");
+				} else {
+					/********************** 此处写保存餐厅信息代码 **************************/
+				}
+			}
 		</script>
 </head>
 <body style="font-family: '微软雅黑'">
@@ -67,11 +96,12 @@
 				餐厅管理
 			</div>
 			<div class="content" style="padding: 10px; background: #FEFCF7;">
+			<input type="hidden" id="ischanged" value="0"/>
 		<div align="center">
 			<table class="restable">
 				<tr>
 					<td style="width: 90px">名称：</td>
-					<td colspan="3"><input id="resrestname" class="resinput" /></td>
+					<td colspan="3"><input id="resrestname" class="resinput" value="0"/></td>
 				</tr>
 				<tr>
 					<td>地址：</td>
@@ -128,7 +158,7 @@
 				</tr>
 				<tr style="height:10px"></tr>
 				<tr>
-				  <td colspan="4" style="text-align: center;"><input type="button" class="saveresinfo" id="saveresinfo" value="保存"></td>
+				  <td colspan="4" style="text-align: center;"><input type="button" class="saveresinfo" id="saveresinfo" value="保存" onclick="saveinfo()"></td>
 				</tr>
 			</table>
 		</div>

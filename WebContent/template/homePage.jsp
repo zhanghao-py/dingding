@@ -19,6 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="./css/ratchet.css" rel="stylesheet">
     <link href="./css/dingding.css" rel="stylesheet">
     <script src="./js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=F40f482bd78db3765c308288e87fe937"></script>
     <!-- <script type="text/javascript" src="js/thumbs.0.6.0.js"></script> -->
     <script type="text/javascript">
     	$(function(){
@@ -78,6 +79,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <img class="mpbottom" alt="" src="img/mainpage_bottom_bar.png" style="z-index: 999"/>
       <div class="mpversion">V1.0</div>
    </div>
+   <input type="hidden" id="homelongitude" value=""/>
+   <input type="hidden" id="homelatitude" value=""/>
   </body>
   <script type="text/javascript">
 		var switchSpeed = 3000; //图片切换时间 
@@ -88,6 +91,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}); 
 		}, switchSpeed); 
 		
+		setattr();
+		
+		function setattr() {
+			var geol;		
+			try {
+				if (typeof(navigator.geolocation) == 'undefined') {
+					geol = google.gears.factory.create('beta.geolocation');
+			    } else {
+			    	geol = navigator.geolocation;
+			    }
+			} catch (error) {
+				alert(error.message);
+			}
+			
+			if (geol) {
+				geol.getCurrentPosition(function(position) {
+			
+			var nowLatitude = position.coords.latitude;
+			var nowLongitude = position.coords.longitude;
+			
+			$("#homelongitude").val(nowLongitude.toFixed(2));
+			$("#homelatitude").val(nowLatitude.toFixed(2));
+			
+			getposition();
+		}, function(error) {
+			switch(error.code){
+			case error.TIMEOUT :
+				alert("连接超时，请重试");
+				break;
+			case error.PERMISSION_DENIED :
+				alert("您拒绝了使用位置共享服务，查询已取消");
+				break;
+			case error.POSITION_UNAVAILABLE : 
+				alert("非常抱歉，我们暂时无法通过浏览器获取您的位置信息");
+				break;
+			}
+		}, {timeout:10000});	//设置十秒超时
+			}
+		}
+		
 		setTimeout(function(){
 			document.getElementById("locating").style.display = "none";
 			document.getElementById("locatesuccess").style.display = "";
@@ -96,6 +139,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		setTimeout(function(){
 			window.location.href="rest/restDetail"; 
 		},6000);
+		
+		function getposition() {
+			var latitude = $("#homelongitude").val();
+	      	var longitude = $("#homelatitude").val();
+	      	
+	      	/**************************** 此处调用AJAX ********************************/
+		}
       </script>
   <script src="./js/ratchet.js"></script>
 </html>
