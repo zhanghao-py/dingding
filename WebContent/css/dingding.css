@@ -560,6 +560,7 @@ body {
 	color: #fff;
 	line-height: 45px;
 	font-size: 18px;
+	cursor: hand;
 }
 
 .blkclose {
@@ -640,7 +641,7 @@ body {
 
 .restable {
 	margin: 0 auto;
-	font-size: 22px;
+	font-size: 18px;
 	color: #000;
 }
 
@@ -723,4 +724,41 @@ body {
 .mngadddishcb {
 	float: left;
 	width: 22%;
+}
+
+.mdldishimg{
+	width: 100%;
+}
+
+.mdldishbtn {
+	color: #B1A185;
+}
+
+.pagebean {
+	font-size: 18px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.pagebean .pagebeanbtn{
+	width: 80px;
+	height: inherit;
+	padding: 5px 10px 5px 10px;
+	border: 1px solid #B1A185;
+	background: #fff;
+	color: #B1A185;
+	outline: 0;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.pagebean .pagebeanbtn:active {
+	background: #B1A185;
+	color: #fff;
+}
+
+.pagebean span {
+	font-size: 18px;
+	color: #B1A185;
+	line-height: inherit;
 }

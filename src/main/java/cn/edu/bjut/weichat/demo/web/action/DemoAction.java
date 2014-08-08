@@ -126,6 +126,11 @@ public class DemoAction extends BaseAction {
         return new ModelAndView("mngeditdish");
     }
 	
+	@RequestMapping(value = "mngdishlist", method = RequestMethod.GET) 
+    public ModelAndView mngdishlist() {
+        return new ModelAndView("mngdishlist");
+    }
+	
 	@RequestMapping(value = "", method = RequestMethod.GET) 
     public ModelAndView defaultPage() {
         return new ModelAndView(new RedirectView("index"));
