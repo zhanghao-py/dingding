@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>叮叮点餐后台管理系统·菜品列表</title>
+<title>叮叮点餐后台管理系统·订单列表</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -28,14 +28,13 @@
 <script type="text/javascript">
 			$(function() {
 				p = null;
+				p1 = null;
 				$('nav#menu').mmenu();
 				
 				var w = $(window).width();
 				var h = $(window).height();
-				var obj = document.getElementById("restable");
 				if (w > h) {
 					$(".restable").css("width", "100%");
-					/* $(".mdldishimg").css("height", ($(".mdldishimg").width()/1.5)+"px"); */
 				} else {
 					$(".restable").css({
 						"width":"100%"
@@ -46,14 +45,14 @@
 				$(".datatr").height((h-$(".header").height())/12);
 				
 				$(".mdldishbtn.del").click(function(){
-					$("#mngdeldishid").val($(this).parent().parent().find(".mngdishid").val());
+					$("#mngdelorderid").val($(this).parent().parent().find(".mngorderid").val());
 				});
 				
 				if(w < h || w < 1000) {
-					for(var i=0;i<obj.rows.length;i++)
+					/* for(var i=0;i<obj.rows.length;i++)
 			        {
 			        	obj.rows[i].cells[5].style.display  =  "none";
-			        }
+			        } */
 					$(".datatr").height((h-$(".header").height())/10);
 				}
 				if(w < 700) {
@@ -61,14 +60,13 @@
 				}
 				if(w < 400) {
 					$(".restable tr").css({"font-size":"18px"});
-					$(".edittext").css("display","none");
+					$(".restable th").css({"font-size":"16px"});
 					$(".deltext").css("display","none");
-					$(".mdldishbtn").css("margin-right","0");
-					for(var i=0;i<obj.rows.length;i++)
+					/* for(var i=0;i<obj.rows.length;i++)
 			        {
 						obj.rows[i].cells[6].style.width  =  "10%";
 			        	obj.rows[i].cells[4].style.display  =  "none";
-			        }
+			        } */
 					p = new PopupLayer({
 						trigger:".mdldishbtn.del",
 						popupBlk:"#blk",
@@ -76,9 +74,21 @@
 						useOverlay:true,
 						offsets:{x:-w/1.3,y:-h/40},
 					});
+			        $("#blk1").css("width","80%");
+			        $(".orderdishbox").css("height","300px");
 				} else {
 					p = new PopupLayer({trigger:".mdldishbtn.del",popupBlk:"#blk",closeBtn:"#blkclose",useOverlay:true,offsets:{x:-w/1.8,y:-h/40}});
+					$("#blk1").css("width","90%");
+					$(".orderdishimg").css("width","10%");
 				}
+				
+				p1 = new PopupLayer({
+					trigger:".datatd",
+					popupBlk:"#blk1",
+					closeBtn:"#blkclose1",
+					useOverlay:true,
+					offsets:{x:w/38,y:-130}
+				});
 				
 				$("#mngcanceldel").click(function(){
 					p.options.useOverlay?p.overlay.hide():null;
@@ -86,8 +96,8 @@
 				});
 				
 				$("#mngconfirmdel").click(function(){
-					var dishid = $("#mngdeldishid").val();
-					////////////////////////////////////////////////////此处写删除的方法
+					var orderid = $("#mngdelorderid").val();
+					////////////////////////////////////////////////////此处写删除所选订单的方法
 				});
 				
 				if($("#nowpagecount").val() == "1") {
@@ -96,6 +106,21 @@
 				if($("#nowpagecount").val() == $("#totalpagecount").val()) {
 					$("#nextpage").css("visibility","hidden");
 				}
+				
+				$(".datatr").mousedown(function(){
+					$(this).css("background","#ddd");
+				});
+				$(".datatr").mouseup(function(){
+					$(this).css("background","transparent");
+				});
+				$(".datatr").click(function(){
+					/////////////////////////////////////////此处需要写ajax，根据选择的用户ID查询该用户该订单的菜品详细信息，结果返回到ID为blk1的div中
+				});
+				
+				$(".mdldishbtn.deldish").click(function(){
+					/////////////////////////////////////////此处写删除弹出窗口中菜品的方法
+				});
+				
 			});
 			
 		</script>
@@ -110,35 +135,56 @@
 			<div class="blk" id="blk" style="display:none;width: 250px">
 			  <div class="smartdiv">
 			  	<div class="blkclose"><img id="blkclose" alt="" src="img/order_return.png" style="height: 40px;margin-right: -20px"></div>
-			  	<input type="hidden" id="mngdeldishid" value="">
+			  	<input type="hidden" id="mngdelorderid" value="">
 			  	<div style="line-height: 50px;font-size: 20px">确定删除？</div>
 		      	<div style="clear: both;"></div>
 		      	<input type="button" class="confirmdelbtn" id="mngconfirmdel" value="确定" style="margin-bottom: 5px;background: #B1A185">
 		      	<input type="button" class="confirmdelbtn" id="mngcanceldel" value="取消" style="background: #555">
 		      </div>
 			</div>
+			<div class="blk" id="blk1" style="display:none;">
+			  <div class="smartdiv">
+			  	<div class="blkclose"><img id="blkclose1" alt="" src="img/order_return.png" style="height: 40px;margin-right: -20px"></div>
+			  	<input type="hidden" id="mngorderuserid" value="">
+			  	<div class="boxtitle"><b>客户：</b>雷俊俊</div>
+			  	<div class="boxtitle"><b>总计：</b>200元</div>
+			  	<div class="boxtitle"><b>状态：</b>未支付</div>
+			  	<div class="boxtitle"><b>时间：</b>2014-7-2 12:13</div>
+		      	<div style="clear: both;"></div><br>
+		      	<div class="orderdishbox" style="height: 450px;overflow: auto;">
+		      	<table class="restable" id="restable" style="text-align: center" cellpadding="1" cellspacing="0">
+		      	<c:forEach begin="1" end="8" step="1">
+		      		<tr>
+		      		<td class="orderdishimg" style="width: 15%"><img alt="" src="img/dongporou.jpg" class="mdldishimg"/></td>
+					<td style="width: 25%"><input class="mngdishid" type="hidden" value="aa"/>宫保鸡丁</td>
+					<td style="width: 20%">20</td>
+					<td style="width: 20%">1份</td>
+					<td style="width: 20%"><a href="javascript:void(0)" class="mdldishbtn deldish"><img alt="" src="img/del.jpg" style="height: 18px;vertical-align: middle;"/>
+						<span style="vertical-align: middle;" class="deltext">删除</span></a><!-- 弹出窗口中点击删除不提示，直接删除 -->
+					</td>
+		      		</tr>
+		      	</c:forEach>
+		      	</table></div>
+		      </div>
+			</div>
 		<div align="center">
-			<table class="restable" id="restable" style="text-align: center" cellpadding="1" cellspacing="0">
+			<table class="restable" id="usertable" style="text-align: center" cellpadding="1" cellspacing="0">
 				<tr style="background: #B1A185;height: 50px">
-					<th style="width: 7%"></th>
-					<th style="width: 15%">菜品</th>
-					<th style="width: 10%">价格</th>
-					<th style="width: 10%">口味</th>
-					<th style="width: 20%">标签</th>
-					<th style="width: 20%">素材</th>
-					<th style="width: 18%">操作</th>
+					<th style="width: 15%">订单号</th>
+					<th style="width: 20%">客户姓名</th>
+					<th style="width: 20%">下单时间</th>
+					<th style="width: 18%">总计</th>
+					<th style="width: 15%">状态</th>
+					<th style="width: 12%">操作</th>
 				</tr>
 				<c:forEach begin="1" end="8" step="1">
 				<tr class="datatr">
-					<td><img alt="" src="img/dongporou.jpg" class="mdldishimg"/></td>
-					<td><input class="mngdishid" type="hidden" value="aa"/>宫保鸡丁</td>
-					<td>20</td>
-					<td><c:forEach begin="1" end="3" step="1">酸&nbsp;</c:forEach></td>
-					<td><c:forEach begin="1" end="3" step="1">推荐&nbsp;</c:forEach></td>
-					<td><c:forEach begin="1" end="3" step="1">鸡肉;</c:forEach></td>
-					<td><a href="javascript:void(0)" class="mdldishbtn edit" style="margin-right: 10px"><img alt="" src="img/edit.png" style="height: 18px;vertical-align: middle;"/>
-						<span style="vertical-align: middle;" class="edittext">编辑</span></a>
-					<a href="javascript:void(0)" class="mdldishbtn del"><img alt="" src="img/del.jpg" style="height: 18px;vertical-align: middle;"/>
+					<td class="datatd">110105</td>
+					<td class="datatd"><input class="mngorderid" type="hidden" value="aa"/>雷俊俊</td>
+					<td class="datatd">2014-7-2 12:13</td>
+					<td class="datatd">1200元</td>
+					<td class="datatd">未支付</td>
+					<td><a href="javascript:void(0)" class="mdldishbtn del"><img alt="" src="img/del.jpg" style="height: 18px;vertical-align: middle;"/>
 						<span style="vertical-align: middle;" class="deltext">删除</span></a>
 					</td>
 				</tr>

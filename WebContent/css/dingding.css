@@ -762,3 +762,10 @@ body {
 	color: #B1A185;
 	line-height: inherit;
 }
+
+.boxtitle {
+	line-height: 30px;
+	font-size: 20px;
+	float: left;
+	margin-right: 20px;
+}
